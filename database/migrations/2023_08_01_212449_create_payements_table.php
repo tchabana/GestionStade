@@ -12,7 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('payements', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements("id");
+            $table->unsignedBigInteger('ticket_id');
+            $table->json('info_suplementaire')->nullable();
+            
+            $table->foreign('ticket_id')->references('id')->on('tickets')->onDelete("cascade")->onUpdate("cascade");
             $table->timestamps();
         });
     }
