@@ -12,15 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('actualities', function (Blueprint $table) {
-            $table->bigIncrements("actu_id");
+            $table->bigIncrements("id");
             $table->string('title');
             $table->mediumText('message');
             $table->string('image_path')->nullable();
 
             $table->unsignedBigInteger('user_id');
- 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete("cascade")->onUpdate("cascade");
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete("cascade")->onUpdate("cascade");
+            
         });
     }
 
