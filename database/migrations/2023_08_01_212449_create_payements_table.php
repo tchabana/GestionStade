@@ -16,7 +16,6 @@ return new class extends Migration
             $table->unsignedBigInteger('ticket_id');
             $table->json('info_suplementaire');
             
-            $table->foreign('ticket_id')->references('id')->on('tickets')->onDelete("cascade")->onUpdate("cascade");
             $table->timestamps();
             $table->foreign('ticket_id')->references('id')->on('tickets')->onDelete("cascade")->onUpdate("cascade");
             
