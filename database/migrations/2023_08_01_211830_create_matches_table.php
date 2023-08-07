@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('matches', function (Blueprint $table) {
             $table->bigIncrements("id");
-            $table->unsignedBigInteger("equipe1_id");
-            $table->unsignedBigInteger("equipe2_id");
+            $table->unsignedBigInteger("equipe1_name");
+            $table->unsignedBigInteger("equipe2_name");
             $table->unsignedBigInteger('event_id');
             $table->unsignedBigInteger('score_id');
             $table->timestamps();
