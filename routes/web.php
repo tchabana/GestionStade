@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Actuality;
+use App\Models\ActualityComment;
 use App\Models\Comment;
 use App\Models\Event;
 use App\Models\Matche;
@@ -38,6 +39,7 @@ Route::middleware([
 
 Route::resources([
     "actuality"=>Actuality::class,
+    "actuality"=>ActualityComment::class,
     "comment"=>Comment::class,
     "event"=>Event::class,
     "matche"=>Matche::class,

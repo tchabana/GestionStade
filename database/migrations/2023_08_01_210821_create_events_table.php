@@ -19,7 +19,7 @@ return new class extends Migration
             $table->time('start_at');
             $table->time('end_at');
             $table->string('authors')->nullable();
-            $table->json('participants');
+            $table->json('info_suplementaire')->nullable();
             $table->timestamps();
         });
     }

@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class StorePayementRequest extends FormRequest
 {
@@ -11,7 +12,9 @@ class StorePayementRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        // Obtenez l'utilisateur connecté
+        $user = Auth::user();
+        return auth()->check();
     }
 
     /**
@@ -22,7 +25,16 @@ class StorePayementRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'ticket_id' => "required",
+            'info_suplementaire' => "required|json",
+        ];
+    }
+    public function messages(): array
+    {
+        return [
+            'ticket_id.require' => "L' event_id doit être fournie",
+            'info_suplementaire.require' => "L' info_suplementaire doit être fournie",
+            'info_suplementaire.json' => "L' info_suplementaire doit être au format JSON",
         ];
     }
 }
