@@ -16,9 +16,9 @@ return new class extends Migration
             $table->string('designation');
             $table->unsignedBigInteger('event_id');
             $table->json('info_suplementaire')->nullable();
-
-            $table->foreign('event_id')->references('id')->on('events')->onDelete("cascade")->onUpdate("cascade");
             $table->timestamps();
+            $table->foreign('event_id')->references('id')->on('events')->onDelete("cascade")->onUpdate("cascade");
+            
         });
     }
 

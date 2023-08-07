@@ -16,11 +16,11 @@ return new class extends Migration
             $table->unsignedBigInteger("equipe1_id");
             $table->unsignedBigInteger("equipe2_id");
             $table->unsignedBigInteger('event_id');
-
+            $table->timestamps();
             $table->foreign('event_id')->references('id')->on('events')->onDelete("cascade")->onUpdate("cascade");
             $table->foreign('equipe1_id')->references('id')->on('users')->onDelete("cascade")->onUpdate("cascade");
             $table->foreign('equipe2_id')->references('id')->on('users')->onDelete("cascade")->onUpdate("cascade");
-            $table->timestamps();
+           
         });
     }
 

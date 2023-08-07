@@ -18,6 +18,8 @@ return new class extends Migration
             
             $table->foreign('ticket_id')->references('id')->on('tickets')->onDelete("cascade")->onUpdate("cascade");
             $table->timestamps();
+            $table->foreign('ticket_id')->references('id')->on('tickets')->onDelete("cascade")->onUpdate("cascade");
+            
         });
     }
 
