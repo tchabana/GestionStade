@@ -22,7 +22,7 @@ return new class extends Migration
             $table->foreign('equipe1_name')->references('id')->on('users')->onDelete("cascade")->onUpdate("cascade");
             $table->foreign('equipe2_name')->references('id')->on('users')->onDelete("cascade")->onUpdate("cascade");
             $table->foreign('score_id')->references('id')->on('scores')->onDelete("cascade")->onUpdate("cascade");
-           
+
         });
     }
 
