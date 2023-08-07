@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tickets', function (Blueprint $table) {
+        Schema::create('actuality_comments', function (Blueprint $table) {
             $table->bigIncrements("id");
-            $table->integer('price');
+            $table->mediumText('message');
 
-            $table->unsignedBigInteger('event_id');
+            $table->unsignedBigInteger('actu_id');
             $table->unsignedBigInteger('user_id');
  
             $table->foreign('user_id')->references('id')->on('users')->onDelete("cascade")->onUpdate("cascade");
-            $table->foreign('event_id')->references('id')->on('events')->onDelete("cascade")->onUpdate("cascade");
+            $table->foreign('actu_id')->references('actu_id')->on('actualities')->onDelete("cascade")->onUpdate("cascade");
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tickets');
+        Schema::dropIfExists('actuality_comments');
     }
 };

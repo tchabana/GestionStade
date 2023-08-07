@@ -13,7 +13,7 @@ class ActualityController extends Controller
      */
     public function index()
     {
-        //
+        return view('model_views.actuality.index', ['actuality' => Actuality::paginate(10), 'controller_methode' => "index"]);
     }
 
     /**
@@ -21,7 +21,7 @@ class ActualityController extends Controller
      */
     public function create()
     {
-        //
+        return view("model_views.actuality.create");
     }
 
     /**
@@ -29,7 +29,17 @@ class ActualityController extends Controller
      */
     public function store(StoreActualityRequest $request)
     {
-        //
+        try {
+            $new_actu = new Actuality();
+            $new_actu->title = $request->title;
+            $new_actu->message = $request->message;
+            $new_actu->image_path = $request->image_path;
+            $new_actu->user_id = $request->user_id;
+            $new_actu->save();
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
+        return view('model_views.actuality.index', ['actuality' => Actuality::paginate(10), 'controller_methode' => "store"]);
     }
 
     /**
@@ -37,7 +47,7 @@ class ActualityController extends Controller
      */
     public function show(Actuality $actuality)
     {
-        //
+        return view('model_views.actuality.show', ['actuality' => $actuality]);
     }
 
     /**
@@ -45,7 +55,7 @@ class ActualityController extends Controller
      */
     public function edit(Actuality $actuality)
     {
-        //
+        return view('model_views.actuality.edite', ['actuality' => $actuality]);
     }
 
     /**
@@ -53,7 +63,16 @@ class ActualityController extends Controller
      */
     public function update(UpdateActualityRequest $request, Actuality $actuality)
     {
-        //
+        try {
+            $actuality->title = $request->title;
+            $actuality->message = $request->message;
+            $actuality->image_path = $request->image_path;
+            $actuality->user_id = $request->user_id;
+            $actuality->save();
+        } catch (\Exception $e) {
+            $e->getMessage();
+        }
+        return view('model_views.actuality.show', ['actuality' => $actuality]);
     }
 
     /**
@@ -61,6 +80,7 @@ class ActualityController extends Controller
      */
     public function destroy(Actuality $actuality)
     {
-        //
+        $actuality->delete();
+        return view('model_views.actuality.index', ['actuality' => Actuality::paginate(10), 'controller_methode' => "destroy"]);
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class StoreTicketRequest extends FormRequest
 {
@@ -11,7 +12,9 @@ class StoreTicketRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        // Obtenez l'utilisateur connecté
+        $user = Auth::user();
+        return auth()->check();
     }
 
     /**
@@ -22,7 +25,18 @@ class StoreTicketRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'price'=>"required|integer",
+            'event_id'=>"required",
+            'user_id'=>"required",
+        ];
+    }
+    public function messages(): array
+    {
+        return [
+            'event_id.required' => "Le event_id doit être fournie",
+            'price.required' => "Le prix doit être fournie",
+            'price.integer' => "Le prix doit être un entier",
+            'user_id.required' => "L' user_id doit être fournie",
         ];
     }
 }

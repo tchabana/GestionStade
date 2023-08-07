@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class StoreScoreRequest extends FormRequest
 {
@@ -11,7 +12,10 @@ class StoreScoreRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+
+        // Obtenez l'utilisateur connecté
+        $user = Auth::user();
+        return auth()->check();
     }
 
     /**
@@ -22,7 +26,19 @@ class StoreScoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'id'=>'required',
+            'equipe1_goal'=>'integer|min:0',
+            'equipe2_goal'=>'integer|min:0'
+        ];
+    }
+    public function messages(): array
+    {
+        return [
+            'id.require'=>"L' id doit être fournie",
+            'equipe1_goal.integer' => 'Le nombre de buts doit être un chiffre',
+            'equipe2_goal.integer' => 'Le nombre de buts doit être un chiffre',
+            'equipe1_goal.min' => "Le score ne peut pas être inférieur à 0",
+            'equipe2_goal.min' => "Le score ne peut pas être inférieur à 0",
         ];
     }
 }
