@@ -19,8 +19,11 @@ return new class extends Migration
             $table->time('start_at');
             $table->time('end_at');
             $table->string('authors')->nullable();
+            $table->bigInteger('nbr_participent');
             $table->json('info_suplementaire')->nullable();
             $table->timestamps();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete("cascade")->onUpdate("cascade");
         });
     }
 
