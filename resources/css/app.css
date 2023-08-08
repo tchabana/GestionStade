@@ -5,3 +5,52 @@
 [x-cloak] {
     display: none;
 }
+
+
+.authdash{
+    @apply flex mb-4
+}
+
+.navs, button{
+    @apply flex items-center cursor-pointer relative
+}
+button span{
+    @apply text-white text-lg
+}
+.navs .ico, button span{
+    @apply mr-3
+}
+button .icon-acc{
+    @apply text-white w-4 h-4 hover:scale-50
+}
+.ico .iconne{
+    @apply w-8 h-8 text-green-700 font-bold
+}
+/* --------------------------------------------------------------------- */
+.affiche{
+    @apply bg-gray-900 rounded-lg absolute top-14 left-20 hidden transition-all
+}
+.affiche ul li{
+    @apply hover:bg-gray-600 hover:p-2 rounded-lg p-2 hover:w-48
+}
+.affiche ul li a{
+    @apply text-white p-2
+}
+
+
+
+/* ------------------------------------------------------------- */
+.visible{
+    @apply block transition-all
+}
+/* --------------------------------------------------------------------- */
+.det{
+    @apply text-white font-bold text-lg ml-4
+}
+
+.sum{
+    @apply pl-10
+}
+.sum li{
+    @apply hover:bg-gray-600 hover:p-2 rounded-lg p-2 hover:w-48
+}

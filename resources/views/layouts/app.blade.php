@@ -20,7 +20,7 @@
     <body class="font-sans antialiased">
         <x-banner />
 
-        <div class="min-h-screen bg-gray-100">
+        <div class="min-h-screen bg-gray-200">
             @livewire('navigation-menu')
 
             <!-- Page Heading -->
@@ -31,6 +31,52 @@
                     </div>
                 </header>
             @endif
+
+            {{-- ----------------dashboard---------------- --}}
+
+
+{{-- ------------------------------------------------------------------------------------------------------------ --}}
+            {{-- <div class="bg-gray-900 w-20 sm:w-52 md:w-72 min-h-screen fixed p-4">
+            </div> --}}
+{{-- ------------------------------------------------------------------------------------------------------------ --}}
+                {{-- <div class="authdash">
+                    <div class="navs">
+                        <div class="ico">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="iconne">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                            </svg>
+                        </div>
+                        <button>
+                            <span>Authentication</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon-acc">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="affiche">
+                        <ul>
+                            <li><a href="">dimitrisation</a></li>
+                            <li><a href="">dimitrisation</a></li>
+                            <li><a href="">dimitrisation</a></li>
+                            <li><a href="">dimitrisation</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <details class="det">
+                    <summary class="cursor-pointer">Produits</summary>
+                    <ul class="sum">
+                        <li><a href="">dimitrisation</a></li>
+                        <li><a href="">dimitrisation</a></li>
+                        <li><a href="">dimitrisation</a></li>
+                        <li><a href="">dimitrisation</a></li>
+                    </ul>
+                </details> --}}
+
+{{-- -------------------------------dashboard---------------- --}}
+
 
             <!-- Page Content -->
             <main>

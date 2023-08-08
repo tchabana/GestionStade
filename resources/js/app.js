@@ -7,3 +7,14 @@ window.Alpine = Alpine;
 Alpine.plugin(focus);
 
 Alpine.start();
+
+const affiche = document.querySelector('.navs');
+const navlinks = document.querySelector('.affiche');
+
+affiche.addEventListener('click', (e)=> {
+    e.preventDefault();
+    navlinks.classList.toggle('visible');
+});
+
+
+console.log(affiche, navlinks);
