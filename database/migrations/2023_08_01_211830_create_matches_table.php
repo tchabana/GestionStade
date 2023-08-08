@@ -13,14 +13,12 @@ return new class extends Migration
     {
         Schema::create('matches', function (Blueprint $table) {
             $table->bigIncrements("id");
-            $table->unsignedBigInteger("equipe1_name");
-            $table->unsignedBigInteger("equipe2_name");
+            $table->string("equipe1_name");
+            $table->string("equipe2_name");
             $table->unsignedBigInteger('event_id');
             $table->unsignedBigInteger('score_id');
             $table->timestamps();
             $table->foreign('event_id')->references('id')->on('events')->onDelete("cascade")->onUpdate("cascade");
-            $table->foreign('equipe1_name')->references('id')->on('users')->onDelete("cascade")->onUpdate("cascade");
-            $table->foreign('equipe2_name')->references('id')->on('users')->onDelete("cascade")->onUpdate("cascade");
             $table->foreign('score_id')->references('id')->on('scores')->onDelete("cascade")->onUpdate("cascade");
            
         });
