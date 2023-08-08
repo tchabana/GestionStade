@@ -4,7 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Event,User;
+use App\Models\Event;
+use App\Models\User;
 
 class Comment extends Model
 {

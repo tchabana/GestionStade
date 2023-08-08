@@ -10,6 +10,7 @@ use App\Models\Payement;
 use App\Models\Reclamation;
 use App\Models\Score;
 use App\Models\Ticket;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,7 +25,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+   return view('welcome');
+
 });
 
 Route::middleware([
