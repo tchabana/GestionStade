@@ -54,3 +54,13 @@ button .icon-acc{
 .sum li{
     @apply hover:bg-gray-600 hover:p-2 rounded-lg p-2 hover:w-48
 }
+
+
+
+.liens{
+    @apply block p-2 hover:bg-gray-900 rounded-lg font-semibold first-letter:text-red-700 first-letter:text-xl text-xl
+}
+
+
+/* *********************************************************ADIMINATOR******************************** */
+

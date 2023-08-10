@@ -8,6 +8,8 @@
     {{-- <div class="py-12">
         <h1 class=" ml-6 font-bold text-red-600 " >Bienvenu cher : {{ Auth::user()->name }}</h1>
     </div> --}}
-    <div class="bg-gray-900 w-20 sm:w-52 md:w-72 min-h-screen fixed p-4">
-    </div>
+    {{-- <div class="bg-gray-900 w-20 sm:w-52 md:w-72 min-h-screen fixed p-4">
+        <h1>Lorem ipsum dolor sit.
+        </h1>
+    </div> --}}
 </x-app-layout>
