@@ -61,6 +61,39 @@ button .icon-acc{
     @apply block p-2 hover:bg-gray-900 rounded-lg font-semibold first-letter:text-red-700 first-letter:text-xl text-xl
 }
 
+/* ***************************************************gestion stade design********************************************** */
+.creation{
+    @apply border-2 p-2 bg-white rounded-lg shadow-lg
+}
+.listes{
+    @apply mt-2 flex justify-end
+}
+.listes a{
+    @apply bg-blue-950 rounded-lg p-2 text-white italic hover:bg-blue-800 active:scale-[1.2] active:transition-[0.6s]
+}
+.bars{
+    @apply h-2 bg-red-950 mt-4
+}
+.groupe{
+    @apply grid mt-2
+}
+.groupe input{
+    @apply p-1 rounded-md outline-none border-0 bg-gray-200 w-full
+}
+.groupe select{
+    @apply outline-none p-1
+}
+.groupe button{
+    @apply bg-red-950 w-52 m-auto rounded-full mt-4 p-2 text-white hover:bg-red-900 active:scale-[1.2] active:transition-[0.6s]
+}
+/* *****************************************profile******************************************** */
+.profile{
+    @apply flex lg:ml-[90%] md:ml-[80%] gap-3 items-center
+}
 
-/* *********************************************************ADIMINATOR******************************** */
+.teams{
+    @apply mt-36 w-52
+}
+
+
 

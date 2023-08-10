@@ -18,43 +18,8 @@
         @livewireStyles
     </head>
     <body class="font-sans antialiased">
-        {{-- <x-banner /> --}}
-
-        {{-- <div class="min-h-screen bg-gray-100">
-            @livewire('navigation-menu')
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 z-50">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endif --}}
-
-
-            {{-- ----------------dashboard---------------- --}}
-
-
-            {{-- <div class="bg-gray-400 h-screen">
-                <main>
-                    {{ $slot }}
-                </main>
-            </div> --}}
-            {{-- <main>
-                {{ $slot }}
-            </main> --}}
-        {{-- </div>
-
-        @stack('modals')
-
-        @livewireScripts --}}
-
-
-
-
-
         {{-- ---------------------------------------navbar-------------------------------- --}}
-        <nav class="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+        <nav class="fixed top-0 z-50 w-full bg-white border-b border-gray-200">
             @livewire('navigation-menu')
         </nav>
 
@@ -142,7 +107,7 @@
                             </button>
                             <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg md:w-48 z-30">
                                 <div class="px-2 py-2 bg-gray-700 rounded-md shadow dark-mode:bg-gray-700">
-                                    <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href=" ">Créer un Match</a>
+                                    <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="{{ route('matche.create') }} ">Créer un Match</a>
                                     <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Listes des Matchs</a>
 
                                 </div>
@@ -243,8 +208,8 @@
         </aside>
 {{-- ----------------------------------------content-------------------------------- --}}
         <div class="p-4 sm:ml-64">
-            <div class="p-4 rounded-lg dark:border-gray-700 mt-14">
-                <main>
+            <div class="p-4 rounded-lg mt-14">
+                <main class="bg-gray-200 rounded-lg">
                     {{ $slot }}
                 </main>
 
