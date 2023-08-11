@@ -9,7 +9,7 @@
         <!-- -------------------------formulaires ---------------------------------------------- -->
         <form action="">
             <div class="groupe">
-                <label for="">Nom : </label>
+                <label for="">Title : </label>
                 <input type="text" name="">
             </div>
 
@@ -19,26 +19,42 @@
             </div>
 
             <div class="groupe">
-                <label for="">Phone_number : </label>
-                <input type="text" name="">
+                <label for="">Description : </label>
+                <textarea name="" id="" cols="30" rows="10"></textarea>
             </div>
 
             <div class="groupe">
-                <label for="">Password : </label>
-                <input type="password" name="">
+                <label for="">Date_on : </label>
+                <input type="date" name="" id="">
             </div>
 
             <div class="groupe">
-                <label for="">COnfirm_password : </label>
-                <input type="password" name="">
+                <label for="">Start_at : </label>
+                <input type="time" name="" id="">
             </div>
 
             <div class="groupe">
+                <label for="">End_at : </label>
+                <input type="time" name="" id="">
+            </div>
+
+            {{-- <div class="groupe">
                 <label for="">Role : </label>
                 <select name="" id="">
                     <option value="">administrateur</option>
                 </select>
+            </div> --}}
+            <div class="groupe">
+                <label for="">Authors : </label>
+                <input type="text" name="">
             </div>
+
+            <div class="groupe">
+                <label for="">Participant_count : </label>
+                <input type="number" name="">
+            </div>
+
+
             <div class="groupe">
                 <button type="submit">Valider</button>
             </div>

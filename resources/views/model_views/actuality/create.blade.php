@@ -1,4 +1,4 @@
-<x-app-layouts>
+<x-app-layout>
     <div class="creation">
         <!-- --------------------bouton listes des utilisateur -------------------------------- -->
         <div class="listes">
@@ -7,41 +7,41 @@
 
         <hr class="bars">
         <!-- -------------------------formulaires ---------------------------------------------- -->
-        <form action="">
+        <form action="" method="" enctype="multipart/form-data">
             <div class="groupe">
-                <label for="">Nom : </label>
+                <label for="">Title : </label>
                 <input type="text" name="">
             </div>
 
             <div class="groupe">
-                <label for="">Email : </label>
-                <input type="email" name="">
+                <label for="">Message : </label>
+                <textarea name="" id="" cols="30" rows="10"></textarea>
             </div>
 
             <div class="groupe">
-                <label for="">Phone_number : </label>
-                <input type="text" name="">
+                <label for="" class="mb-4">Image</label>
+                <div class="ims">
+                    <img src="" alt="" class="img-product" id="file-preview">
+                </div>
+                <input type="file" name="image" accept="image/*" onchange="afficheImage(event)">
             </div>
 
-            <div class="groupe">
-                <label for="">Password : </label>
-                <input type="password" name="">
-            </div>
-
-            <div class="groupe">
-                <label for="">COnfirm_password : </label>
-                <input type="password" name="">
-            </div>
-
-            <div class="groupe">
-                <label for="">Role : </label>
-                <select name="" id="">
-                    <option value="">administrateur</option>
-                </select>
-            </div>
             <div class="groupe">
                 <button type="submit">Valider</button>
             </div>
         </form>
     </div>
-</x-app-layouts>
+
+    <script>
+        function afficheImage(event){
+            let entrer = event.target;
+            let reader = new FileReader();
+            reader.onload = function(){
+                let dataUrl = reader.result;
+                let output = document.getElementById('file-preview');
+                output.src = dataUrl;
+            };
+            reader.readAsDataURL(entrer.files[0]);
+        }
+    </script>
+</x-app-layout>
