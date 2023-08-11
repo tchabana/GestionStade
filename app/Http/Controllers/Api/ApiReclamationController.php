@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
-use App\Http\Requests\StorePayementRequest;
-use App\Http\Requests\UpdatePayementRequest;
-use App\Models\Payement;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreReclamationRequest;
+use App\Http\Requests\UpdateReclamationRequest;
+use App\Models\Reclamation;
 
-class PayementController extends Controller
+class ApiReclamationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +28,7 @@ class PayementController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorePayementRequest $request)
+    public function store(StoreReclamationRequest $request)
     {
         //
     }
@@ -35,7 +36,7 @@ class PayementController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Payement $payement)
+    public function show(Reclamation $reclamation)
     {
         //
     }
@@ -43,7 +44,7 @@ class PayementController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Payement $payement)
+    public function edit(Reclamation $reclamation)
     {
         //
     }
@@ -51,7 +52,7 @@ class PayementController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatePayementRequest $request, Payement $payement)
+    public function update(UpdateReclamationRequest $request, Reclamation $reclamation)
     {
         //
     }
@@ -59,7 +60,7 @@ class PayementController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Payement $payement)
+    public function destroy(Reclamation $reclamation)
     {
         //
     }

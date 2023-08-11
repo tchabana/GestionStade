@@ -1,28 +1,30 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreEventRequest;
 use App\Http\Requests\UpdateEventRequest;
 use App\Models\Event;
 use Illuminate\Database\Eloquent\Casts\Json;
 
-class EventController extends Controller
+class ApiEventController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('model_views.event.index', ['events' => Event::paginate(10), 'controller_methode' => "index"]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        return view("model_views.event.create");
+        try {
+            $event = Event::paginate(10);
+            return response()->json([
+                'status' => 200,
+                'status_massage' => "Recuperation des évènements effectuer ",
+                'data' => $event
+            ]);
+        } catch (\Exception $e) {
+            return response()->json($e);
+        }
     }
 
     /**
@@ -41,27 +43,34 @@ class EventController extends Controller
             $new_envent->authors = $request->authors;
             $new_envent->info_suplementaire = $info_suplementaire;
             $new_envent->save();
+            return response()->json([
+                'status' => 201,
+                'status_massage' => "L'evenement à bien ete cré",
+                'data' => $new_envent
+            ]);
         } catch (\Exception $e) {
-            return $e->getMessage();
+            return response()->json($e);
+
         }
-        return view('model_views.event.index', ['events' => Event::paginate(10), 'controller_methode' => "store"]);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Event $event)
+    public function show(string $id)
     {
-        return view('model_views.event.show', ['event' => $event]);
+        try {
+            $event = Event::find($id);
+            return response()->json([
+                'status' => 200,
+                'status_massage' => "Ok",
+                'data' => $event
+            ]);
+        } catch (\Exception $ex) {
+            return response()->json($ex);
+        }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Event $event)
-    {
-        return view('model_views.event.edite', ['event' => $event]);
-    }
 
     /**
      * Update the specified resource in storage.
@@ -79,10 +88,14 @@ class EventController extends Controller
             $event->authors = $request->authors;
             $event->info_suplementaire = $info_suplementaire;
             $event->save();
+            return response()->json([
+                'status' => 200,
+                'status_massage' => "Ok",
+                'data' => $event
+            ]);
         } catch (\Exception $e) {
-            return $e->getMessage();
+            return response()->json($e);
         }
-        return view('model_views.event.show', ['event' => $event]);
     }
 
     /**
@@ -90,7 +103,15 @@ class EventController extends Controller
      */
     public function destroy(Event $event)
     {
-        $event->delete();
-        return view('model_views.event.index', ['events' => Event::paginate(10), 'controller_methode' => "destroy"]);
+        try {
+            $event->delete();
+            return response()->json([
+                'status' => 200,
+                'status_massage' => "L' Event a bien ete Supprimer  ",
+                'data' => $event
+            ]);
+        } catch (\Exception $e) {
+            return response()->json($e);
+        }
     }
 }
