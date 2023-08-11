@@ -17,7 +17,7 @@ class ApiUserController extends Controller
             $user = User::paginate(10);
             return response()->json([
                 'status' => 200,
-                'status_massage' => "Recuperation des poste effectuer ",
+                'status_massage' => "Ok",
                 'data' => $user
             ]);
         } catch (\Exception $e) {
@@ -37,9 +37,17 @@ class ApiUserController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(User $user)
     {
-        //
+        try {
+            return response()->json([
+                'status' => 200,
+                'status_massage' => "Ok",
+                'data' => $user
+            ]);
+        } catch (\Exception $ex) {
+            return response()->json($ex);
+        }
     }
 
 
@@ -56,6 +64,15 @@ class ApiUserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        try {
+            $user->delete();
+            return response()->json([
+                'status' => 200,
+                'status_massage' => "Ok",
+                'data' => $user
+            ]);
+        } catch (\Exception $e) {
+            return response()->json($e);
+        }
     }
 }
