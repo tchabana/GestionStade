@@ -14,16 +14,18 @@ class ApiPayementController extends Controller
      */
     public function index()
     {
-        //
+        try {
+            $payement = Payement::paginate(10);
+            return response()->json([
+                'status' => 200,
+                'status_massage' => "Recuperation des poste effectuer ",
+                'data' => $payement
+            ]);
+        } catch (\Exception $e) {
+            return response()->json($e);
+        }
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -38,16 +40,17 @@ class ApiPayementController extends Controller
      */
     public function show(Payement $payement)
     {
-        //
+        try {
+            return response()->json([
+                'status' => 200,
+                'status_massage' => "Ok",
+                'data' => $payement
+            ]);
+        } catch (\Exception $ex) {
+            return response()->json($ex);
+        }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Payement $payement)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -62,6 +65,15 @@ class ApiPayementController extends Controller
      */
     public function destroy(Payement $payement)
     {
-        //
+        try {
+            $payement->delete();
+            return response()->json([
+                'status' => 200,
+                'status_massage' => "Ok",
+                'data' => $payement
+            ]);
+        } catch (\Exception $e) {
+            return response()->json($e);
+        }
     }
 }

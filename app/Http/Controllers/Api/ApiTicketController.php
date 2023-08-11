@@ -14,16 +14,19 @@ class ApiTicketController extends Controller
      */
     public function index()
     {
-        //
+        try {
+            $ticket = Ticket::paginate(10);
+            return response()->json([
+                'status' => 200,
+                'status_massage' => "Recuperation des poste effectuer ",
+                'data' => $ticket
+            ]);
+        } catch (\Exception $e) {
+            return response()->json($e);
+        }
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -38,16 +41,18 @@ class ApiTicketController extends Controller
      */
     public function show(Ticket $ticket)
     {
-        //
+        try {
+            return response()->json([
+                'status' => 200,
+                'status_massage' => "Ok",
+                'data' => $ticket
+            ]);
+        } catch (\Exception $ex) {
+            return response()->json($ex);
+        }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Ticket $ticket)
-    {
-        //
-    }
+
 
     /**
      * Update the specified resource in storage.
@@ -62,6 +67,15 @@ class ApiTicketController extends Controller
      */
     public function destroy(Ticket $ticket)
     {
-        //
+        try {
+            $ticket->delete();
+            return response()->json([
+                'status' => 200,
+                'status_massage' => "Ok",
+                'data' => $ticket
+            ]);
+        } catch (\Exception $e) {
+            return response()->json($e);
+        }
     }
 }

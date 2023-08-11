@@ -14,16 +14,19 @@ class ApiReclamationController extends Controller
      */
     public function index()
     {
-        //
+        try {
+            $reclamations = Reclamation::paginate(10);
+            return response()->json([
+                'status' => 200,
+                'status_massage' => "Recuperation des poste effectuer ",
+                'data' => $reclamations
+            ]);
+        } catch (\Exception $e) {
+            return response()->json($e);
+        }
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -38,16 +41,19 @@ class ApiReclamationController extends Controller
      */
     public function show(Reclamation $reclamation)
     {
-        //
+        try {
+            return response()->json([
+                'status' => 200,
+                'status_massage' => "Ok",
+                'data' => $reclamation
+            ]);
+        } catch (\Exception $ex) {
+            return response()->json($ex);
+        }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Reclamation $reclamation)
-    {
-        //
-    }
+
+
 
     /**
      * Update the specified resource in storage.
@@ -62,6 +68,15 @@ class ApiReclamationController extends Controller
      */
     public function destroy(Reclamation $reclamation)
     {
-        //
+        try {
+            $reclamation->delete();
+            return response()->json([
+                'status' => 200,
+                'status_massage' => "Le commentaire a bien ete Supprimer  ",
+                'data' => $reclamation
+            ]);
+        } catch (\Exception $e) {
+            return response()->json($e);
+        }
     }
 }

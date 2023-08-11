@@ -62,6 +62,15 @@ class ApiScoreController extends Controller
      */
     public function destroy(Score $score)
     {
-        //
+        try {
+            $score->delete();
+            return response()->json([
+                'status' => 200,
+                'status_massage' => "Ok",
+                'data' => $score
+            ]);
+        } catch (\Exception $e) {
+            return response()->json($e);
+        }
     }
 }
