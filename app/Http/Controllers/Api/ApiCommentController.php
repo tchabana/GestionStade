@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
-use App\Http\Requests\StoreReclamationRequest;
-use App\Http\Requests\UpdateReclamationRequest;
-use App\Models\Reclamation;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreCommentRequest;
+use App\Http\Requests\UpdateCommentRequest;
+use App\Models\Comment;
 
-class ReclamationController extends Controller
+class ApiCommentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +28,7 @@ class ReclamationController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreReclamationRequest $request)
+    public function store(StoreCommentRequest $request)
     {
         //
     }
@@ -35,7 +36,7 @@ class ReclamationController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Reclamation $reclamation)
+    public function show(Comment $comment)
     {
         //
     }
@@ -43,7 +44,7 @@ class ReclamationController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Reclamation $reclamation)
+    public function edit(Comment $comment)
     {
         //
     }
@@ -51,7 +52,7 @@ class ReclamationController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateReclamationRequest $request, Reclamation $reclamation)
+    public function update(UpdateCommentRequest $request, Comment $comment)
     {
         //
     }
@@ -59,7 +60,7 @@ class ReclamationController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Reclamation $reclamation)
+    public function destroy(Comment $comment)
     {
         //
     }
