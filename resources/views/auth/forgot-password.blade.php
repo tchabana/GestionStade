@@ -1,8 +1,7 @@
 <x-guest-layout>
     <x-authentication-card>
         <x-slot name="logo">
-            <h1 class="font-bold text-2xl ">GESTION_STADE</h1>
-            {{-- <x-authentication-card-logo /> --}}
+            <x-authentication-card-logo />
         </x-slot>
 
         <div class="mb-4 text-sm text-gray-600">
