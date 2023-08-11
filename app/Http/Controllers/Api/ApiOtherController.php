@@ -1,30 +1,33 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreOtherRequest;
 use App\Http\Requests\UpdateOtherRequest;
 use App\Models\Event;
 use App\Models\Other;
 use Illuminate\Database\Eloquent\Casts\Json;
 
-class OtherController extends Controller
+class ApiOtherController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('model_views.other.index', ['others' => Other::paginate(10), 'controller_methode' => "index"]);
+        try {
+            $matche = Other::paginate(10);
+            return response()->json([
+                'status' => 200,
+                'status_massage' => "Recuperation des Others effectuer ",
+                'data' => $matche
+            ]);
+        } catch (\Exception $e) {
+            return response()->json($e);
+        }
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        return view("model_views.other.create");
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -49,10 +52,15 @@ class OtherController extends Controller
             $new_other->info_suplementaire = $info_suplementaire;
             $new_other->event_id = $new_envent->id;
             $new_other->save();
+            return response()->json([
+                'status' => 201,
+                'status_massage' => "L'evenement à bien ete cré",
+                'data' => $new_other
+            ]);
         } catch (\Exception $e) {
-            return $e->getMessage();
+            return response()->json($e);
+
         }
-        return view('model_views.other.index', ['others' => Other::paginate(10), 'controller_methode' => "store"]);
     }
 
     /**
@@ -60,16 +68,18 @@ class OtherController extends Controller
      */
     public function show(Other $other)
     {
-        return view('model_views.other.show', ['other' => $other]);
+        try {
+            return response()->json([
+                'status' => 200,
+                'status_massage' => "Ok",
+                'data' => $other
+            ]);
+        } catch (\Exception $ex) {
+            return response()->json($ex);
+        }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Other $other)
-    {
-        return view('model_views.other.edite', ['other' => $other]);
-    }
+
 
     /**
      * Update the specified resource in storage.
@@ -93,10 +103,14 @@ class OtherController extends Controller
             $other->designation = $request->designation;
             $other->info_suplementaire = $info_suplementaire;
             $other->save();
+            return response()->json([
+                'status' => 200,
+                'status_massage' => "Ok",
+                'data' => $other
+            ]);
         } catch (\Exception $e) {
-            return $e->getMessage();
+            return response()->json($e);
         }
-        return view('model_views.other.index', ['others' => $other]);
     }
 
     /**
@@ -104,7 +118,15 @@ class OtherController extends Controller
      */
     public function destroy(Other $other)
     {
-        $other->delete();
-        return view('model_views.other.index', ['others' => Other::paginate(10), 'controller_methode' => "destroy"]);
+        try {
+            $other->delete();
+            return response()->json([
+                'status' => 200,
+                'status_massage' => "L' Event a bien ete Supprimer  ",
+                'data' => $other
+            ]);
+        } catch (\Exception $e) {
+            return response()->json($e);
+        }
     }
 }

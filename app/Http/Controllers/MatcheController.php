@@ -6,6 +6,7 @@ use App\Http\Requests\StoreMatcheRequest;
 use App\Http\Requests\UpdateMatcheRequest;
 use App\Models\Event;
 use App\Models\Matche;
+use App\Models\Score;
 use Illuminate\Database\Eloquent\Casts\Json;
 
 class MatcheController extends Controller
@@ -43,11 +44,15 @@ class MatcheController extends Controller
             $new_envent->authors = $request->authors;
             $new_envent->info_suplementaire = $info_suplementaire;
             $new_envent->save();
+            // Creation du scoore
+            $new_score = new Score();
+            $new_score->save();
             // Creation du matche
             $new_matche = new Matche();
             $new_matche->equipe1_id = $request->equipe1_id;
             $new_matche->equipe2_id = $request->equipe2_id;
             $new_matche->event_id = $new_envent->id;
+            $new_matche->score_id = $new_score->id;
             $new_matche->save();
         } catch (\Exception $e) {
             return $e->getMessage();

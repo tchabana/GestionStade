@@ -40,7 +40,7 @@ Route::middleware([
 
 Route::resources([
     "actuality"=>ActualityController::class,
-    "actuality"=>ActualityCommentController::class,
+    "actualitycomment"=>ActualityCommentController::class,
     "comment"=>CommentController::class,
     "event"=>EventController::class,
     "matche"=>MatcheController::class,
@@ -50,3 +50,4 @@ Route::resources([
     "score"=>ScoreController::class,
     "ticket"=>TicketController::class,
 ]);
+

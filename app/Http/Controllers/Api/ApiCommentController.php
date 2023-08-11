@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
-use App\Http\Requests\StoreScoreRequest;
-use App\Http\Requests\UpdateScoreRequest;
-use App\Models\Score;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreCommentRequest;
+use App\Http\Requests\UpdateCommentRequest;
+use App\Models\Comment;
 
-class ScoreController extends Controller
+class ApiCommentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +28,7 @@ class ScoreController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreScoreRequest $request)
+    public function store(StoreCommentRequest $request)
     {
         //
     }
@@ -35,7 +36,7 @@ class ScoreController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Score $score)
+    public function show(Comment $comment)
     {
         //
     }
@@ -43,7 +44,7 @@ class ScoreController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Score $score)
+    public function edit(Comment $comment)
     {
         //
     }
@@ -51,7 +52,7 @@ class ScoreController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateScoreRequest $request, Score $score)
+    public function update(UpdateCommentRequest $request, Comment $comment)
     {
         //
     }
@@ -59,7 +60,7 @@ class ScoreController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Score $score)
+    public function destroy(Comment $comment)
     {
         //
     }

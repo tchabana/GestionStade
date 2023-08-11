@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreActualityCommentRequest;
 use App\Http\Requests\UpdateActualityCommentRequest;
 use App\Models\ActualityComment;
 
-class ActualityCommentController extends Controller
+class ApiActualityCommentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -37,7 +38,7 @@ class ActualityCommentController extends Controller
             $new_actu_comment->user_id = $request->user_id;
             $new_actu_comment->save();
             return response()->json([
-                'status' => 200,
+                'status' => 201,
                 'status_massage' => "Recuperation des poste effectuer ",
                 'data' => $new_actu_comment
             ]);
@@ -49,9 +50,18 @@ class ActualityCommentController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(ActualityComment $actualityComment)
+    public function show(string $id)
     {
-        return view('model_views.actuality.comment.show', ['actu_comment' => $actualityComment]);
+        try {
+            $ActualityComment = ActualityComment::find($id);
+            return response()->json([
+                'status' => 200,
+                'status_massage' => "Ok",
+                'data' => $ActualityComment
+            ]);
+        } catch (\Exception $ex) {
+            return response()->json($ex);
+        }
     }
 
     /**
@@ -64,10 +74,14 @@ class ActualityCommentController extends Controller
             $actualityComment->actu_id = $request->actu_id;
             $actualityComment->user_id = $request->user_id;
             $actualityComment->save();
+            return response()->json([
+                'status' => 200,
+                'status_massage' => "Ok",
+                'data' => $actualityComment
+            ]);
         } catch (\Exception $e) {
-            return $e->getMessage();
+            return response()->json($e);
         }
-        return view('model_views.actuality.comment.show', ['actu_comment' => $actualityComment]);
     }
 
     /**
@@ -75,6 +89,15 @@ class ActualityCommentController extends Controller
      */
     public function destroy(ActualityComment $actualityComment)
     {
-        $actualityComment->delete();
+        try {
+            $actualityComment->delete();
+            return response()->json([
+                'status' => 200,
+                'status_massage' => "Le commentaire a bien ete Supprimer  ",
+                'data' => $actualityComment
+            ]);
+        } catch (\Exception $e) {
+            return response()->json($e);
+        }
     }
 }
