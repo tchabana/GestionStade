@@ -50,3 +50,4 @@ Route::resources([
     "score"=>ScoreController::class,
     "ticket"=>TicketController::class,
 ]);
+
