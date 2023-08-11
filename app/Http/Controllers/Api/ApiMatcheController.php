@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreMatcheRequest;
 use App\Http\Requests\UpdateMatcheRequest;
 use App\Models\Event;
@@ -9,23 +10,26 @@ use App\Models\Matche;
 use App\Models\Score;
 use Illuminate\Database\Eloquent\Casts\Json;
 
-class MatcheController extends Controller
+class ApiMatcheController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('model_views.matche.index', ['matches' => Matche::paginate(10), 'controller_methode' => "index"]);
+        try {
+            $matche = Matche::paginate(10);
+            return response()->json([
+                'status' => 200,
+                'status_massage' => "Recuperation des Matches effectuer ",
+                'data' => $matche
+            ]);
+        } catch (\Exception $e) {
+            return response()->json($e);
+        }
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        return view("model_views.matche.create");
-    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -44,20 +48,21 @@ class MatcheController extends Controller
             $new_envent->authors = $request->authors;
             $new_envent->info_suplementaire = $info_suplementaire;
             $new_envent->save();
-            // Creation du scoore
-            $new_score = new Score();
-            $new_score->save();
             // Creation du matche
             $new_matche = new Matche();
             $new_matche->equipe1_id = $request->equipe1_id;
             $new_matche->equipe2_id = $request->equipe2_id;
             $new_matche->event_id = $new_envent->id;
-            $new_matche->score_id = $new_score->id;
             $new_matche->save();
+            return response()->json([
+                'status' => 201,
+                'status_massage' => "L'evenement à bien ete cré",
+                'data' => $new_matche
+            ]);
         } catch (\Exception $e) {
-            return $e->getMessage();
+            return response()->json($e);
+
         }
-        return view('model_views.matche.index', ['matches' => Matche::paginate(10), 'controller_methode' => "store"]);
     }
 
     /**
@@ -65,16 +70,18 @@ class MatcheController extends Controller
      */
     public function show(Matche $matche)
     {
-        return view('model_views.matche.show', ['matche' => $matche]);
+        try {
+            return response()->json([
+                'status' => 200,
+                'status_massage' => "Ok",
+                'data' => $matche
+            ]);
+        } catch (\Exception $ex) {
+            return response()->json($ex);
+        }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Matche $matche)
-    {
-        return view('model_views.matche.edite', ['matche' => $matche]);
-    }
+
 
     /**
      * Update the specified resource in storage.
@@ -93,14 +100,24 @@ class MatcheController extends Controller
             $matche_envent->authors = $request->authors;
             $matche_envent->info_suplementaire = $info_suplementaire;
             $matche_envent->save();
+            // Creation du scoore
+            $new_score = new Score();
+            $new_score->save();
             // Creation du matche
-            $matche->equipe1_id = $request->equipe1_id;
-            $matche->equipe2_id = $request->equipe2_id;
-            $matche->save();
+            $new_matche = new Matche();
+            $new_matche->equipe1_id = $request->equipe1_id;
+            $new_matche->equipe2_id = $request->equipe2_id;
+            $new_matche->event_id = $matche_envent->id;
+            $new_matche->score_id = $new_score->id;
+            $new_matche->save();
+            return response()->json([
+                'status' => 200,
+                'status_massage' => "Ok",
+                'data' => $matche
+            ]);
         } catch (\Exception $e) {
-            return $e->getMessage();
+            return response()->json($e);
         }
-        return view('model_views.matche.show', ['matches' => $matche]);
     }
 
     /**
@@ -108,7 +125,15 @@ class MatcheController extends Controller
      */
     public function destroy(Matche $matche)
     {
-        $matche->delete();
-        return view('model_views.matche.index', ['matches' => Matche::paginate(10), 'controller_methode' => "destroy"]);
+        try {
+            $matche->delete();
+            return response()->json([
+                'status' => 200,
+                'status_massage' => "L' Event a bien ete Supprimer  ",
+                'data' => $matche
+            ]);
+        } catch (\Exception $e) {
+            return response()->json($e);
+        }
     }
 }

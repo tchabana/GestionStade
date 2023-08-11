@@ -1,18 +1,7 @@
 <?php
 
-use App\Models\Actuality;
-use App\Models\ActualityComment;
-use App\Models\Comment;
-use App\Models\Event;
-use App\Models\Matche;
-use App\Models\Other;
-use App\Models\Payement;
-use App\Models\Reclamation;
-use App\Models\Score;
-use App\Models\Ticket;
-
-use App\Http\Controllers\ActualityController;
 use App\Http\Controllers\ActualityCommentController;
+use App\Http\Controllers\ActualityController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\MatcheController;
@@ -21,7 +10,6 @@ use App\Http\Controllers\PayementController;
 use App\Http\Controllers\ReclamationController;
 use App\Http\Controllers\ScoreController;
 use App\Http\Controllers\TicketController;
-
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,7 +24,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+   return view('welcome');
+
 });
 
 Route::middleware([
@@ -50,14 +39,15 @@ Route::middleware([
 });
 
 Route::resources([
-    // "actuality"=>Actuality::class,
-    // "actuality"=>ActualityComment::class,
-    // "comment"=>Comment::class,
+    "actuality"=>ActualityController::class,
+    "actualitycomment"=>ActualityCommentController::class,
+    "comment"=>CommentController::class,
     "event"=>EventController::class,
-    // "matche"=>Matche::class,
-    // "other"=>Other::class,
-    // "payement"=>Payement::class,
-    // "reclamation"=>Reclamation::class,
-    // "score"=>Score::class,
-    // "ticket"=>Ticket::class,
+    "matche"=>MatcheController::class,
+    "other"=>OtherController::class,
+    "payement"=>PayementController::class,
+    "reclamation"=>ReclamationController::class,
+    "score"=>ScoreController::class,
+    "ticket"=>TicketController::class,
 ]);
+

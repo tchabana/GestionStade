@@ -3,12 +3,14 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\MOdels\Score;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Score>
  */
 class ScoreFactory extends Factory
 {
+    protected $model = Score::class;
     /**
      * Define the model's default state.
      *
@@ -18,6 +20,9 @@ class ScoreFactory extends Factory
     {
         return [
             //
+            'equipe1_goal' => $this->faker->numberBetween(0,9),
+            'equipe2_goal' => $this->faker->numberBetween(0,9),
+
         ];
     }
 }
