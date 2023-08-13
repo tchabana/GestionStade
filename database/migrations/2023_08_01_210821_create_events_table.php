@@ -10,7 +10,7 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-    {
+    {//status et no de tickets
         Schema::create('events', function (Blueprint $table) {
             $table->bigIncrements("id");
             $table->string('title');
