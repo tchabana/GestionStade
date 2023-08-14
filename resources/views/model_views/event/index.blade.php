@@ -1,4 +1,5 @@
-<x-app-layout>
+@extends('layouts.app')
+@section('content')
     <div class="creation">
         <!-- --------------------bouton listes des utilisateur -------------------------------- -->
         <div class="listes">
@@ -118,5 +119,4 @@
             </div>
         </div>
     </div>
-</x-app-layout>
-
+@endsection
