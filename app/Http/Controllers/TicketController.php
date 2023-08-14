@@ -29,12 +29,7 @@ class TicketController extends Controller
     {
         //
         $tempPdfPath = public_path('temp/ticket.pdf');
-        if (File::exists( $tempPdfPath)) {
-            $reponse = true;
-        }else{
-            $reponse = false;
-        }
-        return view('model_views.ticket.create',['events'=>Event::all()->reverse(),'reponse'=>$reponse]);
+        return view('model_views.ticket.create',['events'=>Event::all()->reverse(),'reponse'=>false]);
     }
 
     /**
@@ -42,33 +37,6 @@ class TicketController extends Controller
      */
     public function store(StoreTicketRequest $request)
     {
-        // $numTickets = $request->input('ticketCount', 1);
-        // $event_title = $request->input('event_title');
-        // $qrCodes = [];
-    
-        // for ($i = 1; $i <= $numTickets; $i++) {
-        //     $ticketId = $i; // Remplacez cette fonction par la logique de génération d'ID de ticket
-        //     //$url = route('tickets.show', $ticketId); // Remplacez 'tickets.show' par la route appropriée pour afficher un ticket
-    
-        //     $qrCodes[] = [
-        //         'id' => $ticketId,
-        //         'qr_code' => QrCode::size(100)->generate($i),
-        //     ];
-        // }
-
-        // //pdf
-        // $tempPdfPath = public_path('temp/ticket.pdf');
-        // if (File::exists( $tempPdfPath)) {
-        //     File::delete( $tempPdfPath);
-        // }
-        // $pdf = PDF::loadView('pdf.templatePDF', [
-        //     "qrcodes" => $qrCodes,
-        //     'users' => User::all(),
-        // ]);
-        
-        // $tempPdfPath = public_path('temp/ticket.pdf'); // Assurez-vous d'avoir un dossier "temp" dans votre dossier public
-        // $pdf->save($tempPdfPath);
-       return view('pdf.preview');
     
     }
 

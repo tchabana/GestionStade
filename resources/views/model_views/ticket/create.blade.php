@@ -46,7 +46,7 @@
         </div>
         
     </form>
-    <button id="openPdfButton" class="mt-4 bg-blue-500 text-white rounded py-2 px-4 hover:bg-blue-600">Voir le PDF</button>
+    <!-- <button id="openPdfButton" class="mt-4 bg-blue-500 text-white rounded py-2 px-4 hover:bg-blue-600">Voir le PDF</button> -->
 </div>
 
 
@@ -79,11 +79,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const openPdfButton = document.getElementById('openPdfButton');
     const previewModal = document.getElementById('previewModal');
     const closePreviewButton = document.getElementById('closePreviewButton');
+    let ouvrir = {!! json_encode($reponse) !!};
 
-    openPdfButton.addEventListener('click', function() {
-        // Afficher la fenêtre modale (popup)
-        previewModal.classList.remove('hidden');
-    });
+    if(ouvrir == true){
+         // Afficher la fenêtre modale (popup)
+         previewModal.classList.remove('hidden');
+    }
+
+    // openPdfButton.addEventListener('click', function() {
+    //     // Afficher la fenêtre modale (popup)
+    //     previewModal.classList.remove('hidden');
+    // });
 
     closePreviewButton.addEventListener('click', function() {
         // Fermer la fenêtre modale (popup)
