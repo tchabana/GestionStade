@@ -34,8 +34,7 @@ class PdfController extends Controller
 
     
         for ($i = 1; $i <= $numTickets; $i++) {
-            $ticketId = $i; // Remplacez cette fonction par la logique de génération d'ID de ticket
-            //$url = route('tickets.show', $ticketId); // Remplacez 'tickets.show' par la route appropriée pour afficher un ticket
+            $ticketId = $i; // à revoir
             $chemin = public_path('/codesQR/image_'.$i.'.svg');
             $qrCodes[] = [
                 'id' => $ticketId,
@@ -45,16 +44,7 @@ class PdfController extends Controller
             ];
         }
 
-        //pdf
-        // $compare = public_path('temp/');
         $tempPdfPath = public_path('temp/ticket.pdf');
-        // if (strcmp($compare, $tempPdfPath) === 0) {
-        //     // Les chemins sont identiques
-        //     $reponse = true;
-        // } else {
-        //     // Les chemins sont différents
-        //     $reponse = false;
-        // }
 
         if (File::exists( $tempPdfPath)) {
             File::delete( $tempPdfPath);
@@ -64,55 +54,14 @@ class PdfController extends Controller
             //'users' => User::all(),
         ])-> setPaper('a4','portrait');
         
-        $tempPdfPath = public_path('temp/ticket.pdf'); // Assurez-vous d'avoir un dossier "temp" dans votre dossier public
+        $tempPdfPath = public_path('temp/ticket.pdf'); 
         $pdf->save($tempPdfPath);
-        //return view('pdf.preview',compact('qrCodes'));
-        //generer et afficher
-        // if (File::exists( $tempPdfPath)) {
-        //     $reponse = true;
-        // }else{
-        //     $reponse = false;
-        // }
         $reponse = true;
         $events = Event::all()->reverse();
        return view('model_views.ticket.create',compact('events','reponse'));
     
     }
 
-    // public function fermer(){
-    //     $directory = public_path('/codesQR');
-    //     // Obtenez la liste des fichiers dans le répertoire
-    //     $files = File::glob($directory . '/*');
-
-    //     // Parcourez la liste des fichiers et supprimez-les
-    //     foreach ($files as $file) {
-    //         if (is_file($file)) {
-    //             File::delete($file);
-    //         }
-    //     }
-
-    //     // $compare = public_path('temp/');
-    //     $tempPdfPath = public_path('temp/ticket.pdf');
-        
-    //     // if (strcmp($compare, $tempPdfPath) === 0) {
-    //     //     // Les chemins sont identiques
-    //     //     $reponse = true;
-    //     // } else {
-    //     //     // Les chemins sont différents
-    //     //     $reponse = false;
-    //     // }
-
-    //     if (File::exists( $tempPdfPath)) {
-    //         File::delete( $tempPdfPath);
-    //     }
-    //     //affichage des button generer et fermer
-    //     // if (File::exists( $tempPdfPath)) {
-    //     //     $reponse = true;
-    //     // }else{
-    //     //     $reponse = false;
-    //     // }
-    //     $events = Event::all()->reverse();
-    //     return view('model_views.ticket.create',compact('events'));
-    // }
-    
+ 
+  
 }
