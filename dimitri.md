@@ -1,21 +1,8 @@
-## Principe modification des vues
+### COMMANDES À INSTALLER
 
-1. Pour que le projet puisse s'executer normalement vous devez taper ces deux lignes de codes
-
-```javascript
-npm run dev
+```php
+npm install flowbite
 php artisan serve
+npm run dev
+
 ```
-
-2. Chemin des fichiers modifier
-
-## Authentication
-
-```bash
-resource/views/auth/login.blade.php
-resource/views/auth/register.blade.php
-resource/views/auth/confirm-password.blade.php
-resource/views/auth/reset-password.blade.php
-```
-
-* [ ]

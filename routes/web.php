@@ -1,16 +1,16 @@
 <?php
 
-use App\Http\Controllers\ActualityCommentController;
-use App\Http\Controllers\ActualityController;
-use App\Http\Controllers\CommentController;
-use App\Http\Controllers\EventController;
 use App\Http\Controllers\MatcheController;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\ActualityController;
+use App\Http\Controllers\ActualityCommentController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\OtherController;
 use App\Http\Controllers\PayementController;
 use App\Http\Controllers\ReclamationController;
 use App\Http\Controllers\ScoreController;
 use App\Http\Controllers\TicketController;
-use App\Http\Controllers\PdfController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,9 +29,6 @@ Route::get('/', function () {
 
 });
 
-Route::post('ticket-generate',[PdfController::class,'generate'])->name('pdf');
-Route::get('ticket-delete',[PdfController::class,'fermer'])->name('fermer');
- 
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -54,4 +51,3 @@ Route::resources([
     "score"=>ScoreController::class,
     "ticket"=>TicketController::class,
 ]);
-
