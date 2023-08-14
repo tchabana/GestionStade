@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreTicketRequest;
 use App\Http\Requests\UpdateTicketRequest;
 use App\Models\Ticket;
+use App\Models\User;
+use PDF;
+use App\Models\Event;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
+use Illuminate\Support\Facades\File;
 
 class TicketController extends Controller
 {
@@ -14,6 +19,7 @@ class TicketController extends Controller
     public function index()
     {
         //
+       
     }
 
     /**
@@ -22,6 +28,8 @@ class TicketController extends Controller
     public function create()
     {
         //
+        $tempPdfPath = public_path('temp/ticket.pdf');
+        return view('model_views.ticket.create',['events'=>Event::all()->reverse(),'reponse'=>false]);
     }
 
     /**
@@ -29,7 +37,7 @@ class TicketController extends Controller
      */
     public function store(StoreTicketRequest $request)
     {
-        //
+    
     }
 
     /**
