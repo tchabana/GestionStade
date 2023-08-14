@@ -9,6 +9,7 @@ use App\Models\User;
 use PDF;
 use App\Models\Event;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
+use Illuminate\Support\Facades\File;
 
 class TicketController extends Controller
 {
@@ -27,7 +28,13 @@ class TicketController extends Controller
     public function create()
     {
         //
-        return view('model_views.ticket.create',['events'=>Event::all()->reverse()]);
+        $tempPdfPath = public_path('temp/ticket.pdf');
+        if (File::exists( $tempPdfPath)) {
+            $reponse = true;
+        }else{
+            $reponse = false;
+        }
+        return view('model_views.ticket.create',['events'=>Event::all()->reverse(),'reponse'=>$reponse]);
     }
 
     /**

@@ -35,62 +35,24 @@
             </div>
         </fieldset>
         <div class="flex space-x-6 ">
-      
+        @if(!$reponse)
             <button type="submit" class="mt-4 bg-blue-500 text-white rounded py-2 px-4 hover:bg-blue-600" id="generateButton">Générer</button>
-      
-          
-            <!-- <a href="{{route('fermer')}}">
+       @endif
+       @if($reponse)
+            <a href="{{route('fermer')}}">
                 <button type="button" id="generateButton" class="mt-4 bg-green-500 text-white rounded py-2 px-4 hover:bg-blue-600">Fermer</button>
             </a>
-      -->
+        @endif
         </div>
         
     </form>
-    <button id="openPdfButton" class="mt-4 bg-blue-500 text-white rounded py-2 px-4 hover:bg-blue-600">Voir le PDF</button>
+    
 </div>
 
 
-    <!-- <div>
+    <div>
         <iframe src="{{ asset('temp/ticket.pdf') }}" width="100%" height="500"></iframe>
-    </div> -->
-
-   
-
-<div id="previewModal" class="fixed inset-0 flex items-center justify-center hidden bg-black bg-opacity-50">
-    <div class="bg-white rounded-lg p-6 w-1/2">
-        <h2 class="font-semibold text-lg mb-4">Aperçu du PDF</h2>
-        <div id="previewContent " >
-            <!-- Contenu du PDF ici -->
-           
-               
-                
-                <iframe src="{{ asset('temp/ticket.pdf') }}" frameborder="0" width="100%" height="500"></iframe>
-               
-          
-        </div>
-        <div class="mt-4 flex justify-end">
-            <button id="closePreviewButton" class="bg-gray-300 text-gray-700 rounded py-2 px-4 mr-2">Fermer</button>
-        </div>
     </div>
-</div>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const openPdfButton = document.getElementById('openPdfButton');
-    const previewModal = document.getElementById('previewModal');
-    const closePreviewButton = document.getElementById('closePreviewButton');
-
-    openPdfButton.addEventListener('click', function() {
-        // Afficher la fenêtre modale (popup)
-        previewModal.classList.remove('hidden');
-    });
-
-    closePreviewButton.addEventListener('click', function() {
-        // Fermer la fenêtre modale (popup)
-        previewModal.classList.add('hidden');
-    });
-});
-</script>
 
 
 @stop

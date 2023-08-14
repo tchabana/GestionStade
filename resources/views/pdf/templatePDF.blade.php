@@ -103,7 +103,7 @@
                             <!-- Insérez ici les autres informations du ticket -->
                             <img src="{{public_path('foot.png')}}" alt="foot" class="foot">
                             <p>{{$qrcode['id']}}</p>
-                            <p>{{$qrcode['event_title']}}</p>
+                            <p>{{$qrcode['event_title']}}vghfggd</p>
                             
                         </div>
                         <div class="right-section">
