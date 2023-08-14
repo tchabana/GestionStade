@@ -8,7 +8,7 @@
             <legend class="font-semibold">EVENEMENTS</legend>
             <div class="flex items-center space-x-4 flex-col">
                 <label for="event" class="w-32 m-5">Sélectionner :</label>
-                <select id="event" name="event_title" class="w-1/2 border rounded py-1 px-2 mb-3">
+                <select id="event" name="title" class="w-1/2 border rounded py-1 px-2 mb-3">
                    
                     @foreach($events as $event)
                         <option value="{{$event->title}}">{{$event->title}}</option>
@@ -20,17 +20,17 @@
         
         <fieldset class="border rounded p-4 mt-6 mb-6 bg-yellow-500 shadow-xl">
             <legend class="font-semibold">TICKETS</legend>
-            <div class="flex items-center space-x-4 ">
+            <div class="flex items-center space-x-4 flex-col-sm">
                 <label for="ticketCount" class="w-40 m-5">Nombre de tickets :</label>
                 <input type="number" id="ticketCount" name="ticketCount" class="border rounded py-1 px-2  m-5">
             </div>
             <div class="flex items-center space-x-4 ">
                 <label for="ticketCount" class="w-40 m-5">Type de tickets :</label>
-                <select id="event" name="event_title" class="w-60 border rounded py-1 px-2 mb-3">
+                <select id="event" name="type" class="w-60 border rounded py-1 px-2 mb-3">
                    
-                        <option value="">VIP</option>
-                        <option value="">REGULIER</option>
-                        <option value="">PARTICULIER</option>
+                        <option value="VIP">VIP</option>
+                        <option value="REGULIER">REGULIER</option>
+                        <option value="PARTICULIER">PARTICULIER</option>
                 </select>
             </div>
         </fieldset>
@@ -47,9 +47,9 @@
 
 <div id="previewModal" class="fixed inset-0 flex items-center justify-center hidden bg-black bg-opacity-50">
     <div class="bg-white rounded-lg p-6 w-1/2">
-        <h2 class="font-semibold text-lg mb-4">Aperçu du PDF</h2>
+        <h2 class="font-semibold text-lg mt-4">Aperçu du PDF</h2>
         <div id="previewContent " >
-            <iframe src="{{ asset('temp/ticket.pdf') }}" frameborder="0" width="100%" height="500"></iframe>
+            <iframe src="{{ asset('temp/ticket.pdf') }}" frameborder="0" width="100%" height="400"></iframe>
         </div>
         <div class="mt-4 flex justify-end">
             <button id="closePreviewButton" class="bg-gray-300 text-gray-700 rounded py-2 px-4 mr-2">Fermer</button>

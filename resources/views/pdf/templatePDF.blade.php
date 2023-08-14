@@ -66,13 +66,20 @@
             width:18px;
             height: 18px;
             border-radius:50%;
-            margin: 5px;
+            margin: 3px;
           
         }
         p{
             font-style:italic;
             color:orange;
             font-weight:bold;
+        }
+        .p-img{
+            margin:5px;
+        }
+        .place{
+            font-weight:bold;
+            color:green;
         }
       
     </style>
@@ -92,10 +99,11 @@
                     <div class="ticket">
                         <div class="left-section">
                             <!--  les autres informations du ticket -->
-                            <img src="{{public_path('foot.png')}}" alt="foot" class="foot">
-                            <p>{{$qrcode['id']}}</p>
-                            <p>{{$qrcode['event_title']}}vghfggd</p>
-                            
+                            <p class="p-img"><img src="{{public_path('foot.png')}}" alt="foot" class="foot"><em>SOKODÉ</em></p>
+                            <p>{{$qrcode['title']}}</p><br>
+                            <small>{{$qrcode['date_on']}}-{{$qrcode['start_at']}} À</small>
+                            <small>{{$qrcode['date_on']}}-{{$qrcode['start_at']}}</small><br>
+                            <small class="place">Place:{{$qrcode['type']}}</small>
                         </div>
                         <div class="right-section">
                         <img src="{{$qrcode['path'] }}" alt="QR Code" class="img-qr">
