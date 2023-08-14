@@ -10,6 +10,7 @@ use App\Http\Controllers\PayementController;
 use App\Http\Controllers\ReclamationController;
 use App\Http\Controllers\ScoreController;
 use App\Http\Controllers\TicketController;
+use App\Http\Controllers\PdfController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -28,7 +29,9 @@ Route::get('/', function () {
    return view('welcome');
 
 });
-
+//fayssol's routes
+Route::post('ticket-generate',[PdfController::class,'generate'])->name('pdf');
+//fin
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
