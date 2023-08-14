@@ -25,11 +25,11 @@ class StoreEventRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title'=>"require",
-            'description'=>"require",
-            'date_on'=>"require",
-            'start_at'=>"require",
-            'end_at'=>"require",
+            'title'=>"required",
+            'description'=>"required",
+            'date_on'=>"required",
+            'start_at'=>"required",
+            'end_at'=>"required",
             'authors'=>"nullable",
             'info_suplementaire'=>"nullable",
         ];
@@ -37,11 +37,11 @@ class StoreEventRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'title.require'=>"Un title doit être fournie",
-            'description.require'=>"Une description doit être fournie",
-            'date_on.require'=>"Une date doit être fournie pour l'evenement",
-            'start_at.require'=>"L' heure de debut doit être fournie",
-            'end_at.require'=>"L' heure de fin doit être fournie",
+            'title.required'=>"Un title doit être fournie",
+            'description.required'=>"Une description doit être fournie",
+            'date_on.required'=>"Une date doit être fournie pour l'evenement",
+            'start_at.required'=>"L' heure de debut doit être fournie",
+            'end_at.required'=>"L' heure de fin doit être fournie",
         ];
     }
 }

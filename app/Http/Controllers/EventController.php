@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreEventRequest;
 use App\Http\Requests\UpdateEventRequest;
 use App\Models\Event;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Casts\Json;
 
 class EventController extends Controller
@@ -30,16 +31,23 @@ class EventController extends Controller
      */
     public function store(StoreEventRequest $request)
     {
+
+        //dd(Auth::user()->id);
         try {
-            $info_suplementaire= new Json([]);
+            $jsonData = $request->input('info_suplementaire'); // Remplacez 'textarea_name' par le nom de votre champ textarea
+            // Convertir en JSON
+            $info_suplementaire = json_encode($jsonData);
+            // $info_suplementaire= new Json([]);
             $new_envent = new Event();
             $new_envent->title = $request->title;
             $new_envent->description = $request->description;
             $new_envent->date_on = $request->date_on;
             $new_envent->start_at = $request->start_at;
             $new_envent->end_at = $request->end_at;
+            $new_envent->nbr_participant = $request->nbr_participant;
             $new_envent->authors = $request->authors;
             $new_envent->info_suplementaire = $info_suplementaire;
+            $new_envent->user_id = Auth::user()->id;
             $new_envent->save();
         } catch (\Exception $e) {
             return $e->getMessage();
