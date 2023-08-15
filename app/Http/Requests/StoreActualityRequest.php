@@ -28,7 +28,7 @@ class StoreActualityRequest extends FormRequest
             'title' => "required|max:255|min:3",
             'message' => "required",
             'image_path' => "nullable",
-            'user_id' => "required",
+            // 'user_id' => "required",
         ];
     }
     public function messages(): array
@@ -36,7 +36,7 @@ class StoreActualityRequest extends FormRequest
         return [
             'title.required' => "Le titre doit être fournie",
             'message.required' => "Le message doit être fournie",
-            'user_id.required' => "L' id doit être fournie",
+            // 'user_id.required' => "L' id doit être fournie",
         ];
     }
 }

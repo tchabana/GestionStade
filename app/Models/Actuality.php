@@ -10,7 +10,8 @@ class Actuality extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title','message','image_path'];
+    protected $fillable = ['id','title','message','image_path', 'user_id'];
+    protected $primaryKey = 'id';
     protected $table = 'actualities';
     public function user()
     {
