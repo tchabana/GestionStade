@@ -9,7 +9,7 @@ use PDF;
 use App\Models\Event;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Illuminate\Support\Facades\File;
-
+use Illuminate\Support\Facades\Auth;
 
 class PdfController extends Controller
 {
@@ -17,7 +17,10 @@ class PdfController extends Controller
     public function generate(Request $request)
     {
         $numTickets = $request->input('ticketCount', 1);
-        $event_title = $request->input('event_title');
+        $event_title = $request->title;
+        $event = Event::all()->where('title',$event_title)->reverse()->first();
+        $user = Auth::user();
+
         $qrCodes = [];
         //vider les qrcodes
         
@@ -33,14 +36,23 @@ class PdfController extends Controller
         }
 
     
-        for ($i = 1; $i <= $numTickets; $i++) {
-            $ticketId = $i; // à revoir
+        for ($i = 0; $i < $numTickets; $i++) {
+            //$ticketId = $i; // ticket ids
+            $ticket = Ticket::create([
+                'user_id' => $user->id,
+                'event_id' => $event->id,
+            ]);
+
             $chemin = public_path('/codesQR/image_'.$i.'.svg');
             $qrCodes[] = [
-                'id' => $ticketId,
+                'id' => $ticket->id,
                 'qr_code' => QrCode::size(150)->color(255,255,255)->backgroundColor(0,0,0)->style('round',0.5)->format('svg')->generate($i,$chemin),
                 'path' => $chemin,
-                'event_title' => $event_title,
+                'title' =>  $request->title,
+                'date_on' => $event->date_on,
+                'start_at' => $event->start_at,
+                'end_at' => $event->end_at,
+                'type' =>  $request->input('type'),
             ];
         }
 
