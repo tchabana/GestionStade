@@ -14,8 +14,8 @@ class Event extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title','description','date_on','start_at','end_at','authors','user_id','participants'];
-
+    protected $fillable = ['id','title','description','date_on','start_at','end_at','authors','user_id','participants'];
+    protected $primaryKey = 'id';
     public function matche(): HasOne
     {
         return $this->hasOne(Matche::class);

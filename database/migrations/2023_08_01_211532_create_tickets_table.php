@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->bigIncrements("id");
-            $table->integer('price');
+            $table->integer('price')->nullable();
 
             $table->unsignedBigInteger('event_id');
             $table->unsignedBigInteger('user_id');
-            $table->boolean('etat');
+            $table->boolean('etat')->nullable();
  
             $table->foreign('user_id')->references('id')->on('users')->onDelete("cascade")->onUpdate("cascade");
             $table->foreign('event_id')->references('id')->on('events')->onDelete("cascade")->onUpdate("cascade");
