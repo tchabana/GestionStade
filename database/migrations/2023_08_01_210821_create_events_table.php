@@ -10,7 +10,7 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-    {
+    {//ajout des attributs: nbr_ticket_genere, status et deboubler l'attribut date
         Schema::create('events', function (Blueprint $table) {
             $table->bigIncrements("id");
             $table->string('title');
