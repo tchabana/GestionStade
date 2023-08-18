@@ -105,7 +105,7 @@ class ApiUserController extends Controller
                 'token' => $token
             ]);
         }else{
-            return response()->json(['error' => 'Unauthorized'], 401);
+            return response()->json(['error' => 'Unauthorized','status' => 401]);
         }
 
         // return $this->respondWithToken($token);
