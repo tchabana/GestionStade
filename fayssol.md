@@ -51,3 +51,15 @@ pour styliser flatpickr impoter dans votre fichier css:
 ```
 https://flatpickr.js.org/getting-started/#download-install
 ```
+# photo de profil utilisateur
+pour afficher la photo de profil, il suffit de decommenter sa ligne ds config/jetstream.php
+# systeme de réinitialisation de mdp par email
+- dans .env
+- config de gmail(imap ,2 step auth, app password)
+- ds config/mail.php
+# login avec email ou username
+- adapter la vue
+- ds config/fortify.php
+username par loginname
+- ds proverder de jetstream
+allons ds la doc de jet au niveau de authentification/Customizing The Authentication Process
