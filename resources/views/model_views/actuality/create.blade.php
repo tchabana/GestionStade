@@ -25,7 +25,7 @@
                 <div class="ims">
                     <img src="" alt="" class="img-product" id="file-preview">
                 </div>
-                <input type="file" name="image_path" accept="image/*" onchange="afficheImage(event)">
+                <input type="file" name="image_path" accept="images/*" onchange="afficheImage(event)">
             </div>
 
             <div class="groupe">

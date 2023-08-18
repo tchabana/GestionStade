@@ -27,7 +27,7 @@ class StoreActualityRequest extends FormRequest
         return [
             'title' => "required|max:255|min:3",
             'message' => "required",
-            'image_path' => "nullable",
+            'image_path' => "required|image|mimes:png,jpg,jpeg,gif,svg|max:2028",
             // 'user_id' => "required",
         ];
     }
