@@ -57,3 +57,9 @@ pour afficher la photo de profil, il suffit de decommenter sa ligne ds config/je
 - dans .env
 - config de gmail(imap ,2 step auth, app password)
 - ds config/mail.php
+# login avec email ou username
+- adapter la vue
+- ds config/fortify.php
+username par loginname
+- ds proverder de jetstream
+allons ds la doc de jet au niveau de authentification/Customizing The Authentication Process
