@@ -60,14 +60,14 @@
         }
         .img-qr{
            margin-top: 10px;
-           border:1px solid white;
+           border:1px solid black;
         }
         .foot{
             width:18px;
             height: 18px;
             border-radius:50%;
             margin: 3px;
-          
+           
         }
         p{
             font-style:italic;

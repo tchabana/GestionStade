@@ -10,6 +10,8 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.9/dist/flatpickr.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -211,7 +213,8 @@
         <div class="p-4 sm:ml-64">
             <div class="p-4 rounded-lg mt-14">
                 <main class="bg-gray-200 rounded-lg">
-                   @yield('content')
+                   
+                   {{$slot}}
                 </main>
 
                 @stack('modals')
