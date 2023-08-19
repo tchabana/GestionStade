@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreActualityRequest;
 use App\Http\Requests\UpdateActualityRequest;
 use App\Models\Actuality;
+use Illuminate\Support\Facades\Auth;
 
 class ActualityController extends Controller
 {
@@ -30,11 +31,15 @@ class ActualityController extends Controller
     public function store(StoreActualityRequest $request)
     {
         try {
+
+            $recup_image = time() . '.' . request()->image_path->getClientOriginalExtension();
+            request()->image_path->move(public_path('images'), $recup_image);
+
             $new_actu = new Actuality();
             $new_actu->title = $request->title;
             $new_actu->message = $request->message;
-            $new_actu->image_path = $request->image_path;
-            $new_actu->user_id = $request->user_id;
+            $new_actu->image_path = $request->recup_image;
+            $new_actu->user_id = Auth::user()->id;
             $new_actu->save();
         } catch (\Exception $e) {
             return $e->getMessage();
