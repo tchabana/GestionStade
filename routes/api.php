@@ -26,6 +26,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('login',[ApiUserController::class,'login'])->name('api_login');
+Route::get('todayevent',[ApiEventController::class,'todayEvent'])->name('todayevent');
+Route::get('alltiketforevent/{event_id}',[ApiTicketController::class,'allTiketForEvent'])->name('todayevent');
+Route::get('searchevent/{q}',[ApiEventController::class,'search'])->name('searchevent');
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
