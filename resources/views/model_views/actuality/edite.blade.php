@@ -1,5 +1,4 @@
-@extends('layouts.app')
-@section('content')
+<x-app-layout>
 <div class="creation">
     <!-- --------------------bouton listes des utilisateur -------------------------------- -->
         <div class="listes">
@@ -46,4 +45,4 @@
             reader.readAsDataURL(entrer.files[0]);
         }
     </script>
-@endsection
+</x-app-layout>
