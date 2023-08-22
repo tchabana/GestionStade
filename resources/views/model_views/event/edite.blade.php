@@ -1,5 +1,4 @@
-@extends('layouts.app')
-@section('content')
+<x-app-layout>
     <div class="creation">
         <div class="listes">
             <a href="{{ route('event.index') }}">Listes des evenements</a>
@@ -54,4 +53,4 @@
             </div>
         </form>
     </div>
-@endsection
+</x-app-layout>
