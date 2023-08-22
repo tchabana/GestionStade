@@ -45,7 +45,7 @@ class JetstreamServiceProvider extends ServiceProvider
         //ajouter par fayssol
         Fortify::authenticateUsing(function (Request $request) {
             $user = User::where('email', $request->loginname)->orWhere('name', $request->loginname)->first();
-    
+
             if ($user &&
                 Hash::check($request->password, $user->password)) {
                 return $user;
