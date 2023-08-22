@@ -18,7 +18,7 @@
         "vite": "^4.4.8"
     },
     "dependencies": {
-        "flowbite": "^1.8.1",
-        "flatpickr": "^4.6.13"
+        "flatpickr": "^4.6.13",
+        "flowbite": "^1.8.1"
     }
 }
