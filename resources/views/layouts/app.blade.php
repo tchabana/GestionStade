@@ -10,6 +10,8 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.9/dist/flatpickr.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -185,13 +187,7 @@
 {{-- ------------------------------------------------le content pour afficher les actions de l'administrateur------------------------------- --}}
         <div class="p-2 sm:ml-64">
             <div class="p-1 border-2 border-gray-200 border-dashed bg-green-900 rounded-lg dark:border-gray-700">
-                <main>
-                    {{ $slot }}
-                </main>
-
-                @stack('modals')
-
-                @livewireScripts
+                {{ $slot }}
             </div>
         </div>
         </nav>
