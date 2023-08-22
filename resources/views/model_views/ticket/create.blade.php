@@ -28,7 +28,6 @@
                     <div class="flex items-center space-x-4 ">
                         <label for="ticketCount" class="w-40 m-5">Type de tickets :</label>
                         <select id="event" name="type" class="w-60 border rounded py-1 px-2 mb-3">
-
                                 <option value="VIP">VIP</option>
                                 <option value="REGULIER">REGULIER</option>
                                 <option value="PARTICULIER">PARTICULIER</option>
