@@ -43,17 +43,6 @@
             </div>
 
 
-            <div id="previewModal" class="fixed inset-0 flex items-center justify-center hidden bg-black bg-opacity-50">
-                <div class="bg-white rounded-lg p-6 w-1/2">
-                    <h2 class="font-semibold text-lg mt-4">Aperçu du PDF</h2>
-                    <div id="previewContent " >
-                        <iframe src="{{ asset('temp/ticket.pdf') }}" frameborder="0" width="100%" height="400"></iframe>
-                    </div>
-                    <div class="mt-4 flex justify-end">
-                        <button id="closePreviewButton" class="bg-gray-300 text-gray-700 rounded py-2 px-4 mr-2">Fermer</button>
-                    </div>
-                </div>
-
     <!--affichage du pdf-->
     <div id="previewModal" class="fixed inset-0 flex items-center justify-center hidden bg-black bg-opacity-50">
         <div class="bg-white rounded-lg p-6 w-1/2">
@@ -64,38 +53,8 @@
             <div class="mt-4 flex justify-end">
                 <button id="closePreviewButton" class="bg-gray-300 text-gray-700 rounded py-2 px-4 mr-2">Fermer</button>
 
-            </div>
-
-            <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                const openPdfButton = document.getElementById('openPdfButton');
-                const previewModal = document.getElementById('previewModal');
-                const closePreviewButton = document.getElementById('closePreviewButton');
-                let ouvrir = {!! json_encode($reponse) !!};
-
-                if(ouvrir == true){
-                    // Afficher la fenêtre modale (popup)
-                    previewModal.classList.remove('hidden');
-                }
-
-                // openPdfButton.addEventListener('click', function() {
-                //     // Afficher la fenêtre modale (popup)
-                //     previewModal.classList.remove('hidden');
-                // });
-
-                closePreviewButton.addEventListener('click', function() {
-                    // Fermer la fenêtre modale (popup)
-                    previewModal.classList.add('hidden');
-                });
-            });
-            </script>
-            {{-- @stop --}}
-        </div>
-
-
-    </x-app-layout>
-
     </div>
+
     <!--affichage de formulaire de creation d'un event-->
     <div id="previewModal2" class="fixed inset-0 flex items-center justify-center hidden bg-black bg-opacity-50">
         <div class="bg-white rounded-lg p-6 w-1/2">
@@ -173,6 +132,8 @@
     </div>
 
 
+   
+
     <script>
         //import flatpickr from 'flatpickr';
         //formulaire event
@@ -202,6 +163,7 @@
     //creation d'un event(fermer ou ouvrir le form)
         openButton.addEventListener('click', function(){
              // Afficher la fenêtre modale (popup)
+            
              previewModal2.classList.remove('hidden');
         });
         closePreviewButton2.addEventListener('click', function() {
@@ -220,11 +182,12 @@
                eventTitle.classList.remove("hidden");
             }
         });
-
-
-
-
     </script>
 
-    {{--
-    @stop --}}
+ </div>
+
+
+    </x-app-layout>
+
+    <!-- </div> -->
+
