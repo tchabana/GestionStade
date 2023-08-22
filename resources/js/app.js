@@ -16,8 +16,7 @@ Alpine.start();
 
 const carousel = new Carousel(items, options);
 const modal = new Modal($targetEl, options);
-<<<<<<< HEAD
-=======
+
 
 /*
 * $targetEl: required
@@ -49,4 +48,3 @@ flatpickr("#to", {
     appendTo: document.getElementById('from').parentNode
 });
 
->>>>>>> main

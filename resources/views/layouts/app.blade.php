@@ -187,9 +187,7 @@
 {{-- ------------------------------------------------le content pour afficher les actions de l'administrateur------------------------------- --}}
         <div class="p-4 sm:ml-64">
             <div class="p-4 rounded-lg mt-14">
-                <main class="bg-gray-200 rounded-lg">
-                   @yield('content')
-                </main>
+                {{ $slot }}
 
                 @stack('modals')
 
