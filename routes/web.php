@@ -11,6 +11,7 @@ use App\Http\Controllers\ReclamationController;
 use App\Http\Controllers\ScoreController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\PdfController;
+use App\Http\Controllers\HomeController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -25,10 +26,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-   return view('actions_users.index');
+Route::get('/', [HomeController::class, 'index'])->name('index');
 
-});
 //fayssol's routes
 Route::post('ticket-generate',[PdfController::class,'generate'])->name('pdf');
 //fin
