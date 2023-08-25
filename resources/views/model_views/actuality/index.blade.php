@@ -10,8 +10,9 @@
         <div class="flex gap-5 flex-wrap">
             @forelse ($actuality as $actus)
                 <div class="grid grid-cols-2 w-[22rem] rounded-lg border-2 overflow-hidden">
+
                     <div class="w-xl h-[8rem] object-cover">
-                        <img class="w-full h-full" src="{{ asset('images/' . $actus->image_path) }}" alt="">
+                        <img src="{{ asset('storage/' . $actus->image_path) }}" alt="">
                     </div>
 
                     <div class="bg-red-950 ">
