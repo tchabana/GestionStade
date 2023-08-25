@@ -21,11 +21,11 @@
 
             <fieldset class="border rounded p-4 mt-6 mb-6 shadow bg-white">
                 <legend class="font-semibold">TICKETS</legend>
-                <div class="flex items-center space-x-4 flex-col-sm">
+                <div class="flex flex-row space-y-4 sm:flex-col sm:items-center sm:space-y-0 md:flex-col">
                     <label for="ticketCount" class="w-40 m-5">Nombre de tickets :</label>
                     <input type="number" id="ticketCount" name="ticketCount" class="border rounded py-1 px-2  m-5">
                 </div>
-                <div class="flex items-center space-x-4 ">
+                <div class="flex flex-row space-y-4 sm:flex-col sm:items-center sm:space-y-0">
                     <label for="ticketCount" class="w-40 m-5">Type de tickets :</label>
                     <select id="event" name="type" class="w-60 border rounded py-1 px-2 mb-3">
 
