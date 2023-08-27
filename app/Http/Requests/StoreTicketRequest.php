@@ -14,7 +14,7 @@ class StoreTicketRequest extends FormRequest
     {
         // Obtenez l'utilisateur connecté
         $user = Auth::user();
-        return auth()->check();
+        return true;
     }
 
     /**
@@ -28,6 +28,7 @@ class StoreTicketRequest extends FormRequest
             'price'=>"required|integer",
             'event_id'=>"required",
             'user_id'=>"required",
+            'etat'=>"boolean",
         ];
     }
     public function messages(): array

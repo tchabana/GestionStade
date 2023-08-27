@@ -33,7 +33,22 @@ class ApiTicketController extends Controller
      */
     public function store(StoreTicketRequest $request)
     {
-        //
+        try {
+            $tcket = new Ticket();
+            $tcket->price = $request->price;
+            $tcket->event_id = $request->event_id;
+            $tcket->user_id = $request->user_id;
+            $tcket->etat = $request->etat;
+            $tcket->save();
+            return response()->json([
+                'status' => 201,
+                'status_massage' => "Ok",
+                'data' => $tcket
+            ]);
+        } catch (\Exception $e) {
+            return response()->json($e);
+
+        }
     }
 
     /**
@@ -82,6 +97,19 @@ class ApiTicketController extends Controller
     {
         try {
             $ticket = Ticket::where('event_id', '=', $event_id )->get();
+            return response()->json([
+                'status' => 200,
+                'status_massage' => "Ok",
+                'data' => $ticket
+            ]);
+        } catch (\Exception $e) {
+            return response()->json($e);
+        }
+    }
+    public function allTiketForUser(string $user_id)
+    {
+        try {
+            $ticket = Ticket::where('user_id', '=', $user_id )->get();
             return response()->json([
                 'status' => 200,
                 'status_massage' => "Ok",

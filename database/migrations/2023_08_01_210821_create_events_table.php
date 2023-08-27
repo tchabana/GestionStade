@@ -15,12 +15,14 @@ return new class extends Migration
             $table->bigIncrements("id");
             $table->string('title');
             $table->longText('description')->nullable();
-            $table->date('date_on');
+            $table->date('date_start');
+            $table->date('date_end');
             $table->time('start_at');
             $table->time('end_at');
             $table->string('authors')->nullable();
             $table->bigInteger('nbr_participant');
-            $table->json('info_suplementaire')->nullable();
+            $table->bigInteger("nbr_ticket_gen");
+            $table->string('image_path')->nullable();
             $table->timestamps();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete("cascade")->onUpdate("cascade");

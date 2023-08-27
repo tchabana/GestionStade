@@ -23,10 +23,12 @@ class EventFactory extends Factory
             //
             'title' => $this->faker->sentence,
             'description' => $this->faker->paragraph,
-            'date_on' => $this->faker->date,
+            'date_start' => $this->faker->date,
+            'date_end' => $this->faker->date,
             'start_at' => $this->faker->time('H:i'),
             'end_at' => $this->faker->time('H:i'),
             'authors' => $this->faker->name,
+            'nbr_ticket_gen' => $this->faker->numberBetween(100,800),
             'nbr_participant' => $this->faker->numberBetween(100,800),
         ];
     }
