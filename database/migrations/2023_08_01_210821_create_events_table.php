@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('authors')->nullable();
             $table->bigInteger('nbr_participant');
             $table->bigInteger("nbr_ticket_gen");
+            $table->bigInteger('nbr_likes');
             $table->string('image_path')->nullable();
             $table->timestamps();
             $table->unsignedBigInteger('user_id');

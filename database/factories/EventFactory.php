@@ -30,6 +30,7 @@ class EventFactory extends Factory
             'authors' => $this->faker->name,
             'nbr_ticket_gen' => $this->faker->numberBetween(100,800),
             'nbr_participant' => $this->faker->numberBetween(100,800),
+            'nbr_likes'=> $this->faker->numberBetween(100,800),
         ];
     }
 }
