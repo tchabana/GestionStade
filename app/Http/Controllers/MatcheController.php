@@ -45,8 +45,8 @@ class MatcheController extends Controller
             $new_envent->save();
             // Creation du matche
             $new_matche = new Matche();
-            $new_matche->equipe1_id = $request->equipe1_id;
-            $new_matche->equipe2_id = $request->equipe2_id;
+            $new_matche->equipe1_name = $request->equipe1_name;
+            $new_matche->equipe2_name = $request->equipe2_name;
             $new_matche->event_id = $new_envent->id;
             $new_matche->save();
         } catch (\Exception $e) {

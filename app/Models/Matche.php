@@ -13,7 +13,7 @@ class Matche extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['equipe1_id','equipe2_id','event_id'];
+    protected $fillable = ['equipe1_name','equipe2_name','event_id'];
 
     public function score(): HasOne
     {

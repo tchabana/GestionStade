@@ -2,19 +2,20 @@
     <div class="creation">
         <!-- --------------------bouton listes des utilisateur -------------------------------- -->
         <div class="listes">
-            <a href="#">Listes des utilisateurs</a>
+            <a href="{{ route('matche.index') }}">Listes des utilisateurs</a>
         </div>
 
         <hr class="bars">
         <!-- -------------------------formulaires ---------------------------------------------- -->
-        <form action="">
+        <form action="{{ route('matche.store') }}" method="post">
+            @csrf
             <div class="groupe">
                 <label for="">Nom_equipe1 : </label>
-                <input type="text" name="">
+                <input type="text" name="equipe1_name">
             </div>
             <div class="groupe">
                 <label for="">Nom_equipe2 : </label>
-                <input type="text" name="">
+                <input type="text" name="equipe2_name">
             </div>
 
             <div class="groupe">
@@ -23,3 +24,4 @@
         </form>
     </div>
 </x-app-layout>
+
