@@ -44,9 +44,34 @@
                 <input type="number" name="nbr_participant">
             </div>
 
-            <div class="groupe">
+            {{-- <div class="groupe">
                 <label for="">Info supplementaire : </label>
                 <textarea name="info_suplementaire" id="" cols="30" rows="10"></textarea>
+            </div> --}}
+
+            <div class="groupe">
+                <label for="">Options</label>
+                <div class="flex gap-8 mt-4">
+                    <div>
+                        <small class="bg-gray-600 hover:bg-gray-500 cursor-pointer rounded-md p-2 text-white">Matche</small>
+                    </div>
+
+                    <div>
+                        <small class="bg-gray-600 hover:bg-gray-500 cursor-pointer rounded-md p-2 text-white">Autres</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="equipe">
+                <div class="groupe">
+                    <label for="">equipe_1 : </label>
+                    <input type="text" name="">
+                </div>
+
+                <div class="groupe">
+                    <label for="">equipe_2 : </label>
+                    <input type="text" name="authors">
+                </div>
             </div>
 
             <div class="groupe">

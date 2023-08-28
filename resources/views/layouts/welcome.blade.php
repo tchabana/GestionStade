@@ -157,7 +157,7 @@
         </div>
         {{-- pour animer le changment  --}}
 
-        <main>
+        <main class="mt-8">
             @yield('appli')
         </main>
 

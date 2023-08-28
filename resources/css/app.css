@@ -108,5 +108,15 @@ button .icon-acc{
     @apply mt-36 w-52
 }
 
+/* -----------------------------iconn------------------------------------------------ */
+
+.dimitrio{
+    border-top-left-radius: 150px;
+    border-top-right-radius: 15px;
+    transform: rotate(270deg);
+}
+.dims{
+    border-bottom-right-radius: 15px;
+}
 
 
