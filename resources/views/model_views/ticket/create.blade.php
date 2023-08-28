@@ -24,13 +24,14 @@
                     <input type="number" id="ticketCount" name="ticketCount" class="border rounded m-5 w-1/2">
                 </div>
                 <div class="flex flex-col items-center ">
-                    <label for="ticketCount" class="w-40 mb-4">Type de tickets :</label>
-                    <select id="event" name="type" class="border rounded w-1/2">
+                    <label for="ticketCount" class="w-40 mb-4">Prix de tickets :</label>
+                    <input type="number" id="event" name="price" class="border rounded w-1/2">
+                    <!-- <select id="event" name="type" class="border rounded w-1/2">
 
                             <option value="VIP">VIP</option>
                             <option value="REGULIER">REGULIER</option>
                             <option value="PARTICULIER">PARTICULIER</option>
-                    </select>
+                    </select> -->
                 </div>
             </fieldset>
             <div class="flex space-x-6 ">

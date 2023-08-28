@@ -101,9 +101,9 @@
                             <!--  les autres informations du ticket -->
                             <p class="p-img"><img src="{{public_path('foot.png')}}" alt="foot" class="foot"><em>SOKODÉ</em></p>
                             <p>{{$qrcode['title']}}</p><br>
-                            <small>{{$qrcode['date_on']}}-{{$qrcode['start_at']}} À</small>
-                            <small>{{$qrcode['date_on']}}-{{$qrcode['start_at']}}</small><br>
-                            <small class="place">Place:{{$qrcode['type']}}</small>
+                            <small>{{$qrcode['date_start']}}-{{$qrcode['start_at']}} À</small>
+                            <small>{{$qrcode['date_end']}}-{{$qrcode['end_at']}}</small><br>
+                            <small class="place">Prix:{{$qrcode['price']}}</small>
                         </div>
                         <div class="right-section">
                         <img src="{{$qrcode['path'] }}" alt="QR Code" class="img-qr">
