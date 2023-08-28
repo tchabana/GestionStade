@@ -7,7 +7,7 @@
 
         <hr class="bars">
         <!-- -------------------------formulaires ---------------------------------------------- -->
-        <form action="{{ route('event.store') }}" method="post">
+        <form action="{{ route('other.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="groupe">
                 <label for="">Title : </label>
@@ -20,8 +20,13 @@
             </div>
 
             <div class="groupe">
-                <label for="">Date_on : </label>
-                <input type="date" name="date_on" id="">
+                <label for="">Date_start : </label>
+                <input type="date" name="date_start" id="">
+            </div>
+
+            <div class="groupe">
+                <label for="">Date_end : </label>
+                <input type="date" name="date_end" id="">
             </div>
 
             <div class="groupe">
@@ -44,39 +49,33 @@
                 <input type="number" name="nbr_participant">
             </div>
 
+            <div class="groupe">
+                <label for="" class="mb-4">Image</label>
+                <div class="ims">
+                    <img src="" alt="" class="img-product" id="file-preview">
+                </div>
+                <input type="file" name="image_path" accept="images/*" onchange="afficheImage(event)">
+            </div>
+
             {{-- <div class="groupe">
                 <label for="">Info supplementaire : </label>
                 <textarea name="info_suplementaire" id="" cols="30" rows="10"></textarea>
             </div> --}}
-
-            <div class="groupe">
-                <label for="">Options</label>
-                <div class="flex gap-8 mt-4">
-                    <div>
-                        <small class="bg-gray-600 hover:bg-gray-500 cursor-pointer rounded-md p-2 text-white">Matche</small>
-                    </div>
-
-                    <div>
-                        <small class="bg-gray-600 hover:bg-gray-500 cursor-pointer rounded-md p-2 text-white">Autres</small>
-                    </div>
-                </div>
-            </div>
-
-            <div class="equipe">
-                <div class="groupe">
-                    <label for="">equipe_1 : </label>
-                    <input type="text" name="">
-                </div>
-
-                <div class="groupe">
-                    <label for="">equipe_2 : </label>
-                    <input type="text" name="authors">
-                </div>
-            </div>
-
             <div class="groupe">
                 <button type="submit">Valider</button>
             </div>
         </form>
     </div>
+    <script>
+        function afficheImage(event){
+            let entrer = event.target;
+            let reader = new FileReader();
+            reader.onload = function(){
+                let dataUrl = reader.result;
+                let output = document.getElementById('file-preview');
+                output.src = dataUrl;
+            };
+            reader.readAsDataURL(entrer.files[0]);
+        }
+    </script>
 </x-app-layout>
