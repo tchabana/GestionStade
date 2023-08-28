@@ -15,7 +15,7 @@ return new class extends Migration
             $table->bigIncrements("id");
             $table->string('designation');
             $table->unsignedBigInteger('event_id');
-            $table->json('info_suplementaire')->nullable();
+            //$table->json('info_suplementaire')->nullable();
             $table->timestamps();
             $table->foreign('event_id')->references('id')->on('events')->onDelete("cascade")->onUpdate("cascade");
             
