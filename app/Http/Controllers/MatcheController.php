@@ -6,7 +6,9 @@ use App\Http\Requests\StoreMatcheRequest;
 use App\Http\Requests\UpdateMatcheRequest;
 use App\Models\Event;
 use App\Models\Matche;
+use App\Models\Score;
 use Illuminate\Database\Eloquent\Casts\Json;
+use Illuminate\Support\Facades\Auth;
 
 class MatcheController extends Controller
 {
@@ -31,23 +33,38 @@ class MatcheController extends Controller
      */
     public function store(StoreMatcheRequest $request)
     {
+        //dd($request->file('image_path'));
         try {
+            $path = $request->file('image_path')->store('public/images');
+            //explode pour séparer
+            $path_str = explode('/', $path);
+            $path_str = array_slice($path_str, 1, count($path_str));
+            $path = implode('/', $path_str);
+            //implode pour convertir le tableau en chaîne
+            $request->image_path = $path;
             // Creation de l'event du matche
-            $info_suplementaire= new Json([]);
             $new_envent = new Event();
             $new_envent->title = $request->title;
             $new_envent->description = $request->description;
-            $new_envent->date_on = $request->date_on;
+            $new_envent->date_start = $request->date_start;
+            $new_envent->date_end = $request->date_end;
             $new_envent->start_at = $request->start_at;
             $new_envent->end_at = $request->end_at;
+            $new_envent->nbr_participant = $request->nbr_participant;
             $new_envent->authors = $request->authors;
-            $new_envent->info_suplementaire = $info_suplementaire;
+            $new_envent->user_id = Auth::user()->id;
+            $new_envent->image_path = $path;
             $new_envent->save();
+            // Creation du score
+            $new_score = new Score();
+            $new_score->save();
+            
             // Creation du matche
             $new_matche = new Matche();
             $new_matche->equipe1_name = $request->equipe1_name;
             $new_matche->equipe2_name = $request->equipe2_name;
             $new_matche->event_id = $new_envent->id;
+            $new_matche->score_id = $new_score->id;
             $new_matche->save();
         } catch (\Exception $e) {
             return $e->getMessage();

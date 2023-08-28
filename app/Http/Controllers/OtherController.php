@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateOtherRequest;
 use App\Models\Event;
 use App\Models\Other;
 use Illuminate\Database\Eloquent\Casts\Json;
+use Illuminate\Support\Facades\Auth;
 
 class OtherController extends Controller
 {
@@ -33,26 +34,35 @@ class OtherController extends Controller
     {
         try {
             // Creation de l'event du matche
-            $info_suplementaire= new Json([]);
+            $path = $request->file('image_path')->store('public/images');
+            //explode pour séparer
+            $path_str = explode('/', $path);
+            $path_str = array_slice($path_str, 1, count($path_str));
+            $path = implode('/', $path_str);
+            //implode pour convertir le tableau en chaîne
+            $request->image_path = $path;
+            // Creation de l'event du matche
             $new_envent = new Event();
             $new_envent->title = $request->title;
             $new_envent->description = $request->description;
-            $new_envent->date_on = $request->date_on;
+            $new_envent->date_start = $request->date_start;
+            $new_envent->date_end = $request->date_end;
             $new_envent->start_at = $request->start_at;
             $new_envent->end_at = $request->end_at;
+            $new_envent->nbr_participant = $request->nbr_participant;
             $new_envent->authors = $request->authors;
-            $new_envent->info_suplementaire = $info_suplementaire;
+            $new_envent->user_id = Auth::user()->id;
+            $new_envent->image_path = $path;
             $new_envent->save();
-            // Creation du matche
+            // Creation du Other
             $new_other = new Other();
             $new_other->designation = $request->designation;
-            $new_other->info_suplementaire = $info_suplementaire;
             $new_other->event_id = $new_envent->id;
             $new_other->save();
         } catch (\Exception $e) {
             return $e->getMessage();
         }
-        return view('model_views.other.index', ['others' => Other::paginate(10), 'controller_methode' => "store"]);
+        return view('model_views.event.index', ['events' => Event::paginate(10), 'controller_methode' => "store"]);
     }
 
     /**

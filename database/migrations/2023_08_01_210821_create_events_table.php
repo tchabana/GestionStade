@@ -21,9 +21,9 @@ return new class extends Migration
             $table->time('end_at');
             $table->string('authors')->nullable();
             $table->bigInteger('nbr_participant');
-            $table->bigInteger("nbr_ticket_gen_local");
-            $table->bigInteger("nbr_ticket_gen_online");
-            $table->bigInteger('nbr_likes');
+            $table->bigInteger("nbr_ticket_gen_local")->default(0);
+            $table->bigInteger("nbr_ticket_gen_online")->default(0);
+            $table->bigInteger('nbr_likes')->default(0);
             $table->string('image_path')->nullable();
             $table->timestamps();
             $table->unsignedBigInteger('user_id');
