@@ -118,7 +118,7 @@ class ApiEventController extends Controller
     {
         try {
             // Récupérez tous les événements dont la date de déroulement est aujourd'hui
-            $eventsToday = Event::whereDate('date_on', '=', now()->toDateString())->get();
+            $eventsToday = Event::whereDate('date_start', '=', now()->toDateString())->get();
             return response()->json([
                 'status' => 200,
                 'status_massage' => "Ok",

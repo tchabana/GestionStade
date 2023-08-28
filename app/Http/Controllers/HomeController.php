@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Actuality;
 use App\Models\Event;
+use App\Models\Matche;
 
 use Illuminate\Http\Request;
 
@@ -14,9 +15,10 @@ class HomeController extends Controller
     public function index()
     {
         //
-        $actualite = Actuality::paginate(10);
-        $eventes = Event::paginate(10);
-        return view('actions_users.index',compact(['actualite', 'eventes']));
+        $actualite = Actuality::paginate(8);
+        $eventes = Event::paginate(8);
+        $matches = Matche::paginate(8);
+        return view('actions_users.index',compact(['actualite', 'eventes', 'matches']));
     }
 
     /**

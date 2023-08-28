@@ -25,9 +25,9 @@ class StoreOtherRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'designation' => "required|min:4|max:255",
-            'event_id' => "required",
-            'info_suplementaire' => "required|json",
+            //'designation' => "required|min:4|max:255",
+            //'event_id' => "required",
+            //'info_suplementaire' => "required|json",
         ];
     }
     public function messages(): array

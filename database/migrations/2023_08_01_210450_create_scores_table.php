@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('scores', function (Blueprint $table) {
             $table->id();
-            $table->integer("equipe1_goal")->nullable();
-            $table->integer("equipe2_goal")->nullable();
+            $table->integer("equipe1_goal")->default(0);
+            $table->integer("equipe2_goal")->default(0);
             $table->timestamps();
         });
     }

@@ -25,17 +25,17 @@ class StoreMatcheRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'equipe1_id'=>'required',
-            'equipe2_id'=>'required',
-            'event_id'=>'required',
+            'equipe1_name'=>'required',
+            'equipe2_name'=>'required',
+            //'event_id'=>'required',
         ];
     }
     public function messages(): array
     {
         return [
-            'event_id.require'=>"L' event_id doit être fournie",
-            'equipe1_id.integer' => "L' equipe1_id doit être fournie",
-            'equipe2_id.integer' => "L' equipe2_id doit être fournie",
+            'equipe1_name.require'=>"L' event_id doit être fournie",
+            'equipe2_name.integer' => "L' equipe1_id doit être fournie",
+            //'equipe2_id.integer' => "L' equipe2_id doit être fournie",
         ];
     }
 }

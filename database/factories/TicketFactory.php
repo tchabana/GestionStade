@@ -25,6 +25,7 @@ class TicketFactory extends Factory
         return [
             'price' => $this->faker->numberBetween(300,600),
             'etat' => $this->faker->randomElement(['true','false']),
+            'used' => $this->faker->randomElement(['true','false']),
             'event_id'  => $this->faker->numberBetween(1,$eventIDs),
             'user_id'  => $this->faker->randomElement($clientIDs),
         ];

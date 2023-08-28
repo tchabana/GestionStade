@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('payements', function (Blueprint $table) {
             $table->bigIncrements("id");
             $table->unsignedBigInteger('ticket_id');
-            $table->json('info_suplementaire');
+            //$table->json('info_suplementaire');
             
             $table->timestamps();
             $table->foreign('ticket_id')->references('id')->on('tickets')->onDelete("cascade")->onUpdate("cascade");
