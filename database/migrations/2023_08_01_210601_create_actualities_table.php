@@ -15,7 +15,7 @@ return new class extends Migration
             $table->bigIncrements("id");
             $table->string('title');
             $table->mediumText('message');
-            $table->string('image_path');
+            $table->string('image_path')->nullable();
 
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
