@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('others', function (Blueprint $table) {
             $table->bigIncrements("id");
-            $table->string('designation');
+            $table->string('designation')->nullable();
             $table->unsignedBigInteger('event_id');
             //$table->json('info_suplementaire')->nullable();
             $table->timestamps();

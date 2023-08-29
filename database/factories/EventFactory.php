@@ -28,9 +28,11 @@ class EventFactory extends Factory
             'start_at' => $this->faker->time('H:i'),
             'end_at' => $this->faker->time('H:i'),
             'authors' => $this->faker->name,
-            'nbr_ticket_gen' => $this->faker->numberBetween(100,800),
+            'nbr_ticket_gen_local' => $this->faker->numberBetween(100,800),
+            'nbr_ticket_gen_online' => $this->faker->numberBetween(100,800),
             'nbr_participant' => $this->faker->numberBetween(100,800),
             'nbr_likes'=> $this->faker->numberBetween(100,800),
+           
         ];
     }
 }

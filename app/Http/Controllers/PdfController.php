@@ -41,18 +41,38 @@ class PdfController extends Controller
             $ticket = Ticket::create([
                 'user_id' => $user->id,
                 'event_id' => $event->id,
+                'price' => $request->input('price'),
             ]);
+             // Mettre à jour le compteur dans l'événement associé
+            $event->nbr_ticket_gen_local = $event->nbr_ticket_gen_local + 1;
+            $event->save();
+
 
             $chemin = public_path('/codesQR/image_'.$i.'.svg');
-            $qrCodes[] = [
-                'id' => $ticket->id,
-                'qr_code' => QrCode::size(150)->color(255,255,255)->backgroundColor(0,0,0)->style('round',0.5)->format('svg')->generate($i,$chemin),
-                'path' => $chemin,
+            //ajout des data de ticket
+            $ticketData = [
+                'ticket_id' => $ticket->id,
+                'event_id' => $event->id,
                 'title' =>  $request->title,
-                'date_on' => $event->date_on,
+                'date_start' => $event->date_start,
+                'date_end' => $event->date_end,
                 'start_at' => $event->start_at,
                 'end_at' => $event->end_at,
-                'type' =>  $request->input('type'),
+                'price' =>  $ticket->price,
+            ];
+            $jsonData = json_encode($ticketData);
+            $qrCodes[] = [
+                'path' => $chemin,
+                'ticket_id' => $ticket->id,
+                'event_id' => $event->id,
+                'title' =>  $request->title,
+                'date_start' => $event->date_start,
+                'date_end' => $event->date_end,
+                'start_at' => $event->start_at,
+                'end_at' => $event->end_at,
+                'price' =>  $ticket->price,
+                'qr_code' => QrCode::size(150)->color(255,255,255)->backgroundColor(0,0,0)->style('round',0.5)->format('svg')->generate($jsonData,$chemin),
+                
             ];
         }
 
