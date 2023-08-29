@@ -43,6 +43,10 @@ class PdfController extends Controller
                 'event_id' => $event->id,
                 'price' => $request->input('price'),
             ]);
+             // Mettre à jour le compteur dans l'événement associé
+            $event->nbr_ticket_gen_local = $event->nbr_ticket_gen_local + 1;
+            $event->save();
+
 
             $chemin = public_path('/codesQR/image_'.$i.'.svg');
             //ajout des data de ticket
