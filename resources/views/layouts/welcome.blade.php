@@ -19,7 +19,7 @@
             'resources/js/app.js',
         ])
     </head>
-    <body class="antialiased bg-gray-300">
+    <body class="antialiased">
 
         {{-- -----navbar---------------- --}}
 

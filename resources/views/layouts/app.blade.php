@@ -211,7 +211,7 @@
         </aside>
 {{-- ------------------------------------------------le content pour afficher les actions de l'administrateur------------------------------- --}}
         <div class="p-2 sm:ml-64">
-            <div class="p-1 border-2 border-gray-200 border-dashed bg-green-900 rounded-lg dark:border-gray-700">
+            <div class="p-1 lg:border-2 border-gray-200 border-dashe rounded-lg dark:border-gray-700">
                 {{ $slot }}
             </div>
         </div>

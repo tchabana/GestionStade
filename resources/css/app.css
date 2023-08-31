@@ -93,7 +93,7 @@ button .icon-acc{
     @apply h-10 outline-none border-0 bg-gray-200 resize-none rounded-lg
 }
 .groupe .ims{
-    @apply  h-20 w-20 rounded-lg  object-cover overflow-hidden mb-2
+    @apply  h-40 w-40 rounded-lg  object-cover overflow-hidden mb-2
 }
 
 .groupe .ims img{
