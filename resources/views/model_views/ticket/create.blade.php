@@ -35,10 +35,7 @@
                 </div>
             </fieldset>
             <div class="flex space-x-6 ">
-
                 <button type="submit" class="mt-4 bg-blue-500 text-white rounded py-2 px-4 hover:bg-blue-600" id="generateButton">Générer</button>
-
-
             </div>
 
 
@@ -51,6 +48,8 @@
             </div>
             <div class="mt-4 flex justify-end">
                 <button id="closePreviewButton" class="bg-gray-300 text-gray-700 rounded py-2 px-4 mr-2">Fermer</button>
+            </div>
+        </div>
 
     </div>
 
@@ -62,7 +61,7 @@
         const openPdfButton = document.getElementById('openPdfButton');
         const previewModal = document.getElementById('previewModal');
         const closePreviewButton = document.getElementById('closePreviewButton');
-        const closePreviewButton2 = document.getElementById('closePreviewButton2');
+        //const closePreviewButton2 = document.getElementById('closePreviewButton2');
         let ouvrir = {!! json_encode($reponse) !!};//depuis php pour s'assurer que les tickets sont deja generer
     //ouvrir ou fermer la fenetre d'aperçu des tickets
         if(ouvrir == true){
@@ -81,5 +80,5 @@
 
     </x-app-layout>
 
-    <!-- </div> -->
+   
 
