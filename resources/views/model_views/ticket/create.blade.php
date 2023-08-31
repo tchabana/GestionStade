@@ -51,7 +51,8 @@
             </div>
             <div class="mt-4 flex justify-end">
                 <button id="closePreviewButton" class="bg-gray-300 text-gray-700 rounded py-2 px-4 mr-2">Fermer</button>
-
+            </div>
+        </div>
     </div>
 
 
@@ -71,6 +72,7 @@
         }
         closePreviewButton.addEventListener('click', function() {
             // Fermer la fenêtre modale (popup)
+            console.log("fermer");
             previewModal.classList.add('hidden');
             window.history.back();
         });
