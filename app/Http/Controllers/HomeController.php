@@ -43,6 +43,8 @@ class HomeController extends Controller
     public function show(string $id)
     {
         //
+        $actualite = Actuality::find($id);
+        return view('actions_users.show',compact(['actualite']));
     }
 
     /**

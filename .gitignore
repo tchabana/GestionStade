@@ -17,7 +17,7 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
-/public/codesQR
-/public/images
-/public/temp
+public/codesQR
+public/images
+public/temp
 
