@@ -1,7 +1,7 @@
 <x-app-layout>
 
     <div class="container mx-auto p-6 bg-gray-300">
-        <form method="post" action="{{route('pdf')}}">
+        <form method="post" action="{{route('pdf')}}" id="myForm">
             @csrf
             <fieldset class="border rounded p-4 mb-6 shadow-lg bg-white">
                 <legend class="font-semibold">EVENEMENTS</legend>
@@ -72,6 +72,17 @@
             console.log("fermer");
             previewModal.classList.add('hidden');
             window.history.back();
+        });
+
+        document.getElementById("generateButton").addEventListener("click", function(event) {
+            var userConfirmation = confirm("Êtes-vous sûr de vouloir générer ?");
+
+            if (!userConfirmation) {
+                event.preventDefault(); // Annule la soumission du formulaire
+            } else {
+                // Le formulaire sera soumis normalement
+                document.getElementById("myForm").submit();
+            }
         });
     </script>
 
