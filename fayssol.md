@@ -63,3 +63,5 @@ pour afficher la photo de profil, il suffit de decommenter sa ligne ds config/je
 username par loginname
 - ds proverder de jetstream
 allons ds la doc de jet au niveau de authentification/Customizing The Authentication Process
+
+status,confirmation,nbre de ticket local
