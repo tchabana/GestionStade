@@ -20,28 +20,28 @@
                     <thead class="text-xs uppercase bg-green-900 text-white">
                         <tr>
                             <th scope="col" class="px-6 py-3 text-center">
-                                Titre
+                                TITRE
                             </th>
                             <th scope="col" class="px-6 py-3 text-center">
-                                Description
+                                DESCRIPTION
                             </th>
                             <th scope="col" class="px-6 py-3 text-center">
-                                Dates_prévus
+                                Date && Heure DÉBUT
                             </th>
                             <th scope="col" class="px-6 py-3 text-center">
-                                Start_at
-                            </th>
-                            <th scope="col" class="px-6 py-3 text-center">
-                                End_at
+                                Date && HEURE FIN
                             </th>
                             <th scope="col" class="px-6 py-3 text-center">
                                 Nbr <br> participants
                             </th>
                             <th scope="col" class="px-6 py-3 text-center">
-                                Authores
+                                AUTEURS
                             </th>
                             <th scope="col" class="px-6 py-3 text-center">
-                                Info_supplementaire
+                                STATUS
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-center">
+                                NBRE GÉNÉRÉ DE TICKETS
                             </th>
 
                             <th scope="col" class="px-6 py-3">
@@ -62,13 +62,10 @@
                                     {{ $even->description }}
                                 </td>
                                 <td class="px-6 py-4 text-center">
-                                    {{ $even->date_on }}
+                                    {{ $even->date_start.' '.$even->start_at }}
                                 </td>
                                 <td class="px-6 py-4 text-center">
-                                    {{ $even->start_at }}
-                                </td>
-                                <td class="px-6 py-4 text-center">
-                                    {{ $even->end_at }}
+                                {{ $even->date_end.' '.$even->end_at }}
                                 </td>
                                 <td class="px-6 py-4 text-center">
                                     {{ $even->nbr_participant }}
@@ -77,7 +74,10 @@
                                     {{ $even->authors }}
                                 </td>
                                 <td class="px-6 py-4 text-center">
-                                    {{ $even->info_suplementaire }}
+                                   {!! $even->status() !!}
+                                </td>
+                                <td class="px-6 py-4 text-center">
+                                    {{$even->nbr_ticket_gen_local + $even->nbr_ticket_gen_online}}
                                 </td>
                                 <td class="px-6 py-4 ">
                                     <small class="deux"><a href="{{ route('event.edit', $even) }}">
