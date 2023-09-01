@@ -26,13 +26,10 @@
                                 DESCRIPTION
                             </th>
                             <th scope="col" class="px-6 py-3 text-center">
-                                DATES PRÉVUES
+                                Date && Heure DÉBUT
                             </th>
                             <th scope="col" class="px-6 py-3 text-center">
-                                Heure DÉBUT
-                            </th>
-                            <th scope="col" class="px-6 py-3 text-center">
-                                HEURE FIN
+                                Date && HEURE FIN
                             </th>
                             <th scope="col" class="px-6 py-3 text-center">
                                 Nbr <br> participants
@@ -65,13 +62,10 @@
                                     {{ $even->description }}
                                 </td>
                                 <td class="px-6 py-4 text-center">
-                                    {{ $even->date_on }}
+                                    {{ $even->date_start.' '.$even->start_at }}
                                 </td>
                                 <td class="px-6 py-4 text-center">
-                                    {{ $even->start_at }}
-                                </td>
-                                <td class="px-6 py-4 text-center">
-                                    {{ $even->end_at }}
+                                {{ $even->date_end.' '.$even->end_at }}
                                 </td>
                                 <td class="px-6 py-4 text-center">
                                     {{ $even->nbr_participant }}
@@ -80,7 +74,7 @@
                                     {{ $even->authors }}
                                 </td>
                                 <td class="px-6 py-4 text-center">
-                                   terminé
+                                   {!! $even->status() !!}
                                 </td>
                                 <td class="px-6 py-4 text-center">
                                     {{$even->nbr_ticket_gen_local + $even->nbr_ticket_gen_online}}
