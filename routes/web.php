@@ -54,3 +54,7 @@ Route::resources([
     "score"=>ScoreController::class,
     "ticket"=>TicketController::class,
 ]);
+
+//hafiz
+Route::get('todayevent',[EventController::class,'todayEvent'])->name('todayevent');
+Route::get('alltiketforevent/{event_id}',[TicketController::class,'allTiketForEvent'])->name('alltiketforevent');

@@ -17,7 +17,7 @@ class Matche extends Model
 
     public function score(): HasOne
     {
-        return $this->hasOne(Score::class);
+        return $this->hasOne(Score::class,'id');
     }
 
     public function event(): BelongsTo

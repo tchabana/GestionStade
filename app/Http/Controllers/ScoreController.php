@@ -53,7 +53,10 @@ class ScoreController extends Controller
      */
     public function update(UpdateScoreRequest $request, Score $score)
     {
-        //
+        $score->equipe1_goal = $request->equipe1_goles;
+        $score->equipe2_goal = $request->equipe2_goles;
+        $score->save();
+        return back();
     }
 
     /**

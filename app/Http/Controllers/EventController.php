@@ -97,4 +97,27 @@ class EventController extends Controller
         $event->delete();
         return view('model_views.event.index', ['events' => Event::paginate(10), 'controller_methode' => "destroy"]);
     }
+    public function todayEvent()
+    {
+        try {
+            // Récupérez tous les événements dont la date de déroulement est aujourd'hui
+            $eventsToday = Event::whereDate('date_start', '=', now()->toDateString())->get();
+            return view("model_views.event.todayevent",["eventstoday"=>$eventsToday]);
+        } catch (\Exception $ex) {
+            return response()->json($ex);
+        }
+    }
+    public function search(String $q)
+    {
+        try {
+            $event = Event::where('title', 'like', '%' . $q . '%')->orWhere('description', 'like', '%' . $q . '%')->get();
+            return response()->json([
+                'status' => 200,
+                'status_massage' => "Ok",
+                'data' => $event
+            ]);
+        } catch (\Exception $ex) {
+            return response()->json($ex);
+        }
+    }
 }
