@@ -37,3 +37,7 @@ dans : resources/views/
 <x-app-layout>
 
 </x-app-layout>
+
+
+
+```

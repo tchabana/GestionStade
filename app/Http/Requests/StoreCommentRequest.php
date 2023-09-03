@@ -26,8 +26,8 @@ class StoreCommentRequest extends FormRequest
     {
         return [
             'message'=>"required|min:1",
-            'event_id'=>"required",
-            'user_id'=>"required",
+            'event_id'=>"required"
+            // 'user_id'=>"required",
         ];
     }
     public function messages(): array
@@ -35,7 +35,7 @@ class StoreCommentRequest extends FormRequest
         return [
             'event_id.required' => "Le event_id doit être fournie",
             'message.required' => "Le message doit être fournie",
-            'user_id.required' => "L' user_id doit être fournie",
+            //'user_id.required' => "L' user_id doit être fournie",
         ];
     }
 }
