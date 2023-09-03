@@ -18,3 +18,4 @@ Travaille du 3 aout 2023
     COnfiguration de jetstream :
     	1- dans le ficher config/jetstream.php plusieur variable son diponible pour configurer le fonctionnement de Jetstrem
     	2- le ficher app/Providers/FortifyServiceProvider.php permet de couper la possibiliter de connexion pendant un temps donne apres 5 movaise tentative de connexion
+### Sys de paiement par paygate[https://www.paygateglobal.com/]

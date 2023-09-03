@@ -14,6 +14,6 @@ class Score extends Model
 
     public function matche(): BelongsTo
     {
-        return $this->belongsTo(Matche::class);
+        return $this->belongsTo(Matche::class,'id');
     }
 }

@@ -71,4 +71,17 @@ class TicketController extends Controller
     {
         //
     }
+    public function allTiketForEvent(string $event_id)
+    {
+        try {
+            $ticket = Ticket::where('event_id', '=', $event_id )->get();
+            return response()->json([
+                'status' => 200,
+                'status_massage' => "Ok",
+                'data' => $ticket
+            ]);
+        } catch (\Exception $e) {
+            return response()->json($e);
+        }
+    }
 }

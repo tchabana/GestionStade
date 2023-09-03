@@ -64,7 +64,7 @@
                 <img alt="team" class="flex-shrink-0 rounded-lg w-full h-56 object-cover object-center mb-4" src="{{ asset('storage/' . $even->image_path) }}">
 
                 <div class="w-full">
-                <h2 class="title-font font-medium text-lg text-gray-900">{{$even->matche->equipe1_name}} <strong class="text-red-500 text-2xl"> vs </strong> {{$even->matche->equipe2_name}}</h2>
+                <h2 class="title-font font-medium text-lg text-gray-900">{{$even->matche!==null?$even->matche->equipe1_name:""}} <strong class="text-red-500 text-2xl"> vs </strong> {{$even->matche!==null?$even->matche->equipe2_name:""}}</h2>
                 <h3 class="mb-3 text-green-500">Stade Municipal</h3>
                 <div class="flex items-center text-red-600 justify-center gap-10">
                     <h1>Dt: {{ $even->start_at }}</h1>

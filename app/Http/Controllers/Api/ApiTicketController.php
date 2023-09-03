@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreTicketRequest;
 use App\Http\Requests\UpdateTicketRequest;
+use App\Models\Event;
 use App\Models\Ticket;
 
 class ApiTicketController extends Controller
@@ -40,6 +41,9 @@ class ApiTicketController extends Controller
             $tcket->user_id = $request->user_id;
             $tcket->etat = $request->etat;
             $tcket->save();
+            $event = Event::find($tcket->event_id);
+            $event->nbr_ticket_gen_online = $event->nbr_ticket_gen_online + 1;
+            $event->save();
             return response()->json([
                 'status' => 201,
                 'status_massage' => "Ok",
@@ -74,7 +78,21 @@ class ApiTicketController extends Controller
      */
     public function update(UpdateTicketRequest $request, Ticket $ticket)
     {
-        //
+        try {
+            $ticket->price = $request->price;
+            $ticket->event_id = $request->event_id;
+            $ticket->user_id = $request->user_id;
+            $ticket->etat = $request->etat;
+            $ticket->save();
+            return response()->json([
+                'status' => 200,
+                'status_massage' => "Ok",
+                'data' => $ticket
+            ]);
+        } catch (\Exception $e) {
+            return response()->json($e);
+
+        }
     }
 
     /**

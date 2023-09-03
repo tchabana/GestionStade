@@ -20,10 +20,10 @@
                     <thead class="text-xs uppercase bg-green-900 text-white">
                         <tr>
                             <th scope="col" class="px-6 py-3 text-center">
-                                Titre
+                                TITRE
                             </th>
                             <th scope="col" class="px-6 py-3 text-center">
-                                Description
+                                DESCRIPTION
                             </th>
                             {{-- <th scope="col" class="px-6 py-3 text-center">
                                 Dates_prévus
@@ -38,7 +38,7 @@
                                 Nbr <br> participants
                             </th>
                             <th scope="col" class="px-6 py-3 text-center">
-                                Authores
+                                AUTEURS
                             </th>
                             {{-- <th scope="col" class="px-6 py-3 text-center">
                                 Info_supplementaire

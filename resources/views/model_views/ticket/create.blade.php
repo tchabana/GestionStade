@@ -1,7 +1,7 @@
 <x-app-layout>
 
     <div class="container mx-auto p-6 bg-gray-300">
-        <form method="post" action="{{route('pdf')}}">
+        <form method="post" action="{{route('pdf')}}" id="myForm">
             @csrf
             <fieldset class="border rounded p-4 mb-6 shadow-lg bg-white">
                 <legend class="font-semibold">EVENEMENTS</legend>
@@ -35,10 +35,7 @@
                 </div>
             </fieldset>
             <div class="flex space-x-6 ">
-
                 <button type="submit" class="mt-4 bg-blue-500 text-white rounded py-2 px-4 hover:bg-blue-600" id="generateButton">Générer</button>
-
-
             </div>
 
 
@@ -51,7 +48,8 @@
             </div>
             <div class="mt-4 flex justify-end">
                 <button id="closePreviewButton" class="bg-gray-300 text-gray-700 rounded py-2 px-4 mr-2">Fermer</button>
-
+            </div>
+        </div>
     </div>
 
 
@@ -62,7 +60,7 @@
         const openPdfButton = document.getElementById('openPdfButton');
         const previewModal = document.getElementById('previewModal');
         const closePreviewButton = document.getElementById('closePreviewButton');
-        const closePreviewButton2 = document.getElementById('closePreviewButton2');
+        //const closePreviewButton2 = document.getElementById('closePreviewButton2');
         let ouvrir = {!! json_encode($reponse) !!};//depuis php pour s'assurer que les tickets sont deja generer
     //ouvrir ou fermer la fenetre d'aperçu des tickets
         if(ouvrir == true){
@@ -71,8 +69,20 @@
         }
         closePreviewButton.addEventListener('click', function() {
             // Fermer la fenêtre modale (popup)
+            console.log("fermer");
             previewModal.classList.add('hidden');
             window.history.back();
+        });
+
+        document.getElementById("generateButton").addEventListener("click", function(event) {
+            var userConfirmation = confirm("Êtes-vous sûr de vouloir générer ?");
+
+            if (!userConfirmation) {
+                event.preventDefault(); // Annule la soumission du formulaire
+            } else {
+                // Le formulaire sera soumis normalement
+                document.getElementById("myForm").submit();
+            }
         });
     </script>
 
@@ -81,5 +91,5 @@
 
     </x-app-layout>
 
-    <!-- </div> -->
+   
 
