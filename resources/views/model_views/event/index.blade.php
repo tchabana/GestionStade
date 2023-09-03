@@ -25,12 +25,12 @@
                             <th scope="col" class="px-6 py-3 text-center">
                                 Description
                             </th>
-                            <th scope="col" class="px-6 py-3 text-center">
+                            {{-- <th scope="col" class="px-6 py-3 text-center">
                                 Dates_prévus
-                            </th>
-                            <th scope="col" class="px-6 py-3 text-center">
+                            </th> --}}
+                            {{-- <th scope="col" class="px-6 py-3 text-center">
                                 Start_at
-                            </th>
+                            </th> --}}
                             <th scope="col" class="px-6 py-3 text-center">
                                 End_at
                             </th>
@@ -40,9 +40,9 @@
                             <th scope="col" class="px-6 py-3 text-center">
                                 Authores
                             </th>
-                            <th scope="col" class="px-6 py-3 text-center">
+                            {{-- <th scope="col" class="px-6 py-3 text-center">
                                 Info_supplementaire
-                            </th>
+                            </th> --}}
 
                             <th scope="col" class="px-6 py-3">
                                 Editer
@@ -61,12 +61,12 @@
                                 <td class="px-6 py-4 text-center">
                                     {{ $even->description }}
                                 </td>
-                                <td class="px-6 py-4 text-center">
+                                {{-- <td class="px-6 py-4 text-center">
                                     {{ $even->date_on }}
                                 </td>
                                 <td class="px-6 py-4 text-center">
                                     {{ $even->start_at }}
-                                </td>
+                                </td> --}}
                                 <td class="px-6 py-4 text-center">
                                     {{ $even->end_at }}
                                 </td>
@@ -76,9 +76,9 @@
                                 <td class="px-6 py-4 text-center">
                                     {{ $even->authors }}
                                 </td>
-                                <td class="px-6 py-4 text-center">
+                                {{-- <td class="px-6 py-4 text-center">
                                     {{ $even->info_suplementaire }}
-                                </td>
+                                </td> --}}
                                 <td class="px-6 py-4 ">
                                     <small class="deux"><a href="{{ route('event.edit', $even) }}">
                                         <div>

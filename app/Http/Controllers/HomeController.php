@@ -53,6 +53,20 @@ class HomeController extends Controller
 
     }
 
+      /**
+     * Display the specified resource.
+     */
+    public function showpay(string $id)
+    {
+        //
+
+
+        return view('actions_users.showmatch');
+
+    }
+
+
+
     /**
      * Show the form for editing the specified resource.
      */
