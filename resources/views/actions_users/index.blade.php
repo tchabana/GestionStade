@@ -60,7 +60,6 @@
       <div class="flex flex-wrap -m-4">
         @forelse ($eventes as $even)
             <div class="p-4 lg:w-1/4 md:w-1/2">
-<<<<<<< HEAD
             <div class="h-full flex flex-col items-center text-center bg-gray-100 shadow-md hover:shadow-2xl hover:rounded-lg">
                 <img alt="team" class="flex-shrink-0 rounded-lg w-full h-56 object-cover object-center mb-4" src="{{ asset('storage/' . $even->image_path) }}">
 
@@ -71,15 +70,6 @@
                     <h1>Dt: {{ $even->start_at }}</h1>
                     <h2>Fin : {{ $even->start_at }}</h2>
                 </div>
-=======
-            <div class="h-full flex flex-col items-center text-center bg-gray-100 shadow-md hover:shadow-2xl hover:border-green-800 hover:border-2 hover:rounded-lg">
-                <img alt="team" class="flex-shrink-0 rounded-lg w-full h-56 object-cover object-center mb-4" src="{{ asset('storage/' . $even->image_path) }}">
-
-                <div class="w-full">
-                <h2 class="title-font font-medium text-lg text-gray-900">{{$even->matche!==null?$even->matche->equipe1_name:""}} & {{$even->matche!==null?$even->matche->equipe2_name:""}}</h2>
-                <h3 class="text-gray-500 mb-3">Stade Municipal</h3>
-                <h1>{{ $even->start_at }}</h1>
->>>>>>> 3e3779b5d07295156904a26da1e22a184a4f04ed
                 <p class="mb-4">{{ $even->description }}</p>
 
                 <a class="text-green-500 inline-flex items-center md:mb-2 lg:mb-0" href=" ">voir plus
