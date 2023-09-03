@@ -61,12 +61,15 @@
         @forelse ($eventes as $even)
             <div class="p-4 lg:w-1/4 md:w-1/2">
             <div class="h-full flex flex-col items-center text-center bg-gray-100 shadow-md hover:shadow-2xl hover:border-green-800 hover:border-2 hover:rounded-lg">
-                <img alt="team" class="flex-shrink-0 rounded-lg w-full h-56 object-cover object-center mb-4" src="{{ asset('storage/' . $actus->image_path) }}">
+                <img alt="team" class="flex-shrink-0 rounded-lg w-full h-56 object-cover object-center mb-4" src="{{ asset('storage/' . $even->image_path) }}">
 
                 <div class="w-full">
-                <h2 class="title-font font-medium text-lg text-gray-900">{{$even->matche->equipe1_name}} & {{$even->matche->equipe2_name}}</h2>
-                <h3 class="text-gray-500 mb-3">Stade Municipal</h3>
-                <h1>{{ $even->start_at }}</h1>
+                <h2 class="title-font font-medium text-lg text-gray-900">{{$even->matche->equipe1_name}} <strong class="text-red-500 text-2xl"> vs </strong> {{$even->matche->equipe2_name}}</h2>
+                <h3 class="mb-3 text-green-500">Stade Municipal</h3>
+                <div class="flex items-center text-red-600 justify-center gap-10">
+                    <h1>Dt: {{ $even->start_at }}</h1>
+                    <h2>Fin : {{ $even->start_at }}</h2>
+                </div>
                 <p class="mb-4">{{ $even->description }}</p>
                 <span class="inline-flex">
                     <a class="text-gray-500">

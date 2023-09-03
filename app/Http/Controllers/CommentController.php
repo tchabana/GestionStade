@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 
 use App\Http\Requests\StoreCommentRequest;
 use App\Http\Requests\UpdateCommentRequest;
@@ -30,6 +31,12 @@ class CommentController extends Controller
     public function store(StoreCommentRequest $request)
     {
         //
+        Comment::Create([
+            'user_id' => Auth::user()->id,
+            'event_id' => $request->event_id,
+            'message' => $request->message,
+        ]);
+        return back();
     }
 
     /**
