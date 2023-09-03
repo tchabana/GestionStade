@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 use App\Models\Actuality;
 use App\Models\Event;
 use App\Models\Matche;
+use App\Models\Comment;
+
+
 
 use Illuminate\Http\Request;
 
@@ -44,8 +47,25 @@ class HomeController extends Controller
     {
         //
         $actualite = Actuality::find($id);
-        return view('actions_users.show',compact(['actualite']));
+        $commentaire = Comment::all();
+
+        return view('actions_users.show',compact(['actualite', 'commentaire']));
+
     }
+
+      /**
+     * Display the specified resource.
+     */
+    public function showpay(string $id)
+    {
+        //
+
+
+        return view('actions_users.showmatch');
+
+    }
+
+
 
     /**
      * Show the form for editing the specified resource.

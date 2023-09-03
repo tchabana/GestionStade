@@ -25,11 +25,22 @@
                             <th scope="col" class="px-6 py-3 text-center">
                                 DESCRIPTION
                             </th>
+<<<<<<< HEAD
+                            {{-- <th scope="col" class="px-6 py-3 text-center">
+                                Dates_prévus
+                            </th> --}}
+                            {{-- <th scope="col" class="px-6 py-3 text-center">
+                                Start_at
+                            </th> --}}
+                            <th scope="col" class="px-6 py-3 text-center">
+                                End_at
+=======
                             <th scope="col" class="px-6 py-3 text-center">
                                 Date && Heure DÉBUT
                             </th>
                             <th scope="col" class="px-6 py-3 text-center">
                                 Date && HEURE FIN
+>>>>>>> 3e3779b5d07295156904a26da1e22a184a4f04ed
                             </th>
                             <th scope="col" class="px-6 py-3 text-center">
                                 Nbr <br> participants
@@ -37,12 +48,18 @@
                             <th scope="col" class="px-6 py-3 text-center">
                                 AUTEURS
                             </th>
+<<<<<<< HEAD
+                            {{-- <th scope="col" class="px-6 py-3 text-center">
+                                Info_supplementaire
+                            </th> --}}
+=======
                             <th scope="col" class="px-6 py-3 text-center">
                                 STATUS
                             </th>
                             <th scope="col" class="px-6 py-3 text-center">
                                 NBRE GÉNÉRÉ DE TICKETS
                             </th>
+>>>>>>> 3e3779b5d07295156904a26da1e22a184a4f04ed
 
                             <th scope="col" class="px-6 py-3">
                                 Editer
@@ -61,11 +78,22 @@
                                 <td class="px-6 py-4 text-center">
                                     {{ $even->description }}
                                 </td>
+<<<<<<< HEAD
+                                {{-- <td class="px-6 py-4 text-center">
+                                    {{ $even->date_on }}
+                                </td>
+                                <td class="px-6 py-4 text-center">
+                                    {{ $even->start_at }}
+                                </td> --}}
+                                <td class="px-6 py-4 text-center">
+                                    {{ $even->end_at }}
+=======
                                 <td class="px-6 py-4 text-center">
                                     {{ $even->date_start.' '.$even->start_at }}
                                 </td>
                                 <td class="px-6 py-4 text-center">
                                 {{ $even->date_end.' '.$even->end_at }}
+>>>>>>> 3e3779b5d07295156904a26da1e22a184a4f04ed
                                 </td>
                                 <td class="px-6 py-4 text-center">
                                     {{ $even->nbr_participant }}
@@ -73,12 +101,18 @@
                                 <td class="px-6 py-4 text-center">
                                     {{ $even->authors }}
                                 </td>
+<<<<<<< HEAD
+                                {{-- <td class="px-6 py-4 text-center">
+                                    {{ $even->info_suplementaire }}
+                                </td> --}}
+=======
                                 <td class="px-6 py-4 text-center">
                                    {!! $even->status() !!}
                                 </td>
                                 <td class="px-6 py-4 text-center">
                                     {{$even->nbr_ticket_gen_local + $even->nbr_ticket_gen_online}}
                                 </td>
+>>>>>>> 3e3779b5d07295156904a26da1e22a184a4f04ed
                                 <td class="px-6 py-4 ">
                                     <small class="deux"><a href="{{ route('event.edit', $even) }}">
                                         <div>
