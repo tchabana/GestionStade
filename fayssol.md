@@ -65,3 +65,17 @@ username par loginname
 allons ds la doc de jet au niveau de authentification/Customizing The Authentication Process
 
 status,confirmation,nbre de ticket local
+## status d'un Event
+il faut executer ma methode status du model Event periodiquement:
+1- Créez une nouvelle commande Artisan personnalisée qui exécute la méthode status() pour chaque événement. Pour ce faire, vous pouvez créer une nouvelle commande avec la commande Artisan suivante :
+```
+php artisan make:command UpdateEventStatus
+
+```
+2- Ouvrez le fichier de la commande nouvellement créée (UpdateEventStatus.php) dans le répertoire app/Console/Commands. Ajoutez la logique pour exécuter la méthode status() pour chaque événement :
+
+3- Configurez une tâche planifiée (cron job) pour exécuter la commande Artisan que vous venez de créer. Ouvrez votre fichier crontab en utilisant la commande crontab -e et ajoutez une ligne pour exécuter la commande toutes les secondes en utilisant le binaire PHP et la commande Artisan comme suit :
+```
+* * * * * php /chemin/vers/votre/projet/artisan app:update-event-status
+
+```
