@@ -56,12 +56,11 @@ class HomeController extends Controller
       /**
      * Display the specified resource.
      */
-    public function payticket()
+    public function payticket(Event $evenement)
     {
         //
-
-
-        return view('actions_users.payticket');
+        //dd($evenement);
+        return view('actions_users.payticket',["event"=>$evenement]);
 
     }
 
