@@ -29,6 +29,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('/actions_users/{id}', [HomeController::class, 'show'])->name('show');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+Route::get('/payement', [HomeController::class, 'payticket'])->name('payticket');
 
 //fayssol's routes
 Route::post('ticket-generate',[PdfController::class,'generate'])->name('pdf');

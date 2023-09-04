@@ -56,12 +56,12 @@ class HomeController extends Controller
       /**
      * Display the specified resource.
      */
-    public function showpay(string $id)
+    public function payticket()
     {
         //
 
 
-        return view('actions_users.showmatch');
+        return view('actions_users.payticket');
 
     }
 
