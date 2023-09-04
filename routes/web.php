@@ -29,6 +29,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('/actions_users/{id}', [HomeController::class, 'show'])->name('show');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+Route::get('/paiement/{evenement}', [HomeController::class, 'payticket'])->name('payticket');
 
 //fayssol's routes
 Route::post('ticket-generate',[PdfController::class,'generate'])->name('pdf');
@@ -59,3 +60,7 @@ Route::resources([
 //hafiz
 Route::get('todayevent',[EventController::class,'todayEvent'])->name('todayevent');
 Route::get('alltiketforevent/{event_id}',[TicketController::class,'allTiketForEvent'])->name('alltiketforevent');
+Route::post('paiement',[PayementController::class,'paiement'])->name('paiement');
+Route::get('paiement_success',[PayementController::class,'paiement_success'])->name('paiement_success');
+Route::get('paiement_cancel',[PayementController::class,'paiement_cancel'])->name('paiement_cancel');
+
