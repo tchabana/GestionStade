@@ -28,9 +28,43 @@
 
                     <div class="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-900 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left bg-gray-100">
 
-                        <form action="" method="post">
+                        <form method="post" action="{{route("paiement")}}">
+                            @csrf
                             {{-- <input type="number" name="" id="" placeholder="Numero de telephone"> --}}
-                            <button class="flex  text-white bg-green-500 border-0 w-32 p-1 focus:outline-none hover:bg-green-600 rounded " type="submit">Acheter le ticket</button>
+                            <button id="acheterTicket" class="flex  text-white bg-green-500 border-0 w-32 p-1 focus:outline-none hover:bg-green-600 rounded ">Acheter le ticket</button>
+                            <div id="optionsPaiement" style="display: none;">
+                                <p>Choisissez votre moyen de paiement :</p>
+                                <input type="radio" name="mode_paiement" value="paypal"> PayPal<br>
+                                <input type="radio" name="mode_paiement" value="flooz"> Flooz<br>
+                                <input type="radio" name="mode_paiement" value="tymoney"> TyMoney<br>
+                                <label for="prixTicket">Choisissez le prix du ticket :</label>
+                                <select id="prixTicket" name="prix">
+                                    <option name="prix" value="300">300</option>
+                                    <option name="prix" value="500">500</option>
+                                    <option name="prix" value="1000">1000</option>
+                                </select>
+                                <button id="validerPaiement" type="submit" class="flex  text-white bg-green-500 border-0 w-32 p-1 focus:outline-none hover:bg-green-600 rounded ">Valider le paiement</button>
+                            </div>
+                            <script>
+                                const acheterTicketBtn = document.getElementById('acheterTicket');
+                                const optionsPaiementDiv = document.getElementById('optionsPaiement');
+                                const validerPaiementBtn = document.getElementById('validerPaiement');
+                        
+                                acheterTicketBtn.addEventListener('click', function () {
+                                    optionsPaiementDiv.style.display = 'block';
+                                    acheterTicketBtn.remove();
+                                });
+                        
+                                validerPaiementBtn.addEventListener('click', function (event) {
+                                    const moyenPaiementChoisi = document.querySelector('input[name="mode_paiement"]:checked');
+                                    if (moyenPaiementChoisi) {
+                                        alert('Vous avez choisi de payer avec : ' + moyenPaiementChoisi.value);
+                                    } else {
+                                        alert('Veuillez sélectionner un moyen de paiement.');
+                                        event.preventDefault()
+                                    }
+                                });
+                            </script>
                         </form>
 
                     </div>
