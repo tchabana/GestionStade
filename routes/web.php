@@ -35,8 +35,9 @@ Route::get('/paiement/{evenement}', [HomeController::class, 'payticket'])->name(
 
 //fayssol's routes
 Route::post('ticket-generate',[PdfController::class,'generate'])->name('pdf');
-Route::delete('employe/desactive',[UserController::class,'desactiver'])->name('desactive');
-Route::put('employe/restore',[UserController::class,'desactiver'])->name('restore');
+Route::post('employe/desactive/{employe}',[UserController::class,'desactiver'])->name('desactive');
+Route::post('employe/restore/{employe}',[UserController::class,'desactiver'])->name('restore');
+Route::post('employe/definitive/{employe}',[UserController::class,'definitive'])->name('definitive');
 //fin
 Route::middleware([
     'auth:sanctum',

@@ -60,14 +60,16 @@
                                     </form>
                                 </td>
                                 <td class="px-6 py-4 text-center">
-                                <form action="" method="post">
+                                <form action="{{route('desactive',$activ)}}" method="post">
+                                    @csrf 
+                                   
                                         <button type="submit" class="bg-yellow-500">Desactiver</button>
                                     </form>
                                 </td>
                            
                             </tr>
                             @empty 
-                                <h2>Acun employe activé</h2>
+                                <h2>Aucun employe activé</h2>
                             @endforelse    
                     </tbody>
                 </table>
@@ -122,7 +124,9 @@
                                 {{$desac->role}}
                                 </td>
                                 <td class="px-6 py-4 text-center">
-                                  <form action="" method="post">
+                                  <form action="{{route('definitive',$desac)}}" method="post">
+                                    @csrf 
+                                   
                                     <button type="submit" class="bg-red-500">Supprimer</button>
                                   </form>
                                 </td>
@@ -134,7 +138,7 @@
 
                             </tr>
                      @empty 
-                        <h2>Acun compte désactivé</h2>
+                        <h2>Aucun compte désactivé</h2>
                     @endforelse
                         </tbody>
                 </table>

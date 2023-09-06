@@ -20,10 +20,10 @@
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <!-- Teams Dropdown -->
-                <!-- <div class="bg-white rounded p-2">
+                <div class="bg-white rounded p-2">
 
                     {{ Auth::user()->role.'@'.Auth::user()->name}}
-                </div> -->
+                </div>
                 @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
                     <div class="ml-3 relative">
                         <x-dropdown align="right" width="60">

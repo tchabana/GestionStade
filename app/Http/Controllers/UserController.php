@@ -17,13 +17,9 @@ class UserController extends Controller
     }
     public function index()
     {
-        $employesA = User::all()->filter(function ($employe) {
-            return in_array($employe->role, ['gerant', 'admin']) && $employe->deleted_at == null;
-        });
        
-        $employesD = User::all()->filter(function ($employe) {
-            return in_array($employe->role, ['gerant', 'admin']) && $employe->deleted_at !== null;
-        });
+        $employesD = User::onlyTrashed()->get();
+        $employesA = User::where('role','gerant')->orWhere('role','admin')->get();
         return view('model_views.user.index',compact('employesA','employesD'));
     }
 
@@ -50,13 +46,7 @@ class UserController extends Controller
         $user->save();
         $user->assignRole('gerant');
 
-        $employesA = User::all()->filter(function ($employe) {
-            return in_array($employe->role, ['gerant', 'admin']) && $employe->deleted_at == null;
-        });
-        $employesD = User::all()->filter(function ($employe) {
-            return in_array($employe->role, ['gerant', 'admin']) && $employe->deleted_at !== null;
-        });
-        return view('model_views.user.index',compact('employesA','employesD'));
+        return redirect()->route('user.index');
     }
 
     /**
@@ -84,13 +74,7 @@ class UserController extends Controller
         $employe->update($request->all());
         $employe->assignRole($role);
 
-        $employesA = User::all()->filter(function ($employe) {
-            return in_array($employe->role, ['gerant', 'admin']) && $employe->deleted_at == null;
-        });
-        $employesD = User::all()->filter(function ($employe) {
-            return in_array($employe->role, ['gerant', 'admin']) && $employe->deleted_at !== null;
-        });
-        return view('model_views.user.index',compact('employesA','employesD','employe'));
+        return redirect()->route('user.index');
     }
 
     /**
@@ -98,38 +82,24 @@ class UserController extends Controller
      */
     public function destroy(User $employe)
     {
+        // $employe->forceDelete();
+        // return redirect()->route('user.index');
+    }
+    public function definitive(User $employe)
+    {
         $employe->forceDelete();
-        $employesA = User::all()->filter(function ($employe) {
-            return in_array($employe->role, ['gerant', 'admin']) && $employe->deleted_at == null;
-        });
-        $employesD = User::all()->filter(function ($employe) {
-            return in_array($employe->role, ['gerant', 'admin']) && $employe->deleted_at !== null;
-        });
-        return view('model_views.user.index',compact('employesA','employesD','employe'));
+        return redirect()->route('user.index');
     }
 
     public function desactiver(User $employe)
     {
         $employe->delete();
-        $employesA = User::all()->filter(function ($employe) {
-            return in_array($employe->role, ['gerant', 'admin']) && $employe->deleted_at == null;
-        });
-        $employesD = User::all()->filter(function ($employe) {
-            return in_array($employe->role, ['gerant', 'admin']) && $employe->deleted_at !== null;
-        });
-        
-        return view('model_views.user.index',compact('employesA','employesD','employe'));
+        return redirect()->route('user.index');
     }
 
     public function restore(User $employe)
     {
         $employe->restore();
-        $employesA = User::all()->filter(function ($employe) {
-            return in_array($employe->role, ['gerant', 'admin']) && $employe->deleted_at == null;
-        });
-        $employesD = User::all()->filter(function ($employe) {
-            return in_array($employe->role, ['gerant', 'admin']) && $employe->deleted_at !== null;
-        });
-        return view('model_views.user.index',compact('employesA','employesD','employe'));
+        return redirect()->route('user.index');
     }
 }
