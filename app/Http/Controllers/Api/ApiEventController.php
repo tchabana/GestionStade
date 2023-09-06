@@ -128,6 +128,34 @@ class ApiEventController extends Controller
             return response()->json($ex);
         }
     }
+    public function futurEvent()
+    {
+        try {
+            // Récupérez tous les événements dont la date de déroulement est aujourd'hui
+            $eventsToday = Event::whereDate('date_start', '>', now()->toDateString())->get();
+            return response()->json([
+                'status' => 200,
+                'status_massage' => "Ok",
+                'data' => $eventsToday
+            ]);
+        } catch (\Exception $ex) {
+            return response()->json($ex);
+        }
+    }
+    public function passEvent()
+    {
+        try {
+            // Récupérez tous les événements dont la date de déroulement est aujourd'hui
+            $eventsToday = Event::whereDate('date_start', '<', now()->toDateString())->get();
+            return response()->json([
+                'status' => 200,
+                'status_massage' => "Ok",
+                'data' => $eventsToday
+            ]);
+        } catch (\Exception $ex) {
+            return response()->json($ex);
+        }
+    }
     public function search(String $q)
     {
         try {

@@ -104,13 +104,13 @@
                                     {{ $matche->created_at }}
                                 </td>
                                 <td class="px-6 py-4 text-center">
-                                    {{ $even->nbr_participant }}
+                                    {{ $matche->nbr_participant }}
                                 </td>
                                 <td class="px-6 py-4 text-center">
                                     {{ $matche->equipe1_name }}
                                 </td>
                                 <td class="px-6 py-4 ">
-                                    <small class="deux"><a href="{{ route('event.edit', $even) }}">
+                                    <small class="deux"><a href="{{ route('event.edit', $matche) }}">
                                         <div>
                                             <div>
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-green-500">
@@ -122,7 +122,7 @@
                                     </a></small>
                                 </td>
                                 <td class="px-6 py-4 ">
-                                    <form action="{{ route('event.destroy', $even)}}" method="POST">
+                                    <form action="{{ route('event.destroy', $matche)}}" method="POST">
                                         @csrf
                                         @method("DELETE")
                                         <small>
