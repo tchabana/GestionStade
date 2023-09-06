@@ -19,6 +19,10 @@ class ScoreController extends Controller
     /**
      * Show the form for creating a new resource.
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function create()
     {
         //

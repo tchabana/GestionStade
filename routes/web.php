@@ -12,6 +12,8 @@ use App\Http\Controllers\ScoreController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\PdfController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\EmployeController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -33,6 +35,8 @@ Route::get('/paiement/{evenement}', [HomeController::class, 'payticket'])->name(
 
 //fayssol's routes
 Route::post('ticket-generate',[PdfController::class,'generate'])->name('pdf');
+Route::delete('employe/desactive',[UserController::class,'desactiver'])->name('desactive');
+Route::put('employe/restore',[UserController::class,'desactiver'])->name('restore');
 //fin
 Route::middleware([
     'auth:sanctum',
@@ -55,6 +59,7 @@ Route::resources([
     "reclamation"=>ReclamationController::class,
     "score"=>ScoreController::class,
     "ticket"=>TicketController::class,
+    "user"=>UserController::class,
 ]);
 
 //hafiz

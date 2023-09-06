@@ -65,5 +65,9 @@ class DatabaseSeeder extends Seeder
          
           // chargement des tickets
           $tickets = Ticket::factory()->count(115)->create();
+
+
+          $this->call(RoleSeeder::class);
+        $this->call(AdminSeeder::class);
     }
 }

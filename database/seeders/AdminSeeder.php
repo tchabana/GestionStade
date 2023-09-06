@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class AdminSeeder extends Seeder
 {
@@ -18,7 +19,7 @@ class AdminSeeder extends Seeder
             'name' => 'admin',
             'email' => 'admin@gmail.com',
             'email_verified_at' => now(),
-            'password' => 'superadmin',
+            'password' => Hash::make('superadmin'),
             'role' => 'admin'
         ]);
         $user->assignRole('admin');
