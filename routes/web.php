@@ -77,7 +77,7 @@ Route::resources([
 //hafiz
 Route::get('todayevent',[EventController::class,'todayEvent'])->name('todayevent');
 Route::get('alltiketforevent/{event_id}',[TicketController::class,'allTiketForEvent'])->name('alltiketforevent');
-Route::post('paiement',[PayementController::class,'paiement'])->name('paiement');
-Route::get('paiement_success',[PayementController::class,'paiement_success'])->name('paiement_success');
+Route::post('paiement/{event}',[PayementController::class,'paiement'])->name('paiement');
+Route::get('paiement_success/{prix}/{event}',[PayementController::class,'paiement_success'])->name('paiement_success');
 Route::get('paiement_cancel',[PayementController::class,'paiement_cancel'])->name('paiement_cancel');
 

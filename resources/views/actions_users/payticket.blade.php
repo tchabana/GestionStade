@@ -28,7 +28,7 @@
 
                     <div class="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-900 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left bg-gray-100">
 
-                        <form method="post" action="{{route("paiement")}}">
+                        <form method="post" action="{{route('paiement',['event'=>$event->id])}}">
                             @csrf
                             {{-- <input type="number" name="" id="" placeholder="Numero de telephone"> --}}
                             <button id="acheterTicket" class="flex  text-white bg-green-500 border-0 w-32 p-1 focus:outline-none hover:bg-green-600 rounded ">Acheter le ticket</button>
