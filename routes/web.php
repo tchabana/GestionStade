@@ -47,7 +47,7 @@ Route::put('employe/{employe}/',[UserController::class,'update'])->name('user.up
 
 Route::post('ticket-generate',[PdfController::class,'generate'])->name('pdf');
 Route::post('employe/desactive/{employe}',[UserController::class,'desactiver'])->name('desactive');
-Route::post('employe/restore/{employe}',[UserController::class,'restore'])->name('restore');
+Route::put('employe/restore/{employe}',[UserController::class,'restore'])->name('restore');
 Route::delete('employe/definitive/{employe}',[UserController::class,'definitive'])->name('definitive');
 //fin
 Route::middleware([

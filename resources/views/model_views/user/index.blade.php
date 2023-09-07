@@ -139,7 +139,8 @@
                                 </td>
                                 <td class="px-6 py-4 text-center">
                                 <form action="{{route('restore',$desac)}}" method="post">
-                                    @csrf
+                                    @csrf 
+                                    @method('put')
                                     <button type="submit" class="text-green-500">Activer</button>
                                   </form>
                                 </td>

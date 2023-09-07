@@ -13,13 +13,15 @@ class UserController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware(['auth','role:admin']);
     }
     public function index()
     {
        
         $employesD = User::onlyTrashed()->get();
         $employesA = User::withTrashed()->get();
+        $employesA = User::whereNull('deleted_at')->get();
+
         return view('model_views.user.index',compact('employesA','employesD'));
     }
 
