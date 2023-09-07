@@ -52,7 +52,11 @@
                                 {{$activ->phone_number}}
                                 </td>
                                 <td class="px-6 py-4 text-center">
-                                {{$activ->role}}
+                                @if($activ->hasRole('gerant')) 
+                                    gerant 
+                                @else 
+                                    admin 
+                                @endif        
                                 </td>
                                 <td class="px-6 py-4 text-center">
                                     <form action="{{route('user.edit',$activ)}}" method="get">
@@ -120,12 +124,16 @@
                                 {{$desac->email}}
                                 </td>
                                 <td class="px-6 py-4 text-center">
-                                {{$desac->role}}
+                                @if($desac->hasRole('gerant')) 
+                                    gerant 
+                                @else 
+                                    admin 
+                                @endif   
                                 </td>
                                 <td class="px-6 py-4 text-center">
                                   <form action="{{route('definitive',$desac)}}" method="post">
                                     @csrf 
-                                    <!-- <input type="hidden" name="_method" value="DELETE"> -->
+                                   @method('DELETE')
                                     <button type="submit" class="text-red-500">Supprimer</button>
                                   </form>
                                 </td>

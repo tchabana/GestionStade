@@ -20,7 +20,16 @@ class AdminSeeder extends Seeder
             'email' => 'admin@gmail.com',
             'email_verified_at' => now(),
             'password' => Hash::make('superadmin'),
-            'role' => 'admin'
+          
+        ]);
+        $user->assignRole('admin');
+
+        $user1 = User::create([
+            'name' => 'gerant',
+            'email' => 'gerant@gmail.com',
+            'email_verified_at' => now(),
+            'password' => Hash::make('supergerant'),
+          
         ]);
         $user->assignRole('admin');
     }

@@ -27,11 +27,11 @@
             <div class="groupe">
                 <label for="">Role: </label>
                <select name="role" id="">
-                <option value="{{$employe->role}}" default>{{$employe->role}}</option>
-                @if($employe->role == 'gerant')
+                <option value="{{$role}}" default>{{$role}}</option>
+                @if($role == 'gerant')
                 <option value="admin">admin</option>
                @else 
-               <option value="admin">gerant</option>
+               <option value="gerant">gerant</option>
                @endif
                </select>
             </div>

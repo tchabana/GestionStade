@@ -22,7 +22,7 @@
                 <!-- Teams Dropdown -->
                 <div class="text-white font-bold shadow-lg rounded p-2">
 
-                    {{ Auth::user()->role.'@'.Auth::user()->name}}
+                    {{ Auth::user()->getRoleNames()->first().'@'.Auth::user()->name}}
                 </div>
                 @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
                     <div class="ml-3 relative">

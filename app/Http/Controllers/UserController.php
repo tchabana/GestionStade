@@ -19,7 +19,7 @@ class UserController extends Controller
     {
        
         $employesD = User::onlyTrashed()->get();
-        $employesA = User::where('role','gerant')->orWhere('role','admin')->get();
+        $employesA = User::withTrashed()->get();
         return view('model_views.user.index',compact('employesA','employesD'));
     }
 
@@ -42,7 +42,7 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->phone_number = $request->phone_number;
         $user->password = Hash::make($request->password);
-        $user->role = 'gerant'; 
+        // $user->role = 'gerant'; 
         $user->save();
         $user->assignRole('gerant');
 
@@ -63,7 +63,9 @@ class UserController extends Controller
     public function edit(Request $request,User $employe)
     {
         //dd($employe);
-        return view('model_views.user.edite',compact('employe'));
+        $role = $employe->getRoleNames()->first();
+        //dd($role);
+        return view('model_views.user.edite',compact('employe','role'));
     }
 
     /**
@@ -73,18 +75,12 @@ class UserController extends Controller
     {
         $newRole = $request->input('role');
         $employe->syncRoles([]);
-        $employe->role = $newRole;
         $employe->save();
-       // $employe->assignRole($newRole);
-        //$employe->update($request->all());
-        dd($employe);
         $employe->name =  $request->name;
         $employe->email = $request->email;
         $employe->phone_number = $request->phone_number;
-        $employe->role = $newRole;
         $employe->save();
         $employe->assignRole($newRole);
-        dd($employe);
 
         return redirect()->route('user.index');
     }
