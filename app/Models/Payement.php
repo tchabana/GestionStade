@@ -10,7 +10,7 @@ class Payement extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['ticket_id','info_suplementaire'];
+    protected $fillable = ['ticket_id',"payement_ref"];
 
     public function ticket(){
         return $this->belongsTo(Ticket::class);

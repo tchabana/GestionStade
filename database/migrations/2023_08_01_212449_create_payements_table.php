@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('payements', function (Blueprint $table) {
             $table->bigIncrements("id");
             $table->unsignedBigInteger('ticket_id');
+            $table->string('payement_ref');
             //$table->json('info_suplementaire');
             
             $table->timestamps();
