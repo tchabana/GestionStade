@@ -2,7 +2,7 @@
 <div class="creation">
     <!-- --------------------bouton listes des utilisateur -------------------------------- -->
         <div class="listes">
-            <a href="{{ route('user.index') }}">Listes des gérants</a>
+            <a href="{{ route('user.index') }}">Listes des employes</a>
         </div>
 
         <hr class="bars">
@@ -20,7 +20,7 @@
             </div>
             <div class="groupe">
                 <label for="">Contact: </label>
-                <input type="number" name="phone_number">
+                <input type="text" name="phone_number">
             </div>
 
             <div class="groupe">

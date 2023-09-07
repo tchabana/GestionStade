@@ -20,7 +20,7 @@
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <!-- Teams Dropdown -->
-                <div class="bg-white rounded p-2">
+                <div class="text-white font-bold shadow-lg rounded p-2">
 
                     {{ Auth::user()->role.'@'.Auth::user()->name}}
                 </div>

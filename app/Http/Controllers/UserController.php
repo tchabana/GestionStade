@@ -62,7 +62,8 @@ class UserController extends Controller
      */
     public function edit(Request $request,User $employe)
     {
-        return view('model_views.user.edit',compact('employe'));
+        //dd($employe);
+        return view('model_views.user.edite',compact('employe'));
     }
 
     /**
@@ -70,9 +71,20 @@ class UserController extends Controller
      */
     public function update(Request $request, User $employe)
     {
-        $role = $request->input('role');
-        $employe->update($request->all());
-        $employe->assignRole($role);
+        $newRole = $request->input('role');
+        $employe->syncRoles([]);
+        $employe->role = $newRole;
+        $employe->save();
+       // $employe->assignRole($newRole);
+        //$employe->update($request->all());
+        dd($employe);
+        $employe->name =  $request->name;
+        $employe->email = $request->email;
+        $employe->phone_number = $request->phone_number;
+        $employe->role = $newRole;
+        $employe->save();
+        $employe->assignRole($newRole);
+        dd($employe);
 
         return redirect()->route('user.index');
     }
@@ -87,6 +99,7 @@ class UserController extends Controller
     }
     public function definitive(User $employe)
     {
+        dd($employe);
         $employe->forceDelete();
         return redirect()->route('user.index');
     }

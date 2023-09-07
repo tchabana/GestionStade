@@ -2,16 +2,16 @@
     <div class="creation">
         <!-- --------------------bouton listes des utilisateur -------------------------------- -->
         <div class="listes">
-            <a href="{{ route('user.create') }}">Créer un gérant</a>
+            <a href="{{ route('user.create') }}">Créer un employe</a>
         </div>
 
         <hr class="bars">
         <!-- -------------------------formulaires ---------------------------------------------- -->
-        <h2>Comptes activés</h2>
+        
         <div class="creation">
             <div>
-                <div class="mb-10">
-                    {{-- bouttonAfficher --}}
+                <div class="mb-5">
+                    <h1 class="text-blue-500 text-center">COMPTES ACTIVÉS</h1>
                 </div>
             </div>
             <hr class="horizontal-row">
@@ -55,32 +55,31 @@
                                 {{$activ->role}}
                                 </td>
                                 <td class="px-6 py-4 text-center">
-                                    <form action="" method="post">
-                                        <button type="submit" class="bg-blue-500">Editer</button>
+                                    <form action="{{route('user.edit',$activ)}}" method="get">
+                                        <button type="submit" class="text-blue-500">Editer</button>
                                     </form>
                                 </td>
                                 <td class="px-6 py-4 text-center">
                                 <form action="{{route('desactive',$activ)}}" method="post">
                                     @csrf 
-                                   
-                                        <button type="submit" class="bg-yellow-500">Desactiver</button>
+                                        <button type="submit" class="text-yellow-500">Desactiver</button>
                                     </form>
                                 </td>
                            
                             </tr>
                             @empty 
-                                <h2>Aucun employe activé</h2>
+                                <h1 class="font-red-500">Aucun employe activé</h1>
                             @endforelse    
                     </tbody>
                 </table>
             </div>
         </div>
 
-        <h2>Comptes désactivés</h2>
+        
         <div class="creation">
             <div>
-                <div class="mb-10">
-                    {{-- bouttonAfficher --}}
+                <div class="mb-5">
+                <h1 class="text-red-500 text-center">COMPTES DÉSACTIVÉS</h1>
                 </div>
             </div>
             <hr class="horizontal-row">
@@ -104,7 +103,7 @@
                                 Supprimer
                             </th>
                             <th scope="col" class="px-6 py-3 text-center">
-                               Restorer
+                               Activer
                             </th>
                         </tr>
                     </thead>
@@ -126,13 +125,14 @@
                                 <td class="px-6 py-4 text-center">
                                   <form action="{{route('definitive',$desac)}}" method="post">
                                     @csrf 
-                                   
-                                    <button type="submit" class="bg-red-500">Supprimer</button>
+                                    <!-- <input type="hidden" name="_method" value="DELETE"> -->
+                                    <button type="submit" class="text-red-500">Supprimer</button>
                                   </form>
                                 </td>
                                 <td class="px-6 py-4 text-center">
-                                <form action="" method="post">
-                                    <button type="submit" class="bg-green-500">Restorer</button>
+                                <form action="{{route('restore',$desac)}}" method="post">
+                                    @csrf
+                                    <button type="submit" class="text-green-500">Activer</button>
                                   </form>
                                 </td>
 
