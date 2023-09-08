@@ -43,7 +43,9 @@
             Pas d'actualité
         @endforelse
       </div>
+
     </div>
+    {{ $actualite->onEachSide(1)->links() }}
   </section>
 
 {{-- ------------------------------------------------------------------------------------------------ --}}
@@ -86,7 +88,10 @@
             Pas d'actualité
         @endforelse
       </div>
+
+
     </div>
+    {{ $eventes->onEachSide(1)->links() }}
   </section>
 
 

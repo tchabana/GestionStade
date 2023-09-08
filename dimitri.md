@@ -41,3 +41,10 @@ dans : resources/views/
 
 
 ```
+    './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
+
+
+composer require laravel-lang/common --dev
+php artisan lang:add fr
+
+php artisan vendor:publish
