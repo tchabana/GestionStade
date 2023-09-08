@@ -78,7 +78,6 @@
                     </tbody>
                 </table>
             </div>
-            {{ $employesA->onEachSide(1)->links() }}
         </div>
 
 
@@ -155,6 +154,5 @@
                 </table>
             </div>
         </div>
-        {{ $employesD->onEachSide(1)->links() }}
     </div>
 </x-app-layout>
