@@ -66,6 +66,7 @@
                                 <td class="px-6 py-4 text-center">
                                 <form action="{{route('desactive',$activ)}}" method="post">
                                     @csrf 
+                                    @method('delete')
                                         <button type="submit" class="text-yellow-500">Desactiver</button>
                                     </form>
                                 </td>
@@ -131,18 +132,18 @@
                                 @endif   
                                 </td>
                                 <td class="px-6 py-4 text-center">
-                                  <form action="{{route('definitive',$desac)}}" method="post">
+                                  <form action="{{route('user.destroy',$desac)}}" method="post">
                                     @csrf 
-                                   @method('DELETE')
-                                    <button type="submit" class="text-red-500">Supprimer</button>
-                                  </form>
+                                    @method('delete')
+                                        <button type="submit" class="text-red-500">Supprimer</button>
+                                    </form>
                                 </td>
                                 <td class="px-6 py-4 text-center">
-                                <form action="{{route('restore',$desac)}}" method="post">
+                                 <form action="{{route('user.restore',$desac)}}" method="post">
                                     @csrf 
                                     @method('put')
-                                    <button type="submit" class="text-green-500">Activer</button>
-                                  </form>
+                                        <button type="submit" class="text-green-500">Activer</button>
+                                    </form>
                                 </td>
 
                             </tr>

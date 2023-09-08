@@ -19,7 +19,7 @@ class UserController extends Controller
     {
        
         $employesD = User::onlyTrashed()->get();
-        $employesA = User::withTrashed()->get();
+        
         $employesA = User::whereNull('deleted_at')->get();
 
         return view('model_views.user.index',compact('employesA','employesD'));
@@ -44,7 +44,7 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->phone_number = $request->phone_number;
         $user->password = Hash::make($request->password);
-        // $user->role = 'gerant'; 
+        $user->role = 'gerant'; 
         $user->save();
         $user->assignRole('gerant');
 
@@ -77,7 +77,7 @@ class UserController extends Controller
     {
         $newRole = $request->input('role');
         $employe->syncRoles([]);
-        $employe->save();
+        $employe->role = $newRole;
         $employe->name =  $request->name;
         $employe->email = $request->email;
         $employe->phone_number = $request->phone_number;
@@ -92,12 +92,6 @@ class UserController extends Controller
      */
     public function destroy(User $employe)
     {
-        // $employe->forceDelete();
-        // return redirect()->route('user.index');
-    }
-    public function definitive(User $employe)
-    {
-        dd($employe);
         $employe->forceDelete();
         return redirect()->route('user.index');
     }

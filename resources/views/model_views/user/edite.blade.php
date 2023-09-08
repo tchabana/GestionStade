@@ -12,12 +12,12 @@
             @method('put')
             <div class="groupe">
                 <label for="">Name: </label>
-                <input type="text" name="name" value="{{$employe->name}}">
+                <input type="text" name="name" value="{{$employe->name}}" readonly>
             </div>
 
             <div class="groupe">
                 <label for="">Email: </label>
-                <input type="email" name="email" value="{{$employe->email}}">
+                <input type="email" name="email" value="{{$employe->email}}" readonly>
             </div>
             <div class="groupe">
                 <label for="">Contact: </label>

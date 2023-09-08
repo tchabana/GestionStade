@@ -79,3 +79,17 @@ php artisan make:command UpdateEventStatus
 * * * * * php /chemin/vers/votre/projet/artisan app:update-event-status
 
 ```
+
+## réinitialisation de mot de passe (configuration du .env)
+```
+
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=465
+MAIL_USERNAME=fayssologbone@gmail.com
+MAIL_PASSWORD=ekevvdrjfephzsns
+MAIL_ENCRYPTION=ssl
+MAIL_FROM_ADDRESS='fayssologbone@gmail.com'
+MAIL_FROM_NAME="${APP_NAME}"
+
+```

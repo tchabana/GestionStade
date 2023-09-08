@@ -46,9 +46,9 @@ Route::post('employe',[UserController::class,'store'])->name('user.store');
 Route::put('employe/{employe}/',[UserController::class,'update'])->name('user.update');
 
 Route::post('ticket-generate',[PdfController::class,'generate'])->name('pdf');
-Route::post('employe/desactive/{employe}',[UserController::class,'desactiver'])->name('desactive');
-Route::put('employe/restore/{employe}',[UserController::class,'restore'])->name('restore');
-Route::delete('employe/definitive/{employe}',[UserController::class,'definitive'])->name('definitive');
+Route::delete('employe/desactive/{employe}',[UserController::class,'desactiver'])->name('desactive');
+Route::put('employe/restore/{employe}',[UserController::class,'restore'])->name('user.restore');
+Route::delete('employe/destroy/{employe}',[UserController::class,'destroy'])->name('user.destroy');
 //fin
 Route::middleware([
     'auth:sanctum',
@@ -71,7 +71,7 @@ Route::resources([
     "reclamation"=>ReclamationController::class,
     "score"=>ScoreController::class,
     "ticket"=>TicketController::class,
-   // "user"=>UserController::class,
+   
 ]);
 
 //hafiz
