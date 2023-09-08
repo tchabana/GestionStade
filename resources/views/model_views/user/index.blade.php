@@ -132,17 +132,18 @@
                                 @endif   
                                 </td>
                                 <td class="px-6 py-4 text-center">
-                                  <form action="{{route('user.destroy',$desac)}}" method="post">
+                                    
+                                  <form action="{{route('user.destroy',$desac->id)}}" method="post">
                                     @csrf 
                                     @method('delete')
                                         <button type="submit" class="text-red-500">Supprimer</button>
                                     </form>
                                 </td>
                                 <td class="px-6 py-4 text-center">
-                                 <form action="{{route('user.restore',$desac)}}" method="post">
+                                 <form action="{{route('user.restore',$desac->id)}}" method="post">
                                     @csrf 
                                     @method('put')
-                                        <button type="submit" class="text-green-500">Activer</button>
+                                        <button type="submit" class="text-green-500">Réactiver</button>
                                     </form>
                                 </td>
 
