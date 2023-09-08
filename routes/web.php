@@ -71,7 +71,7 @@ Route::resources([
     "reclamation"=>ReclamationController::class,
     "score"=>ScoreController::class,
     "ticket"=>TicketController::class,
-   
+
 ]);
 
 //hafiz

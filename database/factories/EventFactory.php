@@ -13,7 +13,7 @@ class EventFactory extends Factory
     protected $model = Event::class;
     /**
      * Define the model's default state.
-     * 
+     *
      *
      * @return array<string, mixed>
      */
@@ -32,7 +32,7 @@ class EventFactory extends Factory
             'nbr_ticket_gen_online' => $this->faker->numberBetween(100,800),
             'nbr_participant' => $this->faker->numberBetween(100,800),
             'nbr_likes'=> $this->faker->numberBetween(100,800),
-           
+
         ];
     }
 }

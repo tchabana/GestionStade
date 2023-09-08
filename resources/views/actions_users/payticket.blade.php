@@ -49,12 +49,12 @@
                                 const acheterTicketBtn = document.getElementById('acheterTicket');
                                 const optionsPaiementDiv = document.getElementById('optionsPaiement');
                                 const validerPaiementBtn = document.getElementById('validerPaiement');
-                        
+
                                 acheterTicketBtn.addEventListener('click', function () {
                                     optionsPaiementDiv.style.display = 'block';
                                     acheterTicketBtn.remove();
                                 });
-                        
+
                                 validerPaiementBtn.addEventListener('click', function (event) {
                                     const moyenPaiementChoisi = document.querySelector('input[name="mode_paiement"]:checked');
                                     if (moyenPaiementChoisi) {
