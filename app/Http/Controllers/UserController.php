@@ -17,9 +17,9 @@ class UserController extends Controller
     }
     public function index()
     {
-       
+
         $employesD = User::onlyTrashed()->get();
-        
+
         $employesA = User::whereNull('deleted_at')->get();
 
         return view('model_views.user.index',compact('employesA','employesD'));
@@ -44,7 +44,7 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->phone_number = $request->phone_number;
         $user->password = Hash::make($request->password);
-        $user->role = 'gerant'; 
+        $user->role = 'gerant';
         $user->save();
         $user->assignRole('gerant');
 
