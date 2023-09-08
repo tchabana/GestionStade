@@ -62,7 +62,7 @@
                 Aucune actualité disponible
             @endforelse
         </div>
-
+        {{ $actuality->onEachSide(1)->links() }}
     </div>
 </x-app-layout>
 
