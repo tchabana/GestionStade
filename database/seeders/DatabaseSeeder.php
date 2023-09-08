@@ -47,7 +47,7 @@ class DatabaseSeeder extends Seeder
             $matchs = Matche::factory()->create(['event_id'=>$event->id,'score_id'=>$score->id]);
 
             $otherEvents = Event::factory()->create(['user_id' => User::all()->where('role','gerant')->first->id]);
-            $others = Other::factory()->create(['event_id'=>$otherEvents->id]); 
+            $others = Other::factory()->create(['event_id'=>$otherEvents->id]);
         }
 
          //chargement actuality
@@ -62,7 +62,7 @@ class DatabaseSeeder extends Seeder
 
           // chargement commentaire
           $comments = Comment::factory()->count(25)->create();
-         
+
           // chargement des tickets
           $tickets = Ticket::factory()->count(115)->create();
 
