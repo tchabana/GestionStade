@@ -75,7 +75,7 @@
                                 <td class="px-6 py-4 text-center">
                                     {{ $even->authors }}
                                 </td>
-                               
+
                                 <td class="px-6 py-4 text-center">
                                    {!! $even->status() !!}
                                 </td>
@@ -120,5 +120,6 @@
                 </table>
             </div>
         </div>
+        {{ $events->onEachSide(1)->links() }}
     </div>
 </x-app-layout>

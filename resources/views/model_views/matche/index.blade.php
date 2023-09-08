@@ -147,5 +147,6 @@
                 </table>
             </div>
         </div>
+        {{ $matches->onEachSide(1)->links() }}
     </div>
 </x-app-layout>

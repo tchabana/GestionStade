@@ -48,3 +48,5 @@ composer require laravel-lang/common --dev
 php artisan lang:add fr
 
 php artisan vendor:publish
+
+ Copying directory [vendor/laravel/framework/src/Illuminate/Pagination/resources/views] to [resources/views/vendor/pagination]  DONE

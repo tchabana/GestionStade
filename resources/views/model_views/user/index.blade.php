@@ -7,7 +7,7 @@
 
         <hr class="bars">
         <!-- -------------------------formulaires ---------------------------------------------- -->
-        
+
         <div class="creation">
             <div>
                 <div class="mb-5">
@@ -52,11 +52,11 @@
                                 {{$activ->phone_number}}
                                 </td>
                                 <td class="px-6 py-4 text-center">
-                                @if($activ->hasRole('gerant')) 
-                                    gerant 
-                                @else 
-                                    admin 
-                                @endif        
+                                @if($activ->hasRole('gerant'))
+                                    gerant
+                                @else
+                                    admin
+                                @endif
                                 </td>
                                 <td class="px-6 py-4 text-center">
                                     <form action="{{route('user.edit',$activ)}}" method="get">
@@ -65,22 +65,23 @@
                                 </td>
                                 <td class="px-6 py-4 text-center">
                                 <form action="{{route('desactive',$activ)}}" method="post">
-                                    @csrf 
+                                    @csrf
                                     @method('delete')
                                         <button type="submit" class="text-yellow-500">Desactiver</button>
                                     </form>
                                 </td>
-                           
+
                             </tr>
-                            @empty 
+                            @empty
                                 <h1 class="font-red-500">Aucun employe activé</h1>
-                            @endforelse    
+                            @endforelse
                     </tbody>
                 </table>
             </div>
+            {{ $employesA->onEachSide(1)->links() }}
         </div>
 
-        
+
         <div class="creation">
             <div>
                 <div class="mb-5">
@@ -125,34 +126,35 @@
                                 {{$desac->email}}
                                 </td>
                                 <td class="px-6 py-4 text-center">
-                                @if($desac->hasRole('gerant')) 
-                                    gerant 
-                                @else 
-                                    admin 
-                                @endif   
+                                @if($desac->hasRole('gerant'))
+                                    gerant
+                                @else
+                                    admin
+                                @endif
                                 </td>
                                 <td class="px-6 py-4 text-center">
                                   <form action="{{route('user.destroy',$desac)}}" method="post">
-                                    @csrf 
+                                    @csrf
                                     @method('delete')
                                         <button type="submit" class="text-red-500">Supprimer</button>
                                     </form>
                                 </td>
                                 <td class="px-6 py-4 text-center">
                                  <form action="{{route('user.restore',$desac)}}" method="post">
-                                    @csrf 
+                                    @csrf
                                     @method('put')
                                         <button type="submit" class="text-green-500">Activer</button>
                                     </form>
                                 </td>
 
                             </tr>
-                     @empty 
+                     @empty
                         <h2>Aucun compte désactivé</h2>
                     @endforelse
                         </tbody>
                 </table>
             </div>
         </div>
+        {{ $employesD->onEachSide(1)->links() }}
     </div>
 </x-app-layout>
