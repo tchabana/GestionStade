@@ -22,6 +22,8 @@ return new class extends Migration
             $table->string('profile_photo_path', 2048)->nullable();
             $table->enum('role',["client","gerant","equipe","admin"])->default("gerant");
             $table->string('phone_number')->nullable();
+            $table->softDeletes();
+           // $table->dropSoftDeletes();
             $table->timestamps();
         });
     }
@@ -32,5 +34,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('users');
+        
     }
 };

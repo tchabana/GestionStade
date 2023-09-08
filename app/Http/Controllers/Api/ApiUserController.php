@@ -27,7 +27,9 @@ class ApiUserController extends Controller
             return response()->json($e);
         }
     }
-
+public function create(){
+    
+}
 
     /**
      * Store a newly created resource in storage.

@@ -14,6 +14,10 @@ class OtherController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function __construct()
+    {
+        $this->middleware(['auth','role:admin|gerant']);
+    }
     public function index()
     {
         return view('model_views.other.index', ['others' => Other::paginate(10), 'controller_methode' => "index"]);

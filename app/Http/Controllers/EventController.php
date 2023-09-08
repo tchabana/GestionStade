@@ -13,6 +13,10 @@ class EventController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function __construct()
+    {
+        $this->middleware(['auth','role:admin|gerant']);
+    }
     public function index()
     {
         return view('model_views.event.index', ['events' => Event::paginate(10), 'controller_methode' => "index"]);
@@ -120,4 +124,6 @@ class EventController extends Controller
             return response()->json($ex);
         }
     }
+
+    
 }

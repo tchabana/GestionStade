@@ -25,14 +25,6 @@
                             <th scope="col" class="px-6 py-3 text-center">
                                 DESCRIPTION
                             </th>
-                            {{-- <th scope="col" class="px-6 py-3 text-center">
-                                Dates_prévus
-                            </th> --}}
-                            {{-- <th scope="col" class="px-6 py-3 text-center">
-                                Start_at
-                            </th> --}}
-                            <th scope="col" class="px-6 py-3 text-center">
-                                End_at
                             <th scope="col" class="px-6 py-3 text-center">
                                 Date && Heure DÉBUT
                             </th>
@@ -45,9 +37,6 @@
                             <th scope="col" class="px-6 py-3 text-center">
                                 AUTEURS
                             </th>
-                            {{-- <th scope="col" class="px-6 py-3 text-center">
-                                Info_supplementaire
-                            </th> --}}
                             <th scope="col" class="px-6 py-3 text-center">
                                 STATUS
                             </th>
@@ -72,19 +61,13 @@
                                 <td class="px-6 py-4 text-center">
                                     {{ $even->description }}
                                 </td>
-                                {{-- <td class="px-6 py-4 text-center">
-                                    {{ $even->date_on }}
-                                </td>
-                                <td class="px-6 py-4 text-center">
-                                    {{ $even->start_at }}
-                                </td> --}}
-                                <td class="px-6 py-4 text-center">
-                                    {{ $even->end_at }}
+
                                 <td class="px-6 py-4 text-center">
                                     {{ $even->date_start.' '.$even->start_at }}
                                 </td>
                                 <td class="px-6 py-4 text-center">
                                 {{ $even->date_end.' '.$even->end_at }}
+
                                 </td>
                                 <td class="px-6 py-4 text-center">
                                     {{ $even->nbr_participant }}
@@ -92,9 +75,7 @@
                                 <td class="px-6 py-4 text-center">
                                     {{ $even->authors }}
                                 </td>
-                                {{-- <td class="px-6 py-4 text-center">
-                                    {{ $even->info_suplementaire }}
-                                </td> --}}
+                               
                                 <td class="px-6 py-4 text-center">
                                    {!! $even->status() !!}
                                 </td>

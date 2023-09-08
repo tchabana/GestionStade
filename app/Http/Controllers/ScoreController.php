@@ -11,6 +11,10 @@ class ScoreController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function __construct()
+    {
+        $this->middleware(['auth','role:admin|gerant']);
+    }
     public function index()
     {
         //
@@ -19,6 +23,7 @@ class ScoreController extends Controller
     /**
      * Show the form for creating a new resource.
      */
+   
     public function create()
     {
         //
