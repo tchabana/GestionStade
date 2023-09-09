@@ -19,9 +19,7 @@ class UserController extends Controller
     {
 
         $employesD = User::onlyTrashed()->get();
-
         $employesA = User::whereNull('deleted_at')->get();
-
         return view('model_views.user.index',compact('employesA','employesD'));
     }
 
@@ -90,8 +88,9 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(User $employe)
+    public function destroy(string $id)
     {
+        $employe = User::onlyTrashed()->find($id);
         $employe->forceDelete();
         return redirect()->route('user.index');
     }
@@ -102,8 +101,9 @@ class UserController extends Controller
         return redirect()->route('user.index');
     }
 
-    public function restore(User $employe)
+    public function restore(string $id)
     {
+        $employe = User::onlyTrashed()->find($id);
         $employe->restore();
         return redirect()->route('user.index');
     }
