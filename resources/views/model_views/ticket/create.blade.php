@@ -55,7 +55,7 @@
 
     <script>
         //import flatpickr from 'flatpickr';
-        
+
         //PDF
         const openPdfButton = document.getElementById('openPdfButton');
         const previewModal = document.getElementById('previewModal');
@@ -91,5 +91,5 @@
 
     </x-app-layout>
 
-   
+
 

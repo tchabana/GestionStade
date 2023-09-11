@@ -52,7 +52,7 @@
             <div class="groupe">
                 <label for="" class="mb-4">Image</label>
                 <div class="ims">
-                    <img src="" alt="" class="img-product" id="file-preview">
+                    <img src="" alt="" class="img-product" id="file-preview" accept=".png, .jpg, .jpeg, .gif, .svg">
                 </div>
                 <input type="file" name="image_path" accept="images/*" onchange="afficheImage(event)">
             </div>
