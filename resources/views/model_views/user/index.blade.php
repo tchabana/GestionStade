@@ -132,10 +132,10 @@
                                 @endif
                                 </td>
                                 <td class="px-6 py-4 text-center">
-                                  <form action="{{route('user.destroy',$desac->id)}}" method="post">
+                                  <form action="{{route('user.destroy',$desac->id)}}" method="post" id="myForm">
                                     @csrf 
                                     @method('delete')
-                                        <button type="submit" class="text-red-500">Supprimer</button>
+                                        <button type="submit" class="text-red-500" id="deleteButton">Supprimer</button>
                                     </form>
                                 </td>
                                 <td class="px-6 py-4 text-center">
@@ -155,4 +155,16 @@
             </div>
         </div>
     </div>
+    <!-- <script>
+             document.getElementById("deleteButton").addEventListener("click", function(event) {
+            var userConfirmation = confirm("Êtes-vous sûr de vouloir supprimer ?");
+
+            if (!userConfirmation) {
+                event.preventDefault(); // Annule la soumission du formulaire
+            } else {
+                // Le formulaire sera soumis normalement
+                document.getElementById("myForm").submit();
+            }
+        });
+        </script> -->
 </x-app-layout>

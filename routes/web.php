@@ -53,7 +53,8 @@ Route::delete('employe/destroy/{id}',[UserController::class,'destroy'])->name('u
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
-    'verified'
+    'verified',
+    'role:admin|gerant|client'
 ])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');

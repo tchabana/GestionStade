@@ -81,3 +81,28 @@ php artisan make:command UpdateEventStatus
 ```
 
 ## réinitialisation de mot de passe (configuration du .env)
+
+- dans config/mail.php
+ //pour la reinitialisation 
+    'stream' => [
+        'ssl'=>[
+            'allow_self_signed'=>true,
+            'verify_peer'=>false,
+            'verify_peer_name'=>false,
+        ],
+    ],
+
+    'from' => [
+        'address' => env('MAIL_FROM_ADDRESS', 'fayssologbone@gmail.com'),
+        'name' => env('MAIL_FROM_NAME', 'SokodeShow'),
+    ],
+- dans .env
+
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=465
+MAIL_USERNAME=fayssologbone@gmail.com
+MAIL_PASSWORD=ekevvdrjfephzsns
+MAIL_ENCRYPTION=ssl
+MAIL_FROM_ADDRESS='fayssologbone@gmail.com'
+MAIL_FROM_NAME="${APP_NAME}"
