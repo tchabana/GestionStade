@@ -30,6 +30,7 @@ Route::get('todayevent',[ApiEventController::class,'todayEvent'])->name('todayev
 Route::get('futurevent',[ApiEventController::class,'futurEvent'])->name('futurevent');
 Route::get('passevent',[ApiEventController::class,'passEvent'])->name('passevent');
 Route::get('alltiketforevent/{event_id}',[ApiTicketController::class,'allTiketForEvent'])->name('alltiketforevent');
+Route::get('allcommentforevent/{event_id}',[ApiCommentController::class,'allcommentforevent'])->name('allcommentforevent');
 Route::get('alltiketforuser/{user_id}',[ApiTicketController::class,'allTiketForUser'])->name('alltiketforuser');
 Route::get('searchevent/{q}',[ApiEventController::class,'search'])->name('searchevent');
 
