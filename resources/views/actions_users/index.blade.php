@@ -40,7 +40,7 @@
             </div>
             </div>
         @empty
-            Pas d'actualité
+        <p class="text-center">Pas d'actualité</p>
         @endforelse
       </div>
 
@@ -85,7 +85,7 @@
             </div>
             </div>
         @empty
-            Pas d'actualité
+            <p class="text-center">Pas d'actualité</p>
         @endforelse
       </div>
 

@@ -88,7 +88,7 @@
 
         <section class="dimcaro">
             {{-- -------------------------------type d'évementn------------------------------------------ --}}
-            <div class="flex bg-green-800 absolute mt-44 md:mt-[21rem] left-end lg:left-2 p-1  z-50">
+            {{-- <div class="flex bg-green-800 absolute mt-44 md:mt-[21rem] left-end lg:left-2 p-1  z-50">
 
                 <select class="bg-orange-800 rounded-lg text-white font-bold" name="" id="">
                     <option disabled>Evenements</option>
@@ -96,7 +96,7 @@
                     <option value="">Dance tradi</option>
                     <option value="">Gala</option>
                 </select>
-            </div>
+            </div> --}}
             <div class="mt-0">
                 <div id="default-carousel" class="relative w-full" data-carousel="slide">
 
