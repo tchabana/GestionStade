@@ -30,7 +30,20 @@ class ApiCommentController extends Controller
      */
     public function store(StoreCommentRequest $request)
     {
-        //
+        try {
+            $comment = Comment::Create([
+                'user_id' => $request->user_id,
+                'event_id' => $request->event_id,
+                'message' => $request->message,
+            ]);
+            return response()->json([
+                'status' => 200,
+                'status_massage' => "Ok",
+                'data' => $comment
+            ]);
+        } catch (\Exception $e) {
+            return response()->json($e);
+        }
     }
 
     /**
@@ -63,5 +76,18 @@ class ApiCommentController extends Controller
     public function destroy(Comment $comment)
     {
         //
+    }
+    public function allcommentforevent(string $event_id)
+    {
+        try {
+            $comments = Comment::where('event_id', '=', $event_id )->get();
+            return response()->json([
+                'status' => 200,
+                'status_massage' => "Ok",
+                'data' => $comments
+            ]);
+        } catch (\Exception $e) {
+            return response()->json($e);
+        }
     }
 }
