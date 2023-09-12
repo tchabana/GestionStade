@@ -14,7 +14,7 @@ class StoreCommentRequest extends FormRequest
     {
         // Obtenez l'utilisateur connecté
         $user = Auth::user();
-        return auth()->check();
+        return true;
     }
 
     /**
