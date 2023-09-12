@@ -97,6 +97,7 @@ return [
     | used globally for all e-mails that are sent by your application.
     |
     */
+    
     //pour la reinitialisation 
     'stream' => [
         'ssl'=>[
