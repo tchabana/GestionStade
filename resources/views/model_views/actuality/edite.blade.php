@@ -12,11 +12,17 @@
             <div class="groupe">
                 <label for="">Title : </label>
                 <input type="text" name="title" value="{{ $actuality->title }}">
+                @error('title')
+                    <small class="text-red-800 animate-pulse"> {{ $message }} </small>
+                @enderror
             </div>
 
             <div class="groupe">
                 <label for="">Message : </label>
                 <textarea name="message" id="" cols="30" rows="10" value="{{ $actuality->message }}"></textarea>
+                @error('message')
+                    <small class="text-red-800 animate-pulse"> {{ $message }} </small>
+                @enderror
             </div>
 
             <div class="groupe">
@@ -25,6 +31,9 @@
                     <img src="" alt="" class="img-product" id="file-preview">
                 </div>
                 <input type="file" name="image_path" accept="images/*" onchange="afficheImage(event)">
+                @error('image_path')
+                    <small class="text-red-800 animate-pulse"> {{ $message }} </small>
+                @enderror
             </div>
 
             <div class="groupe">

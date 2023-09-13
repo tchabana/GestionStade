@@ -21,7 +21,8 @@
                                 <h1 class="font-bold italic text-white"> {{ $actus->title }} </h1>
                             </div>
                             <div class="mb-6">
-                                {{ $actus->message }}
+
+                                {{ substr($actus->message, 0, 50) }}
                             </div>
                         </div>
 
@@ -64,6 +65,7 @@
         </div>
         {{ $actuality->onEachSide(1)->links() }}
     </div>
+
 </x-app-layout>
 
 

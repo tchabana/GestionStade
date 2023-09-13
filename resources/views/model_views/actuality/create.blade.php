@@ -12,19 +12,29 @@
             <div class="groupe">
                 <label for="">Title : </label>
                 <input type="text" name="title">
+                @error('message')
+                    <small class="text-red-800 animate-pulse"> {{ $message }} </small>
+                @enderror
             </div>
+
 
             <div class="groupe">
                 <label for="">Message : </label>
                 <textarea name="message" id="" cols="30" rows="10"></textarea>
+                @error('message')
+                    <small class="text-red-800 animate-pulse"> {{ $message }} </small>
+                @enderror
             </div>
 
             <div class="groupe">
                 <label for="" class="mb-4">Image</label>
                 <div class="ims">
-                    <img src="" alt="" class="img-product" id="file-preview">
+                    <img src="" alt="" class="img-product" id="file-preview" accept=".png, .jpg, .jpeg, .gif, .svg">
                 </div>
                 <input type="file" name="image_path" accept="images/*" onchange="afficheImage(event)">
+                @error('image_path')
+                    <small class="text-red-800 animate-pulse"> {{ $message }} </small>
+                @enderror
             </div>
 
             <div class="groupe">
@@ -46,3 +56,5 @@
         }
     </script>
 </x-app-layout>
+
+
