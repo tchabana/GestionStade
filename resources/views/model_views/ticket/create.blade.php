@@ -22,10 +22,16 @@
                 <div class="flex flex-col items-center ">
                     <label for="ticketCount" class="w-40">Nombre de tickets :</label>
                     <input type="number" id="ticketCount" name="ticketCount" class="border rounded m-5 w-1/2">
+                    @error('ticketCount')
+                        <small class="text-red-800 animate-pulse"> {{ $message }} </small>
+                    @enderror
                 </div>
                 <div class="flex flex-col items-center ">
                     <label for="ticketCount" class="w-40 mb-4">Prix de tickets :</label>
                     <input type="number" id="event" name="price" class="border rounded w-1/2">
+                    @error('price')
+                        <small class="text-red-800 animate-pulse"> {{ $message }} </small>
+                    @enderror
                     <!-- <select id="event" name="type" class="border rounded w-1/2">
 
                             <option value="VIP">VIP</option>

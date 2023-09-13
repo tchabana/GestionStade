@@ -133,14 +133,14 @@
                                 </td>
                                 <td class="px-6 py-4 text-center">
                                   <form action="{{route('user.destroy',$desac->id)}}" method="post" id="myForm">
-                                    @csrf 
+                                    @csrf
                                     @method('delete')
                                         <button type="submit" class="text-red-500" id="deleteButton">Supprimer</button>
                                     </form>
                                 </td>
                                 <td class="px-6 py-4 text-center">
                                  <form action="{{route('user.restore',$desac->id)}}" method="post">
-                                    @csrf 
+                                    @csrf
                                     @method('put')
                                         <button type="submit" class="text-green-500">Réactiver</button>
                                     </form>
