@@ -111,7 +111,7 @@
                     </div>
 
                     <div class="mt-4 mb-4">
-                        <button class="text-white flex m-auto bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg">Button</button>
+                        <button class="text-white flex m-auto bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg">Valider</button>
                     </div>
                 </div>
             </section>

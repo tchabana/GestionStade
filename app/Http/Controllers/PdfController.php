@@ -20,6 +20,11 @@ class PdfController extends Controller
     //
     public function generate(Request $request)
     {
+        $validated = $request->validate([
+            'ticketCount' => 'required',
+            'title' => 'required',
+            'price' => 'required',
+        ]);
         $numTickets = $request->input('ticketCount', 1);
         $event_title = $request->title;
         $event = Event::all()->where('title',$event_title)->reverse()->first();

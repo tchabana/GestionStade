@@ -82,7 +82,7 @@ class OtherController extends Controller
      */
     public function edit(Other $other)
     {
-        return view('model_views.other.edite', ['other' => $other]);
+        return view('model_views.other.edite', ['event' => $other]);
     }
 
     /**
