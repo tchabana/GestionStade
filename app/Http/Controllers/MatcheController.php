@@ -89,7 +89,7 @@ class MatcheController extends Controller
      */
     public function edit(Matche $matche)
     {
-        return view('model_views.matche.edite', ['matche' => $matche]);
+        return view('model_views.matche.edite', ['event' => $matche]);
     }
 
     /**

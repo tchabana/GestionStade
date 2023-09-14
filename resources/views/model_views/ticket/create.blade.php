@@ -13,7 +13,7 @@
                             <option value="{{$event->title}}">{{$event->title}}</option>
                         @endforeach
                     </select>
-                    <a class="text-blue-800 underline" id="openButton" href="{{route('event.create')}}"> Ou Créer Un Nouvel Événement</a>
+                    {{-- <a class="text-blue-800 underline" id="openButton" href="{{route('event.create')}}"> Ou Créer Un Nouvel Événement</a> --}}
                 </div>
             </fieldset>
 

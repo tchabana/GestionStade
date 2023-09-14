@@ -25,6 +25,15 @@ class StoreMatcheRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'image_path'=>'required',
+            'title'=>'required',
+            'description'=>'required',
+            'date_start'=>'required',
+            'date_end'=>'required',
+            'start_at'=>'required',
+            'end_at'=>'required',
+            'nbr_participant'=>'required',
+            'authors'=>'required',
             'equipe1_name'=>'required',
             'equipe2_name'=>'required',
             //'event_id'=>'required',
