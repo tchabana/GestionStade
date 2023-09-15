@@ -22,153 +22,25 @@
 
 {{-- ------------------------------------------------------------------------------------------------------------------------------------------------------------ --}}
 
-                {{-- <div class="lg:w-4/5 mx-auto flex flex-wrap border-4 border-red-700 mt-4 mb-10 p-4"> --}}
-
-
-                    {{-- <section class="text-gray-600 body-font">
-                        <section class="text-gray-600 body-font">
-                            <div class="container px-5 py-2 mx-auto">
-                              <div class="flex flex-wrap -m-4">
-
-                                <div class="xl:w-1/3 md:w-1/2 p-4">
-                                    <div class="bg-gray-100 p-6 rounded-lg">
-
-                                        <div class="w-full h-40 bg-black">
-                                            <img class="h-40 rounded w-full object-cover object-center mb-6" src="" alt="content">
-                                        </div>
-                                        <div class="mt-2">
-                                            <h2 class="text-lg text-gray-900 font-medium title-font mb-4">USA & USB</h2>
-
-                                            <p>Stade municiapl</p>
-
-                                            <div class="flex items-center gap-4">
-                                                <h5>D : 18:05:00</h5>
-                                                <h5>F : 18:05:00</h5>
-                                            </div>
-
-                                            <p>Date : 11-10-2023</p>
-                                            <p class="leading-relaxed text-base">
-                                                Lorem ipsum dolor sit amet.
-                                            </p>
-
-                                            <a class="text-green-500 inline-flex items-center md:mb-2 lg:mb-0" href="  ">voir plus
-                                                <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                    <path d="M5 12h14"></path>
-                                                    <path d="M12 5l7 7-7 7"></path>
-                                                </svg>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="xl:w-1/3 md:w-1/2 p-4">
-                                    <div class="bg-gray-100 p-6 rounded-lg">
-
-                                        <div class="w-full h-40 bg-black">
-                                            <img class="h-40 rounded w-full object-cover object-center mb-6" src="" alt="content">
-                                        </div>
-                                        <div class="mt-2">
-                                            <h2 class="text-lg text-gray-900 font-medium title-font mb-4">USA & USB</h2>
-
-                                            <p>Stade municiapl</p>
-
-                                            <div class="flex items-center gap-4">
-                                                <h5>D : 18:05:00</h5>
-                                                <h5>F : 18:05:00</h5>
-                                            </div>
-
-                                            <p>Date : 11-10-2023</p>
-                                            <p class="leading-relaxed text-base">
-                                                Lorem ipsum dolor sit amet.
-                                            </p>
-
-                                            <a class="text-green-500 inline-flex items-center md:mb-2 lg:mb-0" href="  ">voir plus
-                                                <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                    <path d="M5 12h14"></path>
-                                                    <path d="M12 5l7 7-7 7"></path>
-                                                </svg>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="xl:w-1/3 md:w-1/2 p-4">
-                                    <div class="bg-gray-100 p-6 rounded-lg">
-
-                                        <div class="w-full h-40 bg-black">
-                                            <img class="h-40 rounded w-full object-cover object-center mb-6" src="" alt="content">
-                                        </div>
-                                        <div class="mt-2">
-                                            <h2 class="text-lg text-gray-900 font-medium title-font mb-4">USA & USB</h2>
-
-                                            <p>Stade municiapl</p>
-
-                                            <div class="flex items-center gap-4">
-                                                <h5>D : 18:05:00</h5>
-                                                <h5>F : 18:05:00</h5>
-                                            </div>
-
-                                            <p>Date : 11-10-2023</p>
-                                            <p class="leading-relaxed text-base">
-                                                Lorem ipsum dolor sit amet.
-                                            </p>
-
-                                            <a class="text-green-500 inline-flex items-center md:mb-2 lg:mb-0" href="  ">voir plus
-                                                <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                    <path d="M5 12h14"></path>
-                                                    <path d="M12 5l7 7-7 7"></path>
-                                                </svg>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="xl:w-1/3 md:w-1/2 p-4">
-                                    <div class="bg-gray-100 p-6 rounded-lg">
-
-                                        <div class="w-full h-40 bg-black">
-                                            <img class="h-40 rounded w-full object-cover object-center mb-6" src="" alt="content">
-                                        </div>
-                                        <div class="mt-2">
-                                            <h2 class="text-lg text-gray-900 font-medium title-font mb-4">USA & USB</h2>
-
-                                            <p>Stade municiapl</p>
-
-                                            <div class="flex items-center gap-4">
-                                                <h5>D : 18:05:00</h5>
-                                                <h5>F : 18:05:00</h5>
-                                            </div>
-
-                                            <p>Date : 11-10-2023</p>
-                                            <p class="leading-relaxed text-base">
-                                                Lorem ipsum dolor sit amet.
-                                            </p>
-
-                                            <a class="text-green-500 inline-flex items-center md:mb-2 lg:mb-0" href="  ">voir plus
-                                                <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                    <path d="M5 12h14"></path>
-                                                    <path d="M12 5l7 7-7 7"></path>
-                                                </svg>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                </div>
-
-
-
-
-
-
-
-                              </div>
+                {{-- <div class="lg:w-4/5 mx-auto flex flex-wrap border-4 border-red-700 mt-4 mb-10 p-4">
+                    <div class="flex border-2 items-center gap-2 m-auto">
+                        <div class="box">
+                            <div class="flex gap-2 items-center">
+                                <img class="w-8 h-8 rounded-full" src="{{asset("foot.png")}}" alt="">
+                                <p>SOKODE</p>
                             </div>
-                        </section>
-                    </section> --}}
-
-
-                {{-- </div> --}}
+                            <div class="mt-2">
+                                <p>Titre</p>
+                                <p>Date</p>
+                                <p>Heure</p>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <img src="{{asset("codesQR/image_fvBQUVJU1NplJ1QbK9bdGqJTyMHNBJIL2DkkWXhOi0qEPI9N5Q39ZNLeHPiBgFkc.svg")}}" alt="">
+                        </div>
+                    </div>
+                    
+                </div> --}}
 {{-- ------------------------------------------------------------------------------------------------------------------------------------------------------------ --}}
 
                 <section class="text-gray-600 body-font px-2 mt-10">
