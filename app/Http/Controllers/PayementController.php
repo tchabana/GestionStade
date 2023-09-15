@@ -9,6 +9,7 @@ use App\Models\Payement;
 use App\Models\Ticket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
 use Illuminate\Support\Str;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
@@ -110,19 +111,27 @@ class PayementController extends Controller
     {
         //
     }
-    public function tymoney()
+    public function tymoneyOrFlooz($prix,$event)
     {
-        //
-    }
-    public function paiement(Request $request,Event $event)
-    {
-        if ($request->mode_paiement==="flooz") {
-            return $this->flooz();
-        }elseif($request->mode_paiement==="tymoney"){
-            return $this->tymoney();
-        }else{
-            return $this->paypal($request->prix,$event);
-        }
+        // URL de l'API distante
+        $url = 'https://paygateglobal.com/v1/page';
+
+        // Paramètres à envoyer avec la requête GET
+        $params = [
+            'token' => '3ac1031f-e535-4776-a2ca-7e504ef6d5e1',
+            'amount' => 0,
+            'identifier'=>Str::random(64),
+            'url'=> route("paiement_success",["prix"=> $prix, "event"=> $event]),
+        ];
+
+        // Effectuer la requête GET avec les paramètres
+        $response = Http::get($url, $params);
+        $token = '3ac1031f-e535-4776-a2ca-7e504ef6d5e1';
+        $re = $url."?token=$token"
+                    ."&amount=0"
+                    ."&identifier=azertyuiop".
+                    "&url=".$params["url"];
+        return redirect($re);
     }
     public function paiement_success(Request $request,$prix,Event $event)
     {
@@ -161,7 +170,7 @@ class PayementController extends Controller
                 'path' => $chemin,
                 'ticket_id' => $tcket->id,
                 'event_id' => $event->id,
-                'title' =>  $request->title,
+                'title' =>  $event->title,
                 'date_start' => $event->date_start,
                 'date_end' => $event->date_end,
                 'start_at' => $event->start_at,
@@ -177,5 +186,14 @@ class PayementController extends Controller
     public function paiement_cancel(Request $request)
     {
 
+    }
+
+    public function paiement(Request $request,Event $event)
+    {
+        if ($request->mode_paiement==="paypal") {
+            return $this->paypal($request->prix,$event);
+        }else{
+            return $this->tymoneyOrFlooz($request->prix,$event);
+        }
     }
 }

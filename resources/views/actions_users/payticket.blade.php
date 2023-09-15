@@ -35,8 +35,7 @@
                             <div id="optionsPaiement" style="display: none;">
                                 <p>Choisissez votre moyen de paiement :</p>
                                 <input type="radio" name="mode_paiement" value="paypal"> PayPal<br>
-                                <input type="radio" name="mode_paiement" value="flooz"> Flooz<br>
-                                <input type="radio" name="mode_paiement" value="tymoney"> TyMoney<br>
+                                <input type="radio" name="mode_paiement" value="tf"> TyMoney ou Flooz<br>
                                 <label for="prixTicket">Choisissez le prix du ticket :</label>
                                 <select id="prixTicket" name="prix">
                                     <option name="prix" value="300">300</option>
