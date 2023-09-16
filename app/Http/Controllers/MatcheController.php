@@ -125,6 +125,6 @@ class MatcheController extends Controller
     public function destroy(Matche $matche)
     {
         $matche->delete();
-        return view('model_views.matche.index', ['matches' => Matche::paginate(10), 'controller_methode' => "destroy"]);
+        return redirect()->route('matche.index', ['matches' => Matche::paginate(10), 'controller_methode' => "destroy"]);
     }
 }

@@ -77,7 +77,7 @@
                                     </a></small>
                                 </td>
                                 <td class="px-6 py-4 ">
-                                    <form action="{{ route('event.destroy', $matche)}}" method="POST">
+                                    <form action="{{ route('other.destroy', $matche)}}" method="POST">
                                         @csrf
                                         @method("DELETE")
                                         <small>
