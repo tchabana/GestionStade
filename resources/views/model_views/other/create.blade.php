@@ -2,12 +2,12 @@
     <div class="creation">
         <!-- --------------------bouton listes des utilisateur -------------------------------- -->
         <div class="listes">
-            <a href="{{ route('event.index') }}">Listes des evenements</a>
+            <a href="{{ route('other.index') }}">Listes des Others</a>
         </div>
 
         <hr class="bars">
         <!-- -------------------------formulaires ---------------------------------------------- -->
-        <form action="{{ route('matche.store') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('other.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <section class="text-gray-600 body-font">
                 <div class="container px-1 sm:py-8 md:py-4 lg:py-24 mx-auto">
