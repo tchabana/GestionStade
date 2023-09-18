@@ -96,6 +96,6 @@ class ActualityController extends Controller
     public function destroy(Actuality $actuality)
     {
         $actuality->delete();
-        return view('model_views.actuality.index', ['actuality' => Actuality::paginate(10), 'controller_methode' => "destroy"]);
+        return redirect()->route('actuality.index', ['actuality' => Actuality::paginate(10), 'controller_methode' => "destroy"]);
     }
 }

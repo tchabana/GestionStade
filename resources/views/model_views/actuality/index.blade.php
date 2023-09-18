@@ -2,7 +2,7 @@
 <div class="creation">
     <!-- --------------------bouton listes des utilisateur -------------------------------- -->
         <div class="listes">
-            <a href="{{ route('actuality.create') }}">Créer evenement</a>
+            <a href="{{ route('actuality.create') }}">Créer une actualitée</a>
         </div>
 
         <hr class="bars mb-3">
