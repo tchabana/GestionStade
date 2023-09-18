@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateEventRequest;
 use App\Models\Event;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Casts\Json;
+use Illuminate\Http\Request;
 
 class EventController extends Controller
 {
@@ -99,7 +100,7 @@ class EventController extends Controller
     public function destroy(Event $event)
     {
         $event->delete();
-        return view('model_views.event.index', ['events' => Event::paginate(10), 'controller_methode' => "destroy"]);
+        return redirect()->route('event.index', ['events' => Event::paginate(10), 'controller_methode' => "destroy"]);
     }
     public function todayEvent()
     {
@@ -111,8 +112,9 @@ class EventController extends Controller
             return response()->json($ex);
         }
     }
-    public function search(String $q)
+    public function search(Request $request)
     {
+        $q = $request->input('q');
         try {
             $event = Event::where('title', 'like', '%' . $q . '%')->orWhere('description', 'like', '%' . $q . '%')->get();
             return response()->json([

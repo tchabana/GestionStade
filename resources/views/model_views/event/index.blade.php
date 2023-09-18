@@ -1,13 +1,14 @@
 <x-app-layout>
     <div class="creation">
         <!-- --------------------bouton listes des utilisateur -------------------------------- -->
-        <div class="listes">
-            <a href="{{ route('event.create') }}">Créer un évenement</a>
-        </div>
 
         <hr class="bars">
         <!-- -------------------------formulaires ---------------------------------------------- -->
-
+        <form method="POST" action="{{route('searchevent')}}" id="search-form">
+            <div>
+                <input class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-green-500 focus:bg-transparent focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" name="q" id="q" placeholder="{{ __('Search') }}">
+            </div>
+        </form>
         <div class="creation">
             <div>
                 <div class="mb-10">
@@ -52,9 +53,9 @@
                             </th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="tableau" >
                         @forelse ($events as $even )
-                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700" id="{{$even->id}}">
                                 <td class="px-6 py-4 text-center">
                                     {{ $even->title }}
                                 </td>
@@ -122,4 +123,5 @@
         </div>
         {{ $events->onEachSide(1)->links() }}
     </div>
+    <script src="{{asset('js/search.js')}}"></script>
 </x-app-layout>

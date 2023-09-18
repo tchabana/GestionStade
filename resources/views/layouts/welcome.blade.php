@@ -29,7 +29,7 @@
                 <div x-data="{ open: false }" class=" flex flex-col max-w-screen-3xl px-0 mx-auto lg:items-center lg:justify-between lg:flex-row lg:px-6 xl:items-center xl:justify-between xl:flex-row xl:px-6  ">
                     <div class="flex flex-row items-center justify-between px-2 py-6">
                         {{-- ------------------------logo----------------------- --}}
-                        <a href="#" class="text-lg font-semibold tracking-widest text-white uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">
+                        <a href="{{route("index")}}" class="text-lg font-semibold tracking-widest text-white uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">
                             <div class="flex items-center gap-4">
                                 <div class="w-6 h-6 rounded-full animate-bounce">
                                     <img src=" {{ asset('foot.png') }}" alt="" class=" w-full h-full ">
