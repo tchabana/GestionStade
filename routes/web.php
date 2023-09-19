@@ -84,3 +84,5 @@ Route::get('paiement_cancel',[PayementController::class,'paiement_cancel'])->nam
 Route::post('/searchevent',[EventController::class,'search'])->name('searchevent');
 
 
+
+
