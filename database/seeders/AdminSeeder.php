@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role;
 
 class AdminSeeder extends Seeder
 {
@@ -22,7 +23,9 @@ class AdminSeeder extends Seeder
             'password' => Hash::make('superadmin'),
             'role' => 'admin'
         ]);
-        $user->assignRole('admin');
+        //$user->assignRole('admin');
+        //$roles = Role::all()->whereIn('id', [1, 2]);
+        $user->assignRole([Role::find(2), Role::find(1)]);
 
         $user1 = User::create([
             'name' => 'gerant',
@@ -31,6 +34,7 @@ class AdminSeeder extends Seeder
             'password' => Hash::make('supergerant'),
             'role' => 'gerant'
         ]);
-        $user1->assignRole('gerant');
+        //$roles = [Role::find(2)];
+        $user1->assignRole([Role::find(2)]);
     }
 }
