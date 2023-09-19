@@ -66,7 +66,9 @@ class OtherController extends Controller
         } catch (\Exception $e) {
             return $e->getMessage();
         }
-        return view('model_views.event.index', ['events' => Event::paginate(10), 'controller_methode' => "store"]);
+        return redirect()->route("other.index",['others' => Other::paginate(10), 'controller_methode' => "destroy"]);
+
+
     }
 
     /**
@@ -119,6 +121,6 @@ class OtherController extends Controller
     public function destroy(Other $other)
     {
         $other->delete();
-        return view('model_views.other.index', ['others' => Other::paginate(10), 'controller_methode' => "destroy"]);
+        return redirect()->route("other.index",['others' => Other::paginate(10), 'controller_methode' => "destroy"]);
     }
 }

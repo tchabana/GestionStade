@@ -2,7 +2,7 @@
 <div class="creation">
     <!-- --------------------bouton listes des utilisateur -------------------------------- -->
         <div class="listes">
-            <a href="{{ route('actuality.index') }}">Listes des utilisateurs</a>
+            <a href="{{ route('actuality.index') }}">Listes des Actualites</a>
         </div>
 
         <hr class="bars">
@@ -16,10 +16,10 @@
                     <small class="text-red-800 animate-pulse"> {{ $message }} </small>
                 @enderror
             </div>
-
+            {{-- @dd($actuality->message) --}}
             <div class="groupe">
                 <label for="">Message : </label>
-                <textarea name="message" id="" cols="30" rows="10" value="{{ $actuality->message }}"></textarea>
+                <input type="text"  name="message" id="" cols="30" rows="10" value="{{ $actuality->message }}"></input>
                 @error('message')
                     <small class="text-red-800 animate-pulse"> {{ $message }} </small>
                 @enderror

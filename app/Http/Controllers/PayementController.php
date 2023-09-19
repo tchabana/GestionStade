@@ -107,10 +107,6 @@ class PayementController extends Controller
             return redirect()->route("paiement_cancel");
         }
     }
-    public function flooz()
-    {
-        //
-    }
     public function tymoneyOrFlooz($prix,$event)
     {
         // URL de l'API distante
