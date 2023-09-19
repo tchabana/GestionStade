@@ -82,3 +82,5 @@ Route::post('paiement/{event}',[PayementController::class,'paiement'])->name('pa
 Route::get('paiement_success/{prix}/{event}',[PayementController::class,'paiement_success'])->name('paiement_success');
 Route::get('paiement_cancel',[PayementController::class,'paiement_cancel'])->name('paiement_cancel');
 
+
+
