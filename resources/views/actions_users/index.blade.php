@@ -2,7 +2,7 @@
 @section('appli')
 
 
-<h1 class="text-2xl ml-10 text-red-700">Toutes les actualités en directe</h1>
+<h1 class="text-2xl ml-40 text-red-700">Toutes les actualités en directe</h1>
 <section class="text-gray-600 body-font">
     <div class="container px-5 py-24 mx-auto">
       <div class="flex flex-wrap -m-4">
@@ -34,7 +34,9 @@
       </div>
 
     </div>
-    {{ $actualite->onEachSide(1)->links() }}
+    <div class="mx-48">
+        {{ $actualite->onEachSide(1)->links() }}
+    </div>
   </section>
 
 {{-- ------------------------------------------------------------------------------------------------ --}}
@@ -82,7 +84,9 @@
 
 
     </div>
-    {{ $eventes->onEachSide(1)->links() }}
+    <div class="mx-48 mb-10">
+        {{ $eventes->onEachSide(1)->links() }}
+    </div>
   </section>
 
 
