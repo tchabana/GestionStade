@@ -152,6 +152,8 @@ class PayementController extends Controller
             $pay->save();
 
             $chemin = 'codesQR/image_'.$randomString = Str::random(64).'.svg';
+            $tcket->image_path = $chemin;
+            $tcket->save();
             $ticketData = [
                 'ticket_id' => $tcket->id,
                 'event_id' => $event->id,
