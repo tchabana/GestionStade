@@ -18,7 +18,7 @@ class TicketController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['auth','role:admin|gerant']);
+        $this->middleware(['auth','role:admin|gerant|client']);
     }
     public function index()
     {
@@ -73,7 +73,8 @@ class TicketController extends Controller
      */
     public function destroy(Ticket $ticket)
     {
-        //
+        $ticket->delete();
+        return back();
     }
     public function allTiketForEvent(string $event_id)
     {
@@ -84,6 +85,15 @@ class TicketController extends Controller
                 'status_massage' => "Ok",
                 'data' => $ticket
             ]);
+        } catch (\Exception $e) {
+            return response()->json($e);
+        }
+    }
+    public function alltiketforuser(string $user_id)
+    {
+        try {
+            $tickets = Ticket::where('user_id', '=', $user_id )->get();
+            return view("model_views.ticket.alltiketforuser",["ticket"=>$tickets]);
         } catch (\Exception $e) {
             return response()->json($e);
         }
