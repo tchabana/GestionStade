@@ -238,6 +238,9 @@
             </div>
         </div>
         </nav>
+        @stack('modals')
+
+        @livewireScripts
     </body>
 </html>
 
