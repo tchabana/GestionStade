@@ -83,11 +83,9 @@
 
                 {{-- -----------------------------------------------------------------Voir mes ticket------------------------------------------------------------ --}}
                     @if (Auth::user() && Auth::user()->hasRole('client'))
-                        <div @click.away="open = false" class="relative" x-data="{ open: false }">
-                            <button @click="open = !open" class="flex flex-row items-center w-full px-0 py-3 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-100 focus:text-gray-100 hover:bg-green-700  focus:outline-none focus:shadow-outline">
-                                <span>Voir mes tickets</span>
-                            </button>
-                        </div>
+                        <button @click="open = !open" class="flex flex-row items-center w-full px-0 py-3 mt-2 text-sm font-bold text-white text-left bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-100 focus:text-gray-100 hover:bg-green-700  focus:outline-none focus:shadow-outline">
+                            <a class="block px-4 text-sm font-bold text-white text-left" href="{{route('alltiketforuser',['user_id'=>Auth::user()->id])}}">Voir mes tickets</a>
+                        </button>
                     @endif
                 {{-- -----------------------------------------------------------------Actuality------------------------------------------------------------ --}}
 
