@@ -119,4 +119,12 @@ button .icon-acc{
     border-bottom-right-radius: 15px;
 }
 
+.Supprimer{
+    @apply text-white bg-red-600 p-1 rounded-lg mr-4
+}
+.Mofifier{
+    @apply text-red-900
+}
+
+
 
