@@ -6,6 +6,7 @@ use App\Http\Requests\StoreActualityRequest;
 use App\Http\Requests\UpdateActualityRequest;
 use App\Models\Actuality;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class ActualityController extends Controller
 {

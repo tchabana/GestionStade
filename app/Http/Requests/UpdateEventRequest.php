@@ -11,7 +11,7 @@ class UpdateEventRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,6 +23,7 @@ class UpdateEventRequest extends FormRequest
     {
         return [
             //
+            'title' => 'required|min:5',
         ];
     }
 }

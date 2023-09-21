@@ -2,9 +2,7 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Support\Facades\Auth;
 
 class StoreUserRequest extends FormRequest
@@ -15,7 +13,8 @@ class StoreUserRequest extends FormRequest
     public function authorize(): bool
     {
         // Obtenez l'utilisateur connecté
-        return true;
+        $user = Auth::user();
+        return auth()->check();
     }
 
     /**
@@ -25,31 +24,18 @@ class StoreUserRequest extends FormRequest
      */
     public function rules(): array
     {
+      
         return [
-            'name'=>"required",
-            'email'=>"required|unique:users,email",
-            'password'=>"required",
-            'role'=>"required",
+            'name'=>'required',
+            'email'=>'required|email|unique:users',
+            'phone_number'=>'required',
+            'password'=>'required',
         ];
     }
     public function messages(): array
     {
         return [
-            'name.required'=>"Un name doit être fournie",
-            'email.required'=>"Un email doit être fournie",
-            'email.unique'=>"ce email est dejat utiliser",
-            'password.required'=>"Une date doit être fournie pour l'evenement",
-            'role.required'=>"Le role de debut doit être fournie",
+           
         ];
     }
-    public function failedValidation(Validator $validator)
-    {
-        throw new HttpResponseException(response()->json([
-            'success'=>false,
-            'message'=>'Erreur de validation',
-            'errorList'=>$validator->errors(),
-        ]));
-        
-    }
-    
 }
