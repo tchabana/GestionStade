@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreScoreRequest;
 use App\Http\Requests\UpdateScoreRequest;
 use App\Models\Score;
+use Illuminate\Http\Request;
 
 class ScoreController extends Controller
 {

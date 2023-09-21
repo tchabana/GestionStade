@@ -9,6 +9,7 @@ use App\Models\Matche;
 use App\Models\Score;
 use Illuminate\Database\Eloquent\Casts\Json;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class MatcheController extends Controller
 {

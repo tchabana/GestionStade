@@ -36,7 +36,7 @@ class EventController extends Controller
      */
     public function store(StoreEventRequest $request)
     {
-
+        
         //dd(Auth::user()->id);
         try {
             $new_envent = new Event();

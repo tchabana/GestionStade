@@ -8,6 +8,7 @@ use App\Models\Event;
 use App\Models\Other;
 use Illuminate\Database\Eloquent\Casts\Json;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class OtherController extends Controller
 {
