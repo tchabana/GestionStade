@@ -153,7 +153,7 @@
             reader.readAsDataURL(entrer.files[0]);
         }
 //---------------------------------------------------------------------------------------------------------------------------
-        const terrains = [{id: 1, place: 'Vip',  prix: 500 }];
+        const terrains = [];
         const valideButton = document.getElementById('valider');
 
 
@@ -185,8 +185,12 @@
                 prix: document.getElementById('prix').value,
             };
             if (entreDonnee.place !== "" && entreDonnee.prix !== "") {
-                terrains.push(entreDonnee);
-                afficheTout();
+                if (entreDonnee.prix > 0) {
+                    terrains.push(entreDonnee);
+                    afficheTout();
+                }else{
+                    alert('Le prix ne peut pas être negatif')
+                }
             }
 
         }
@@ -200,9 +204,10 @@
                 };
 
                 const newDiv = document.createElement('div');
+                newDiv.classList.add('foot');
                 const newButtons = {
                     Supprimer: document.createElement('input'),
-                    Modifier : document.createElement('input'),
+                    // Modifier : document.createElement('input'),
                 };
 
                 for(const [key, value] of Object.entries(newInput)){

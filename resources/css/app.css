@@ -126,5 +126,13 @@ button .icon-acc{
     @apply text-red-900
 }
 
+#allterrains{
+    @apply bg-black flex
+}
+.foot{
+    @apply bg-black flex w-full
+}
 
-
+.foot input{
+    @apply w-32
+}
