@@ -117,7 +117,7 @@
                         </div>
                         <div class="ims">
                             <label for="">Image</label>
-                            <img class="bg-transparent object-cover overflow-hidden h-40 w-40" src="" alt="" class="img-product" id="file-preview">
+                            <img class="border-4 bg-black h-full w-full" src="{{ old('image_path') }}" alt="" class="img-product" id="file-preview">
                         </div>
                     </div>
 
