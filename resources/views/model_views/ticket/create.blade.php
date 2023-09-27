@@ -7,7 +7,7 @@
                 <legend class="font-semibold">EVENEMENTS</legend>
                 <div class="flex items-center space-x-4 flex-col">
                     <label for="event" class="w-32 m-5">Sélectionner :</label>
-                    <select id="event" name="title" class="w-1/2 border rounded py-1 px-2 mb-3 ">
+                    <select id="event" name="title" class="w-1/2 border rounded py-1 px-2 mb-3 block p-2 rounded-md shadow-md focus:outline-none focus:ring ">
 
                         @foreach($events as $event)
                             <option value="{{$event->title}}">{{$event->title}}</option>
