@@ -69,7 +69,7 @@ button .icon-acc{
     @apply mt-2 flex justify-end
 }
 .listes a{
-    @apply bg-blue-950 rounded-lg p-2 text-white italic hover:bg-blue-800 active:scale-[1.2] active:transition-[0.6s]
+    @apply text-white flex  bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg font-bold
 }
 .bars{
     @apply h-2 bg-red-950 mt-4
@@ -126,5 +126,21 @@ button .icon-acc{
     @apply text-red-900
 }
 
+#allterrains{
+    @apply bg-black flex
+}
+.foot{
+    @apply bg-black flex w-full
+}
 
+.foot input{
+    @apply w-32
+}
 
+#ifnti ul{
+    @apply mt-4
+}
+
+#ifnti ul li{
+    @apply flex justify-between items-center p-5 mb-2 bg-gray-200 lg:ml-[4.5rem]
+}

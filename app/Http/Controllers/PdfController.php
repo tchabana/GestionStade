@@ -32,7 +32,7 @@ class PdfController extends Controller
 
         $qrCodes = [];
         //vider les qrcodes
-        
+
         $directory = public_path('/codesQR');
         // Obtenez la liste des fichiers dans le répertoire
         $files = File::glob($directory . '/*');
@@ -44,7 +44,7 @@ class PdfController extends Controller
             }
         }
 
-    
+
         for ($i = 0; $i < $numTickets; $i++) {
             //$ticketId = $i; // ticket ids
             $chemin = public_path('/codesQR/image_'.$i.'.svg');
@@ -82,7 +82,7 @@ class PdfController extends Controller
                 'end_at' => $event->end_at,
                 'price' =>  $ticket->price,
                 'qr_code' => QrCode::size(150)->color(255,255,255)->backgroundColor(0,0,0)->style('round',0.5)->format('svg')->generate($jsonData,$chemin),
-                
+
             ];
         }
 
@@ -91,19 +91,20 @@ class PdfController extends Controller
         if (File::exists( $tempPdfPath)) {
             File::delete( $tempPdfPath);
         }
+
         $pdf = PDF::loadView('pdf.templatePDF', [
             "qrcodes" => $qrCodes,
             //'users' => User::all(),
         ])-> setPaper('a4','portrait');
-        
-        $tempPdfPath = public_path('temp/ticket.pdf'); 
+
+        $tempPdfPath = public_path('temp/ticket.pdf');
         $pdf->save($tempPdfPath);
         $reponse = true;
         $events = Event::all()->reverse();
        return view('model_views.ticket.create',compact('events','reponse'));
-    
+
     }
 
- 
-  
+
+
 }

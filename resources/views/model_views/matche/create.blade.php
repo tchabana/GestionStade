@@ -80,27 +80,31 @@
                         </div>
                     </div>
 
+
+
 {{-- ------------------------------------------------------------------------------------------------------------- --}}
-
-                    <div class="accord mt-8">
-                        <div class="flex lg:w-2/3 w-full sm:flex-row flex-col mx-auto    lg:px-8 sm:space-x-20 sm:space-y-0 space-y-4 sm:px-0 items-end">
-                            <div class="relative flex w-full">
-                                <div class="flex">
-                                    <input type="text" id="place"  class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-green-500 focus:bg-transparent focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Type de place">
-                                    <input type="number" id="prix"  class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-green-500 focus:bg-transparent focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Prix associé">
-                                </div>
-                                <button id="valider" class="w-10 h-10 bg-red-900 rounded-full text-white text-5xl px-1 cursor-pointer">+</button>
+                    <div class="flex lg:w-2/3 w-full sm:flex-row flex-col mx-auto    lg:px-8 sm:space-x-2 sm:space-y-0 space-y-4 sm:px-0">
+                        <div class="class="relative flex-grow w-full">
+                            <h1 class="mt-2 text-black">Fixer une place et son prix</h1>
+                            <div class="mt-6 bg-white lg:w-[25rem]">
+                                <input type="text" id="place" placeholder="Nom de la place" class="w-full bg-gray-100 bg-opacity-50 rounded border mb-3 border-gray-300 focus:border-green-500 focus:bg-transparent focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                <input type="number" id="prix" placeholder="prix : " class="w-full bg-gray-100 bg-opacity-50 mb-3 rounded border border-gray-300 focus:border-green-500 focus:bg-transparent focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                <button id="ajouterplace" class="flex m-auto">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 text-red-700 hover:text-black">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                </button>
                             </div>
-                            <div class="relative flex-grow w-full">
-                                <div id="allterrains">
+                        </div>
+                        <div class="relative flex-grow w-full" id="ifnti">
+                            <h1 class="text-center mt-2 text-black">Listes des places & prix associés</h1>
+                            <ul id="terrainchamps" class="bg-white mt-2">
 
-                                </div>
-                            </div>
+                            </ul>
 
                         </div>
 
                     </div>
-
 
 
 {{-- -------------------------------------------------------------------------------------------------------------------------- --}}
@@ -113,7 +117,7 @@
                         </div>
                         <div class="ims">
                             <label for="">Image</label>
-                            <img class="border-4 bg-black h-full w-full" src="" alt="" class="img-product" id="file-preview">
+                            <img class="bg-transparent object-cover overflow-hidden h-40 w-40" src="" alt="" class="img-product" id="file-preview">
                         </div>
                     </div>
 
@@ -141,7 +145,7 @@
             </section>
         </form>
     </div>
-    <script>
+<script>
         function afficheImage(event){
             let entrer = event.target;
             let reader = new FileReader();
@@ -153,105 +157,57 @@
             reader.readAsDataURL(entrer.files[0]);
         }
 //---------------------------------------------------------------------------------------------------------------------------
-        const terrains = [{id: 1, place: 'Vip',  prix: 500 }];
-        const valideButton = document.getElementById('valider');
+        document.addEventListener("DOMContentLoaded", () => {
+            const placeInput = document.getElementById("place");
+            const prixTerplace = document.getElementById("prix");
+            const ajouterButton = document.getElementById("ajouterplace");
+            const terrainchamps = document.getElementById("terrainchamps");
+
+            ajouterButton.addEventListener('click',(e) =>{
+                e.preventDefault();
+                const placeText = placeInput.value.trim();
+                const placeTes = parseInt(prixTerplace.value);
 
 
-        valideButton.addEventListener('click', ajoutePlacePrix);
+                if (placeText ==="" && placeTes ==="") {
+                    console.log("Veillez remplire les champs");
+                }else{
+                    const listItem = document.createElement("li");
+                    listItem.innerHTML = `
+                        <span class="text-black font-bold ">${placeText} ⇾ ${placeTes}</span>
+                        <button class="edit">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-blue-800 cursor-pointer">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
+                            </svg>
+                        </button>
 
-        afficheTout();
-        updateDonneAfficher();
+                        <button class="delete">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red-800 cursor-pointer">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+                            </svg>
+                        </button>
+                    `;
 
 
-        function updateDonneAfficher() {
-            const deleteButtons = document.querySelectorAll(".Supprimer");
-            const editButtons = document.querySelectorAll(".Mofifier");
+                    listItem.querySelector(".delete").addEventListener("click", () => {
+                        listItem.remove();
+                    });
 
-            deleteButtons.forEach((button) =>
-                button.addEventListener('click',() => deleteTerrain(button.id))
-            );
-            editButtons.forEach((button) =>
-                button.addEventListener('click',() => modifiers(button.id))
-            );
-        }
+                    listItem.querySelector(".edit").addEventListener("click", () => {
+                        const newText = prompt("Modifier le texte :", placeText);
+                        if (newText !== null) {
+                            placeText = newText.trim();
+                            listItem.querySelector("span").textContent = `${placeText} (Place: ${placeTes})`;
+                        }
+                    });
 
+                    terrainchamps.appendChild(listItem);
 
-        function ajoutePlacePrix(e) {
-            e.preventDefault();
-
-            const entreDonnee = {
-                id: terrains.length !== 0 ? terrains[terrains.length-1].id + 1 : 1,
-                place : document.getElementById('place').value,
-                prix: document.getElementById('prix').value,
-            };
-            if (entreDonnee.place !== "" && entreDonnee.prix !== "") {
-                terrains.push(entreDonnee);
-                afficheTout();
-            }
-
-        }
-
-        function afficheTout() {
-            document.getElementById('allterrains').innerHTML = "";
-            terrains.forEach((dim) =>{
-                const newInput = {
-                    Place : document.createElement('input'),
-                    Prix : document.createElement('input'),
-                };
-
-                const newDiv = document.createElement('div');
-                const newButtons = {
-                    Supprimer: document.createElement('input'),
-                    Modifier : document.createElement('input'),
-                };
-
-                for(const [key, value] of Object.entries(newInput)){
-                    value.setAttribute("type", "text");
-                    value.setAttribute("id", `${key}OfTerrain${dim.id}`);
-
-                    key === "Place" && value.setAttribute("value", dim.place);
-                    key === "Prix" && value.setAttribute("value", dim.prix);
-
-                    newDiv.appendChild(value);
-                    document.getElementById('allterrains').appendChild(newDiv);
-                };
-
-                for(const [key, value] of Object.entries(newButtons)){
-                    value.setAttribute('type', 'button');
-                    value.setAttribute('class', key);
-                    value.setAttribute('id', dim.id);
-                    value.setAttribute('value', key);
-
-                    newDiv.appendChild(value);
-
+                    // Efface les champs après l'ajout d'une place et de son prix
+                    placeInput.value = "";
+                    prixTerplace.value = "";
                 }
             });
-
-            updateDonneAfficher();
-        }
-
-
-        function deleteTerrain(id) {
-            terrains.forEach((dim) => {
-                const userPositionInArray = terrains.indexOf(dim);
-                dim.id === parseInt(id) && terrains.splice(userPositionInArray, 1);
-            });
-
-            afficheTout();
-        }
-
-        function modifiers(id) {
-            const newInput = {
-                place : document.getElementById(`PlaceOfTerrain${id}`).value,
-                prix : document.getElementById(`PrixOfTerrain${id}`).value,
-            };
-
-            terrains.forEach((dim) => {
-                if (dim.id === parseInt(id)) {
-                    dim.place = newInput.place;
-                    dim.prix = newInput.prix;
-                }
-            });
-        }
+        });
     </script>
 </x-app-layout>
