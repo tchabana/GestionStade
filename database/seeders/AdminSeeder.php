@@ -23,7 +23,7 @@ class AdminSeeder extends Seeder
             'password' => Hash::make('superadmin'),
             'role' => 'admin'
         ]);
-        $user->assignRole([Role::find(2), Role::find(1)]);
+        $user->assignRole('admin');
 // -------------------------------------------------------------------------
         $user1 = User::create([
             'name' => 'gerant',
@@ -32,7 +32,7 @@ class AdminSeeder extends Seeder
             'password' => Hash::make('supergerant'),
             'role' => 'gerant'
         ]);
-        $user1->assignRole([Role::find(2)]);
+        $user1->assignRole('gerant');
 // -------------------------------------------------------------------------
         $user2 = User::create([
             'name' => 'client',
@@ -41,6 +41,6 @@ class AdminSeeder extends Seeder
             'password' => Hash::make('superclient'),
             'role' => 'client'
         ]);
-        $user2->assignRole([Role::find(3)]);
+        $user2->assignRole('client');
     }
 }

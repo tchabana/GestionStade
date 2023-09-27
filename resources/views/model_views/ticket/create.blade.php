@@ -7,7 +7,7 @@
                 <legend class="font-semibold">EVENEMENTS</legend>
                 <div class="flex items-center space-x-4 flex-col">
                     <label for="event" class="w-32 m-5">Sélectionner :</label>
-                    <select id="event" name="title" class="w-1/2 border rounded py-1 px-2 mb-3 ">
+                    <select id="event" name="title" class="w-1/2 border rounded py-1 px-2 mb-3 block p-2 rounded-md shadow-md focus:outline-none focus:ring ">
 
                         @foreach($events as $event)
                             <option value="{{$event->title}}">{{$event->title}}</option>
@@ -73,11 +73,12 @@
              // Afficher la fenêtre modale (popup)
              previewModal.classList.remove('hidden');
         }
-        closePreviewButton.addEventListener('click', function() {
+        closePreviewButton.addEventListener('click', function(event) {
             // Fermer la fenêtre modale (popup)
             console.log("fermer");
             previewModal.classList.add('hidden');
             window.history.back();
+            event.preventDefault();
         });
 
         document.getElementById("generateButton").addEventListener("click", function(event) {
