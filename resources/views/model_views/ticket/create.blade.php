@@ -73,11 +73,12 @@
              // Afficher la fenêtre modale (popup)
              previewModal.classList.remove('hidden');
         }
-        closePreviewButton.addEventListener('click', function() {
+        closePreviewButton.addEventListener('click', function(event) {
             // Fermer la fenêtre modale (popup)
             console.log("fermer");
             previewModal.classList.add('hidden');
             window.history.back();
+            event.preventDefault();
         });
 
         document.getElementById("generateButton").addEventListener("click", function(event) {
