@@ -40,8 +40,8 @@
                 @enderror
             </div>
 
-            <div class="groupe">
-                <button type="submit">Enregistrer</button>
+            <div>
+                <button type="submit" class="text-white flex mt-5 bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg font-bold">Enregistrer</button>
             </div>
         </form>
     </div>

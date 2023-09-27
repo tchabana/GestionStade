@@ -41,7 +41,7 @@
                 </div>
             </fieldset>
             <div class="flex space-x-6 ">
-                <button type="submit" class="mt-4 bg-blue-500 text-white rounded py-2 px-4 hover:bg-blue-600" id="generateButton">Générer</button>
+                <button type="submit" class="text-white flex  bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg font-bold" id="generateButton">Générer</button>
             </div>
 
 
