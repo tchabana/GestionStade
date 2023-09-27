@@ -83,10 +83,10 @@
 
 
 {{-- ------------------------------------------------------------------------------------------------------------- --}}
-                    <div class="flex lg:w-2/3 w-full sm:flex-row flex-col mx-auto    lg:px-8 sm:space-x-20 sm:space-y-0 space-y-4 sm:px-0 items-end">
+                    <div class="flex lg:w-2/3 w-full sm:flex-row flex-col mx-auto    lg:px-8 sm:space-x-2 sm:space-y-0 space-y-4 sm:px-0">
                         <div class="class="relative flex-grow w-full">
                             <h1 class="mt-2 text-black">Fixer une place et son prix</h1>
-                            <div class="mt-6 bg-white">
+                            <div class="mt-6 bg-white lg:w-[25rem]">
                                 <input type="text" id="place" placeholder="Nom de la place" class="w-full bg-gray-100 bg-opacity-50 rounded border mb-3 border-gray-300 focus:border-green-500 focus:bg-transparent focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                                 <input type="number" id="prix" placeholder="prix : " class="w-full bg-gray-100 bg-opacity-50 mb-3 rounded border border-gray-300 focus:border-green-500 focus:bg-transparent focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                                 <button id="ajouterplace" class="flex m-auto">
@@ -97,7 +97,10 @@
                             </div>
                         </div>
                         <div class="relative flex-grow w-full" id="ifnti">
-                            <ul id="terrainchamps" class="bg-white mt-2 shadow-xl"></ul>
+                            <h1 class="text-center mt-2 text-black">Listes des places & prix associés</h1>
+                            <ul id="terrainchamps" class="bg-white mt-2">
+
+                            </ul>
 
                         </div>
 
@@ -114,7 +117,7 @@
                         </div>
                         <div class="ims">
                             <label for="">Image</label>
-                            <img class="border-4 bg-black h-full w-full" src="" alt="" class="img-product" id="file-preview">
+                            <img class="bg-transparent object-cover overflow-hidden h-40 w-40" src="" alt="" class="img-product" id="file-preview">
                         </div>
                     </div>
 

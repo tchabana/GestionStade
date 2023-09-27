@@ -36,8 +36,8 @@
                 @enderror
             </div>
 
-            <div class="groupe">
-                <button type="submit">Valider</button>
+            <div>
+                <button type="submit" class="text-white flex m-auto mt-4 bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg font-bold">Valider</button>
             </div>
         </form>
     </div>
