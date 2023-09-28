@@ -15,7 +15,7 @@ class Event extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['id','title','description','date_start','date_end','start_at','end_at','authors','user_id','nbr_participant','nbr_ticket_gen_local','nbr_ticket_gen_online','nbr_likes',"image_path"];
+    protected $fillable = ['id','title','description','date_start','date_end','start_at','end_at','authors','user_id','nbr_participant','nbr_ticket_gen_local','nbr_ticket_gen_online','nbr_likes',"image_path","prix"];
     protected $primaryKey = 'id';
     public function matche(): HasOne
     {

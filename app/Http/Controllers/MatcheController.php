@@ -38,8 +38,15 @@ class MatcheController extends Controller
      */
     public function store(StoreMatcheRequest $request)
     {
-        //dd($request->file('image_path'));
+        //dd($request->input('1'));
         try {
+            $prix = [];
+            for ($i=1; $i < 6; $i++) { 
+                $prix[$i] = $request->input($i); 
+            }
+            // Transformez le tableau en JSON
+            $jsonprix  = json_encode($prix);
+            //dd($jsonprix );
             $path = $request->file('image_path')->store('public/images');
             //explode pour séparer
             $path_str = explode('/', $path);
@@ -59,6 +66,7 @@ class MatcheController extends Controller
             $new_envent->authors = $request->authors;
             $new_envent->user_id = Auth::user()->id;
             $new_envent->image_path = $path;
+            $new_envent->prix = $jsonprix;
             $new_envent->save();
             // Creation du score
             $new_score = new Score();

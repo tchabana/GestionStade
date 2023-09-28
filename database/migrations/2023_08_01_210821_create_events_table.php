@@ -25,6 +25,7 @@ return new class extends Migration
             $table->bigInteger("nbr_ticket_gen_online")->default(0);
             $table->bigInteger('nbr_likes')->default(0);
             $table->string('image_path')->nullable();
+            $table->json('prix')->nullable();
             $table->timestamps();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete("cascade")->onUpdate("cascade");
