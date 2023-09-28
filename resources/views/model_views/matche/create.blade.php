@@ -107,6 +107,7 @@
                     </div>
 
 
+
 {{-- -------------------------------------------------------------------------------------------------------------------------- --}}
                     <div class="flex lg:w-2/3  sm:flex-row flex-col mx-auto mt-8  lg:px-8 sm:space-x-20 sm:space-y-0 space-y-4 sm:px-0 items-center">
                         <div class="relative flex-grow w-full">
@@ -163,15 +164,14 @@
             const ajouterButton = document.getElementById("ajouterplace");
             const terrainchamps = document.getElementById("terrainchamps");
 
+            const chaineCaractere = /^[A-Za-z\s]+$/
+
             ajouterButton.addEventListener('click',(e) =>{
                 e.preventDefault();
                 const placeText = placeInput.value.trim();
                 const placeTes = parseInt(prixTerplace.value);
 
-
-                if (placeText ==="" && placeTes ==="") {
-                    console.log("Veillez remplire les champs");
-                }else{
+                if (placeText.match(chaineCaractere) && placeTes != "" && placeTes > 0) {
                     const listItem = document.createElement("li");
                     listItem.innerHTML = `
                         <span class="text-black font-bold ">${placeText} ⇾ ${placeTes}</span>
@@ -206,6 +206,8 @@
                     // Efface les champs après l'ajout d'une place et de son prix
                     placeInput.value = "";
                     prixTerplace.value = "";
+                }else{
+                    alert("Veuillez saisir un texte valide");
                 }
             });
         });
