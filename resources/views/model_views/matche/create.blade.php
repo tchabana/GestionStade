@@ -159,6 +159,7 @@
         }
 //---------------------------------------------------------------------------------------------------------------------------
         document.addEventListener("DOMContentLoaded", () => {
+            let niem_ipute = 0;
             const placeInput = document.getElementById("place");
             const prixTerplace = document.getElementById("prix");
             const ajouterButton = document.getElementById("ajouterplace");
@@ -172,14 +173,10 @@
                 const placeTes = parseInt(prixTerplace.value);
 
                 if (placeText.match(chaineCaractere) && placeTes != "" && placeTes > 0) {
+                    niem_ipute++;
                     const listItem = document.createElement("li");
                     listItem.innerHTML = `
-                        <span class="text-black font-bold ">${placeText} ⇾ ${placeTes}</span>
-                        <button class="edit">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-blue-800 cursor-pointer">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
-                            </svg>
-                        </button>
+                        <input class="text-black font-bold " value="${placeText} ⇾ ${placeTes}" type="text" id="email" name="${niem_ipute}">
 
                         <button class="delete">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red-800 cursor-pointer">
@@ -193,13 +190,13 @@
                         listItem.remove();
                     });
 
-                    listItem.querySelector(".edit").addEventListener("click", () => {
-                        const newText = prompt("Modifier le texte :", placeText);
-                        if (newText !== null) {
-                            placeText = newText.trim();
-                            listItem.querySelector("span").textContent = `${placeText} (Place: ${placeTes})`;
-                        }
-                    });
+                    // listItem.querySelector(".edit").addEventListener("click", () => {
+                    //     const newText = prompt("Modifier le texte :", placeText);
+                    //     if (newText !== null) {
+                    //         placeText = newText.trim();
+                    //         listItem.querySelector("span").textContent = `${placeText} (Place: ${placeTes})`;
+                    //     }
+                    // });
 
                     terrainchamps.appendChild(listItem);
 
