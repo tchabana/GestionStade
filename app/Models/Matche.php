@@ -15,10 +15,11 @@ class Matche extends Model
 
     protected $fillable = ['equipe1_name','equipe2_name','event_id'];
 
-    public function score(): HasOne
+    public function score()
     {
-        return $this->hasOne(Score::class,'id');
+        return $this->belongsTo(Score::class);
     }
+
 
     public function event(): BelongsTo
     {

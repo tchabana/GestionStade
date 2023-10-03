@@ -21,6 +21,7 @@ class ActualityFactory extends Factory
         return [
             'title' => $this->faker->sentence,
             'message' => $this->faker->paragraph,
+            //'image_path' => public_path("Pape-Gueye.png"),
         ];
     }
 }
