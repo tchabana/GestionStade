@@ -7,8 +7,9 @@
 
         <hr class="bars">
         <!-- -------------------------formulaires ---------------------------------------------- -->
-        <form action="{{ route('matche.store') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('matche.update',$event) }}" method="post" enctype="multipart/form-data">
             @csrf
+            @method("PUT")
             <section class="text-gray-600 body-font">
                 <div class="container px-1 sm:py-8 md:py-4 lg:py-24 mx-auto">
                     <div class="flex lg:w-2/3 w-full sm:flex-row flex-col mx-auto   lg:px-8   sm:space-x-20 sm:space-y-0 space-y-4 sm:px-0 items-end">
@@ -82,7 +83,7 @@
 
                     <div class="flex lg:w-2/3  sm:flex-row flex-col mx-auto mt-8  lg:px-8 sm:space-x-20 sm:space-y-0 space-y-4 sm:px-0 items-center">
                         <div class="relative flex-grow w-full">
-                            <input class="w-52" type="file" value="btn" name="image_path" onchange="afficheImage(event)"  class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-green-500 focus:bg-transparent focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                            <input class="w-52" accept=".jpg, .jpeg, .png" type="file" value="{{ $event->event->image_path }}" name="image_path" onchange="afficheImage(event)"  class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-green-500 focus:bg-transparent focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                             @error('image_path')
                                 <small class="text-red-800 animate-pulse"> {{ $message }} </small>
                             @enderror

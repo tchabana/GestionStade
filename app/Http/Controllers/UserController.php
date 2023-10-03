@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\StoreUserRequest;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -21,6 +22,12 @@ class UserController extends Controller
 
         $employesD = User::onlyTrashed()->get();
         $employesA = User::whereNull('deleted_at')->get();
+        // $admin_connecter = Auth()->user();
+        // $employesA = $employesA->filter(function ($item) {
+        //     //return $item->id !== $admin_connecter->id;
+        //     dd($item);
+        // });
+        // dd($admin_connecter);
         return view('model_views.user.index',compact('employesA','employesD'));
     }
 

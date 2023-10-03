@@ -45,9 +45,9 @@
                                 NBRE GÉNÉRÉ DE TICKETS
                             </th>
 
-                            <th scope="col" class="px-6 py-3">
+                            {{-- <th scope="col" class="px-6 py-3">
                                 Editer
-                            </th>
+                            </th> --}}
                             <th scope="col" class="px-6 py-3">
                                 supprimer
                             </th>
@@ -83,7 +83,7 @@
                                 <td class="px-6 py-4 text-center">
                                     {{$even->nbr_ticket_gen_local + $even->nbr_ticket_gen_online}}
                                 </td>
-                                <td class="px-6 py-4 ">
+                                {{-- <td class="px-6 py-4 ">
                                     <small class="deux"><a href="{{ route('event.edit', $even) }}">
                                         <div>
                                             <div>
@@ -94,7 +94,7 @@
                                             <h3>Editer</h3>
                                         </div>
                                     </a></small>
-                                </td>
+                                </td> --}}
                                 <td class="px-6 py-4 ">
                                     <form action="{{ route('event.destroy', $even)}}" method="POST">
                                         @csrf

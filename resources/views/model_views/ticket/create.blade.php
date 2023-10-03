@@ -10,7 +10,9 @@
                     <select id="event" name="title" class="w-1/2 border rounded py-1 px-2 mb-3 block p-2 rounded-md shadow-md focus:outline-none focus:ring ">
 
                         @foreach($events as $event)
-                            <option value="{{$event->title}}">{{$event->title}}</option>
+                            <option value="{{$event->id}}">
+                                {{$event->title}}
+                            </option>
                         @endforeach
                     </select>
                     {{-- <a class="text-blue-800 underline" id="openButton" href="{{route('event.create')}}"> Ou Créer Un Nouvel Événement</a> --}}
@@ -28,7 +30,10 @@
                 </div>
                 <div class="flex flex-col items-center ">
                     <label for="ticketCount" class="w-40 mb-4">Prix de tickets :</label>
-                    <input type="number" id="event" name="price" class="border rounded w-1/2">
+                    {{-- <input type="number" id="event" name="price" class="border rounded w-1/2"> --}}
+                    <select required id="price" name="price" class="w-1/2 border rounded py-1 px-2 mb-3 block p-2 rounded-md shadow-md focus:outline-none focus:ring ">
+                        <option value="null">choisisez un type de prix</option>
+                    </select>
                     @error('price')
                         <small class="text-red-800 animate-pulse"> {{ $message }} </small>
                     @enderror
@@ -95,8 +100,8 @@
 
  </div>
 
-
-    </x-app-layout>
+ <script src="{{asset('js/prix.js')}}"></script>
+</x-app-layout>
 
 
 

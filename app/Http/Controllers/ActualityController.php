@@ -79,16 +79,17 @@ class ActualityController extends Controller
      */
     public function update(UpdateActualityRequest $request, Actuality $actuality)
     {
+        //dd($request);
         try {
             $actuality->title = $request->title;
             $actuality->message = $request->message;
             $actuality->image_path = $request->image_path;
-            $actuality->user_id = $request->user_id;
+            //$actuality->user_id = $request->user_id;
             $actuality->save();
         } catch (\Exception $e) {
             $e->getMessage();
         }
-        return view('model_views.actuality.show', ['actuality' => $actuality]);
+        return redirect()->route('actuality.index', ['actuality' => Actuality::paginate(10)]);
     }
 
     /**
