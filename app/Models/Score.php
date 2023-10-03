@@ -12,8 +12,10 @@ class Score extends Model
     use HasFactory;
     protected $fillable = ['equipe1_goal','equipe2_goal'];
 
-    public function matche(): BelongsTo
+    public function matche()
     {
-        return $this->belongsTo(Matche::class,'id');
+        return $this->hasOne(Matche::class);
     }
+
+    
 }

@@ -23,7 +23,7 @@ class MatcheController extends Controller
     public function index()
     {
         $macthes = Matche::join('scores','matches.score_id', '=', 'scores.id')->paginate(10);
-        return view('model_views.matche.index', ['matches' => $macthes , 'controller_methode' => "index"]);
+        return view('model_views.matche.index', ['matches' =>  Matche::with('score')->paginate(10) , 'controller_methode' => "index"]);
     }
 
     /**

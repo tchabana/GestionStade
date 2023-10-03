@@ -17,6 +17,10 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class PayementController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth']);
+    }
     /**
      * Display a listing of the resource.
      */

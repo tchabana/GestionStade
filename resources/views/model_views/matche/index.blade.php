@@ -48,10 +48,11 @@
                         @forelse ($matches as $matche)
                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                 <td class="px-6 py-4 text-center">
-                                    {{ $matche->equipe1_name ." - ". $matche->equipe1_goal }}
+                                    {{ $matche->equipe1_name ." - ". $matche->score->equipe1_goal }}
                                 </td>
                                 <td class="px-6 py-4 text-center">
-                                    {{$matche->equipe2_goal ." - ". $matche->equipe2_name  }}
+                                    {{$matche->score->equipe2_goal ." - ". $matche->equipe2_name  }}
+                                   
                                 </td>
                                 <td class="px-6 py-4 text-center">
                                     {{ $matche->event->nbr_participant }}
@@ -60,7 +61,8 @@
                                     {{ $matche->event->authors }}
                                 </td>
                                 <td class="px-6 py-4 ">
-                                    <small class="deux"><a href="{{ route('matche.edit', $matche) }}">
+                                    <small class="deux">
+                                        <a href="{{ route('matche.edit',$matche) }}">
                                         <div>
                                             <div>
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-green-500">
@@ -72,7 +74,7 @@
                                     </a></small>
                                 </td>
                                 <td class="px-6 py-4 ">
-                                    <form action="{{ route('matche.destroy', $matche)}}" method="POST">
+                                    <form action="{{ route('matche.destroy',$matche)}}" method="POST">
                                         @csrf
                                         @method("DELETE")
                                         <small>

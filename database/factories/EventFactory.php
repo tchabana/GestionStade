@@ -28,6 +28,7 @@ class EventFactory extends Factory
             'start_at' => $this->faker->time('H:i'),
             'end_at' => $this->faker->time('H:i'),
             'authors' => $this->faker->name,
+            //'image_path' => public_path("Pape-Gueye.png"),
             'nbr_ticket_gen_local' => $this->faker->numberBetween(100,800),
             'nbr_ticket_gen_online' => $this->faker->numberBetween(100,800),
             'nbr_participant' => $this->faker->numberBetween(100,800),
