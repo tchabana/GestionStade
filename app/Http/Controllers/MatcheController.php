@@ -42,8 +42,8 @@ class MatcheController extends Controller
         //dd($request->input('1'));
         try {
             $prix = [];
-            for ($i=1; $i < 6; $i++) { 
-                $prix[$i] = $request->input($i); 
+            for ($i=1; $i < 6; $i++) {
+                $prix[$i] = $request->input($i);
             }
             // Transformez le tableau en JSON
             $jsonprix  = json_encode($prix);
@@ -72,7 +72,7 @@ class MatcheController extends Controller
             // Creation du score
             $new_score = new Score();
             $new_score->save();
-            
+
             // Creation du matche
             $new_matche = new Matche();
             $new_matche->equipe1_name = $request->equipe1_name;
@@ -109,8 +109,8 @@ class MatcheController extends Controller
     {
         try {
             $prix = [];
-            for ($i=1; $i < 6; $i++) { 
-                $prix[$i] = $request->input($i); 
+            for ($i=1; $i < 6; $i++) {
+                $prix[$i] = $request->input($i);
             }
             // Transformez le tableau en JSON
             $jsonprix  = json_encode($prix);
@@ -139,7 +139,7 @@ class MatcheController extends Controller
             // Creation du score
             $new_score = new Score();
             $new_score->save();
-            
+
             // Creation du matche
             $new_matche = $matche;
             $new_matche->equipe1_name = $request->equipe1_name;
