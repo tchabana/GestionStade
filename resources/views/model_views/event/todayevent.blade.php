@@ -29,8 +29,8 @@
                     </thead>
                     <tbody>
                         @forelse ($eventstoday as $even )
-                            @if ($even->matche!==null)
-                                <form action="{{route('score.update',['score'=>$even->matche->score_id])}}" method="post">
+                                {{-- @dd($even); --}}
+                                <form action="{{route('score.update',['score'=>$even->score_id])}}" method="post">
                                     @csrf
                                     @method("PUT")
                                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
@@ -38,12 +38,12 @@
                                             {{ $even->title }}
                                         </td>
                                         <td class="px-6 py-4 text-center">
-                                            {{ $even->matche->equipe1_name }}
-                                            <input type="number" name="equipe1_goles" value="{{$even->matche->score->equipe1_goal}}" id="">
+                                            {{ $even->equipe1_name }}
+                                            <input type="number" name="equipe1_goles" value="{{$even->equipe1_goal}}" id="">
                                         </td>
                                         <td class="px-6 py-4 text-center">
-                                            {{ $even->matche->equipe2_name }}
-                                            <input type="number" name="equipe2_goles" value="{{$even->matche->score->equipe2_goal}}" id="">
+                                            {{ $even->equipe2_name }}
+                                            <input type="number" name="equipe2_goles" value="{{$even->equipe2_goal}}" id="">
                                         </td>
                                         <td class="px-6 py-4 ">
                                             <div class="mt-4 mb-4">
@@ -52,9 +52,6 @@
                                         </td>
                                     </tr>
                                 </form>
-                            @else
-                                
-                            @endif
                         @empty
                             Aucun match  en cour
                         @endforelse

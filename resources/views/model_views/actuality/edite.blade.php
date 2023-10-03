@@ -7,8 +7,9 @@
 
         <hr class="bars">
         <!-- -------------------------formulaires ---------------------------------------------- -->
-        <form action="{{ route('actuality.store') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('actuality.update',$actuality) }}" method="post" enctype="multipart/form-data">
             @csrf
+            @method("PUT")
             <div class="groupe">
                 <label for="">Title : </label>
                 <input type="text" name="title" value="{{ $actuality->title }}">
@@ -28,9 +29,9 @@
             <div class="groupe">
                 <label for="" class="mb-4">Image</label>
                 <div class="ims">
-                    <img src="" alt="" class="img-product" id="file-preview">
+                    <img src="{{asset('storage/'.$actuality->image_path)}}" alt="" class="img-product" id="file-preview">
                 </div>
-                <input type="file" name="image_path" accept="images/*" onchange="afficheImage(event)">
+                <input type="file" name="image_path" accept=".jpg, .jpeg, .png" onchange="afficheImage(event)">
                 @error('image_path')
                     <small class="text-red-800 animate-pulse"> {{ $message }} </small>
                 @enderror

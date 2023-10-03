@@ -31,7 +31,7 @@
                 <div class="ims">
                     <img src="" alt="" class="img-product" id="file-preview" accept=".png, .jpg, .jpeg, .gif, .svg">
                 </div>
-                <input type="file" name="image_path" accept="images/*" onchange="afficheImage(event)">
+                <input type="file" name="image_path" accept=".jpg, .jpeg, .png" onchange="afficheImage(event)">
                 @error('image_path')
                     <small class="text-red-800 animate-pulse"> {{ $message }} </small>
                 @enderror

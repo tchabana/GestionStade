@@ -24,9 +24,10 @@ class StoreOtherRequest extends FormRequest
      */
     public function rules(): array
     {
-         // Récupérez la date et l'heure actuelles
-         $now = now();
-         // Récupérez les valeurs de date et d'heure du formulaire
+        // Récupérez la date et l'heure actuelles
+        $now = now();
+        $now = $now->format("M:d:Y");
+        // Récupérez les valeurs de date et d'heure du formulaire
          $date_start = $this->input('date_start');
          $date_end = $this->input('date_end');
          $start_at = $this->input('start_at');

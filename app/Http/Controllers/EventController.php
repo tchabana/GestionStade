@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreEventRequest;
 use App\Http\Requests\UpdateEventRequest;
 use App\Models\Event;
+use App\Models\Matche;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Casts\Json;
 use Illuminate\Http\Request;
@@ -106,7 +107,11 @@ class EventController extends Controller
     {
         try {
             // Récupérez tous les événements dont la date de déroulement est aujourd'hui
-            $eventsToday = Event::whereDate('date_start', '=', now()->toDateString())->get();
+            $eventsToday = Matche::join('events', 'matches.event_id', '=', 'events.id')
+                            ->join('scores','matches.score_id', '=', 'scores.id')
+                            ->whereDate('events.date_start', '=', now()->toDateString())
+                            ->get();
+            //dd($eventsToday);
             return view("model_views.event.todayevent",["eventstoday"=>$eventsToday]);
         } catch (\Exception $ex) {
             return response()->json($ex);
@@ -126,6 +131,17 @@ class EventController extends Controller
             return response()->json($ex);
         }
     }
+
+    public function priceforevent(Event $event)
+    {
+        try {
+            //$event = Event::find($id);
+            return response()->json(json_decode($event->prix));
+        } catch (\Exception $ex) {
+            return response()->json($ex);
+        }
+    }
+
 
     
 }

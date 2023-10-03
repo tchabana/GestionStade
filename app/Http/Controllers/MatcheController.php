@@ -22,7 +22,8 @@ class MatcheController extends Controller
     }
     public function index()
     {
-        return view('model_views.matche.index', ['matches' => Matche::paginate(10), 'controller_methode' => "index"]);
+        $macthes = Matche::join('scores','matches.score_id', '=', 'scores.id')->paginate(10);
+        return view('model_views.matche.index', ['matches' => $macthes , 'controller_methode' => "index"]);
     }
 
     /**
@@ -107,25 +108,49 @@ class MatcheController extends Controller
     public function update(UpdateMatcheRequest $request, Matche $matche)
     {
         try {
+            $prix = [];
+            for ($i=1; $i < 6; $i++) { 
+                $prix[$i] = $request->input($i); 
+            }
+            // Transformez le tableau en JSON
+            $jsonprix  = json_encode($prix);
+            //dd($jsonprix );
+            // $path = $request->file('image_path')->store('public/images');
+            // //explode pour séparer
+            // $path_str = explode('/', $path);
+            // $path_str = array_slice($path_str, 1, count($path_str));
+            // $path = implode('/', $path_str);
+            //implode pour convertir le tableau en chaîne
+            //$request->image_path = $path;
             // Creation de l'event du matche
-            $info_suplementaire= new Json([]);
-            $matche_envent = Event::find($matche->id);
-            $matche_envent->title = $request->title;
-            $matche_envent->description = $request->description;
-            $matche_envent->date_on = $request->date_on;
-            $matche_envent->start_at = $request->start_at;
-            $matche_envent->end_at = $request->end_at;
-            $matche_envent->authors = $request->authors;
-            $matche_envent->info_suplementaire = $info_suplementaire;
-            $matche_envent->save();
+            $new_envent = Event::find($matche->event_id);
+            $new_envent->title = $request->title;
+            $new_envent->description = $request->description;
+            $new_envent->date_start = $request->date_start;
+            $new_envent->date_end = $request->date_end;
+            $new_envent->start_at = $request->start_at;
+            $new_envent->end_at = $request->end_at;
+            $new_envent->nbr_participant = $request->nbr_participant;
+            $new_envent->authors = $request->authors;
+            $new_envent->user_id = Auth::user()->id;
+            //$new_envent->image_path = $path;
+            $new_envent->prix = $jsonprix;
+            $new_envent->save();
+            // Creation du score
+            $new_score = new Score();
+            $new_score->save();
+            
             // Creation du matche
-            $matche->equipe1_id = $request->equipe1_id;
-            $matche->equipe2_id = $request->equipe2_id;
-            $matche->save();
+            $new_matche = $matche;
+            $new_matche->equipe1_name = $request->equipe1_name;
+            $new_matche->equipe2_name = $request->equipe2_name;
+            $new_matche->event_id = $new_envent->id;
+            $new_matche->score_id = $new_score->id;
+            $new_matche->save();
         } catch (\Exception $e) {
             return $e->getMessage();
         }
-        return view('model_views.matche.show', ['matches' => $matche]);
+        return redirect()->route('matche.index', ['matches' => Matche::paginate(10), 'controller_methode' => "store"]);
     }
 
     /**

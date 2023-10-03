@@ -95,25 +95,35 @@ class OtherController extends Controller
     {
         try {
             // Creation de l'event du matche
-            $info_suplementaire= new Json([]);
-            $other_envent = $other->event_id;
-            $other_envent->title = $request->title;
-            $other_envent->description = $request->description;
-            $other_envent->date_on = $request->date_on;
-            $other_envent->start_at = $request->start_at;
-            $other_envent->end_at = $request->end_at;
-            $other_envent->authors = $request->authors;
-            $other_envent->info_suplementaire = $info_suplementaire;
-            $other_envent->save();
-            // Creation du matche
-            $other = new Other();
-            $other->designation = $request->designation;
-            $other->info_suplementaire = $info_suplementaire;
-            $other->save();
+            // $path = $request->file('image_path')->store('public/images');
+            // //explode pour séparer
+            // $path_str = explode('/', $path);
+            // $path_str = array_slice($path_str, 1, count($path_str));
+            // $path = implode('/', $path_str);
+            // //implode pour convertir le tableau en chaîne
+            // $request->image_path = $path;
+            // Creation de l'event du matche
+            $new_envent = Event::find($other->event_id);
+            $new_envent->title = $request->title;
+            $new_envent->description = $request->description;
+            $new_envent->date_start = $request->date_start;
+            $new_envent->date_end = $request->date_end;
+            $new_envent->start_at = $request->start_at;
+            $new_envent->end_at = $request->end_at;
+            $new_envent->nbr_participant = $request->nbr_participant;
+            $new_envent->authors = $request->authors;
+            $new_envent->user_id = Auth::user()->id;
+            //$new_envent->image_path = $path;
+            $new_envent->save();
+            // Creation du Other
+            $new_other = $other;
+            $new_other->designation = $request->designation;
+            $new_other->event_id = $new_envent->id;
+            $new_other->save();
         } catch (\Exception $e) {
             return $e->getMessage();
         }
-        return view('model_views.other.index', ['others' => $other]);
+        return redirect()->route("other.index",['others' => Other::paginate(10), 'controller_methode' => "destroy"]);
     }
 
     /**

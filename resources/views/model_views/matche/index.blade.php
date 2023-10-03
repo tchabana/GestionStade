@@ -48,10 +48,10 @@
                         @forelse ($matches as $matche)
                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                 <td class="px-6 py-4 text-center">
-                                    {{ $matche->equipe1_name }}
+                                    {{ $matche->equipe1_name ." - ". $matche->equipe1_goal }}
                                 </td>
                                 <td class="px-6 py-4 text-center">
-                                    {{ $matche->equipe2_name }}
+                                    {{$matche->equipe2_goal ." - ". $matche->equipe2_name  }}
                                 </td>
                                 <td class="px-6 py-4 text-center">
                                     {{ $matche->event->nbr_participant }}
