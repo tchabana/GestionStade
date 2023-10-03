@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class UpdateActualityRequest extends FormRequest
 {
@@ -11,7 +12,9 @@ class UpdateActualityRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        // Obtenez l'utilisateur connecté
+        $user = Auth::user();
+        return auth()->check();
     }
 
     /**
@@ -22,7 +25,18 @@ class UpdateActualityRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title' => "required|max:255|min:3",
+            'message' => "required",
+            'image_path' => "image|mimes:png,jpg,jpeg,gif,svg|max:2028",
+            // 'user_id' => "required",
+        ];
+    }
+    public function messages(): array
+    {
+        return [
+            'title.required' => "Le titre doit être fournie",
+            'message.required' => "Le message doit être fournie",
+            // 'user_id.required' => "L' id doit être fournie",
         ];
     }
 }

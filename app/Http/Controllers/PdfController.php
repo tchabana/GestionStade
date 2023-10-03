@@ -26,10 +26,10 @@ class PdfController extends Controller
             'price' => 'required',
         ]);
         $numTickets = $request->input('ticketCount', 1);
-        $event_title = $request->title;
-        $event = Event::all()->where('title',$event_title)->reverse()->first();
+        $event_id = $request->title;
+        $event = Event::all()->where('id',$event_id)->reverse()->first();
         $user = Auth::user();
-
+        //dd($event_title);
         $qrCodes = [];
         //vider les qrcodes
 
@@ -51,7 +51,7 @@ class PdfController extends Controller
             $ticket = Ticket::create([
                 'user_id' => $user->id,
                 'event_id' => $event->id,
-                'price' => $request->input('price'),
+                'price' => $request->price,
                 'image_path'=> $chemin
             ]);
              // Mettre à jour le compteur dans l'événement associé
