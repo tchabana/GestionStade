@@ -37,7 +37,7 @@ class StoreOtherRequest extends FormRequest
             'title'=>'required',
             'description'=>'required',
             'date_start'=>['required','date','after_or_equal:'.$now],
-            'date_end'=>['required','date','after:'.$date_start],
+            'date_end'=>['required','date','after_or_equal:'.$date_start],
             // 'start_at'=>'required|timezone',
             // 'end_at'=>'required|timezone|after:'.$start_at,
             'start_at'=>'required',

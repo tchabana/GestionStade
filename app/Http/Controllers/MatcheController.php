@@ -99,7 +99,15 @@ class MatcheController extends Controller
      */
     public function edit(Matche $matche)
     {
-        return view('model_views.matche.edite', ['event' => $matche]);
+        $filteredData = [];
+        $data = json_decode($matche->event->prix, true);
+        if ($data !== null) {
+            $filteredData = array_filter($data, function($element) {
+                return $element !== null;
+            });
+        }
+        $result = array_values($filteredData);
+        return view('model_views.matche.edite', ['event' => $matche,'prix' => $result]);
     }
 
     /**

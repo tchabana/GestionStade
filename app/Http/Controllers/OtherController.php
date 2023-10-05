@@ -38,6 +38,12 @@ class OtherController extends Controller
     public function store(StoreOtherRequest $request)
     {
         try {
+            $prix = [];
+            for ($i=1; $i < 6; $i++) {
+                $prix[$i] = $request->input($i);
+            }
+            // Transformez le tableau en JSON
+            $jsonprix  = json_encode($prix);
             // Creation de l'event du matche
             $path = $request->file('image_path')->store('public/images');
             //explode pour séparer
@@ -58,6 +64,7 @@ class OtherController extends Controller
             $new_envent->authors = $request->authors;
             $new_envent->user_id = Auth::user()->id;
             $new_envent->image_path = $path;
+            $new_envent->prix = $jsonprix;
             $new_envent->save();
             // Creation du Other
             $new_other = new Other();
@@ -85,7 +92,15 @@ class OtherController extends Controller
      */
     public function edit(Other $other)
     {
-        return view('model_views.other.edite', ['event' => $other]);
+        $filteredData = [];
+        $data = json_decode($other->event->prix, true);
+        if ($data !== null) {
+            $filteredData = array_filter($data, function($element) {
+                return $element !== null;
+            });
+        }
+        $result = array_values($filteredData);
+        return view('model_views.other.edite', ['event' => $other,'prix' => $result]);
     }
 
     /**

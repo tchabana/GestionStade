@@ -31,7 +31,6 @@ class TicketController extends Controller
      */
     public function create()
     {
-        //
         $tempPdfPath = public_path('temp/ticket.pdf');
         return view('model_views.ticket.create',['events'=>Event::all()->reverse(),'reponse'=>false]);
     }
@@ -91,6 +90,7 @@ class TicketController extends Controller
     }
     public function alltiketforuser(string $user_id)
     {
+        $user_id = (int) hexdec($user_id);
         try {
             $tickets = Ticket::where('user_id', '=', $user_id )->get();
             return view("model_views.ticket.alltiketforuser",["ticket"=>$tickets]);

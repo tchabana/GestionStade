@@ -20,4 +20,4 @@ yarn-error.log
 public/codesQR
 public/images
 public/temp
-
+vite.config.js
