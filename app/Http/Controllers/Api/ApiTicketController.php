@@ -82,7 +82,8 @@ class ApiTicketController extends Controller
             $ticket->price = $request->price;
             $ticket->event_id = $request->event_id;
             $ticket->user_id = $request->user_id;
-            $ticket->etat = $request->etat;
+            //$ticket->etat = $request->etat;
+            $ticket->used = $request->used;
             $ticket->save();
             return response()->json([
                 'status' => 200,

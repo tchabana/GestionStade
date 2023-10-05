@@ -62,8 +62,6 @@ Route::middleware([
 });
 
 Route::resources([
-    "actuality"=>ActualityController::class,
-    "actualitycomment"=>ActualityCommentController::class,
     "comment"=>CommentController::class,
     "event"=>EventController::class,
     "matche"=>MatcheController::class,

@@ -166,6 +166,7 @@ class PayementController extends Controller
                 'start_at' => $event->start_at,
                 'end_at' => $event->end_at,
                 'price' =>  $tcket->price,
+                'used' =>  $tcket->used,
             ];
             $jsonData = json_encode($ticketData);
             $qrcode[] = [
