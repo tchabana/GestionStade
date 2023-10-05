@@ -50,12 +50,6 @@ class DatabaseSeeder extends Seeder
             $others = Other::factory()->create(['event_id'=>$otherEvents->id]);
         }
 
-         //chargement actuality
-         $equipes = User::all()->where('role','equipe');
-         foreach ($equipes as $equipe) {
-             $actualities = Actuality::factory()->count(2)->create(['user_id'=>$equipe->id]);
-         }
-
 
          // chargement reclamations
          $reclamations = Reclamation::factory()->count(10)->create();

@@ -18,10 +18,9 @@ class HomeController extends Controller
     public function index()
     {
         //
-        $actualite = Actuality::paginate(8);
         $eventes = Event::paginate(8);
         $matches = Matche::paginate(8);
-        return view('actions_users.index',compact(['actualite', 'eventes', 'matches']));
+        return view('actions_users.index',compact(['eventes', 'matches']));
     }
 
     /**
