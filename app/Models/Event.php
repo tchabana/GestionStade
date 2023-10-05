@@ -60,5 +60,15 @@ class Event extends Model
             return '<strong>Terminé</strong>';
         }
     }
+    public function place_dispo(){
+        $status = $this->status();
+        if($status === '<strong>À venir</strong>'){
+            return $this->nbr_participant;
+        }elseif($status === '<strong>Terminé</strong>'){
+            return '-';
+        }else{
+            return ($this->nbr_participant - ($this->nbr_ticket_gen_local+$this->nbr_ticket_gen_online));
+        }
+    }
     
 }
