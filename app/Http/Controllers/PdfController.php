@@ -20,6 +20,7 @@ class PdfController extends Controller
     //
     public function generate(Request $request)
     {
+        $ev = Event::find($request->title);
         $validated = $request->validate([
             'ticketCount' => 'required',
             'title' => 'required',
@@ -58,7 +59,7 @@ class PdfController extends Controller
             $event->nbr_ticket_gen_local = $event->nbr_ticket_gen_local + 1;
             $event->save();
 
-
+            
             //ajout des data de ticket
             $ticketData = [
                 'ticket_id' => $ticket->id,
@@ -75,7 +76,7 @@ class PdfController extends Controller
                 'path' => $chemin,
                 'ticket_id' => $ticket->id,
                 'event_id' => $event->id,
-                'title' =>  $request->title,
+                'title' =>  $ev ->title,
                 'date_start' => $event->date_start,
                 'date_end' => $event->date_end,
                 'start_at' => $event->start_at,
