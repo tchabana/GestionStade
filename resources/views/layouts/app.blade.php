@@ -38,7 +38,7 @@
                             <div class="h-8 w-8 overflow-hidden object-cover">
                                 <img class="w-full h-full" src="{{ asset('foot.png') }}" alt="">
                             </div>
-                            <span class="ml-3">GESTION STADE</span>
+                            <span class="ml-3">EVE</span>
                         </a>
                     </li>
                     {{-- {{ dd(Auth::user() && Auth::user()->getRoleNames()) }} --}}

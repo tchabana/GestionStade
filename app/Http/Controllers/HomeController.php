@@ -58,8 +58,8 @@ class HomeController extends Controller
     public function payticket(Event $evenement)
     {
         //
-        //dd($evenement);
-        return view('actions_users.payticket',["event"=>$evenement]);
+        //dd($evenement->prix);
+        return view('actions_users.payticket',["event"=>$evenement,'prixOptions' => json_decode($evenement->prix, true)]);
 
     }
 

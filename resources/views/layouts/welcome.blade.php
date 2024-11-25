@@ -34,7 +34,7 @@
                                 <div class="w-6 h-6 rounded-full animate-bounce">
                                     <img src=" {{ asset('foot.png') }}" alt="" class=" w-full h-full ">
                                 </div>
-                                <h5>Terrain</h5>
+                                <h5>EVE</h5>
                             </div>
                         </a>
 
@@ -54,7 +54,7 @@
 
 
                         {{-- ------------menu deroulant------------ --}}
-                        <div @click.away="open = false" class="relative" x-data="{ open: false }">
+                        {{-- <div @click.away="open = false" class="relative" x-data="{ open: false }">
                             <button @click="open = !open" class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-orange-800 focus:bg-orange-800 focus:outline-none focus:shadow-outline">
                                 <span>Autre service</span>
                                 <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}" class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
@@ -66,7 +66,7 @@
                                     <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-100 focus:text-gray-100 hover:bg-green-800 focus:bg-green-200 focus:outline-none focus:shadow-outline" href="#">Lundi</a>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         {{-- ------------Authentification------------ --}}
                         @if (Route::has('login'))
                             <div class="flex justify-end space-x-6">
@@ -114,7 +114,7 @@
                             <img src="{{ asset('7.jpg') }}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                         </div>
                         <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                            <img src="{{ asset('8.png') }}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                            <img src="{{ asset('8.jpg') }}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                         </div>
                     </div>
                     <!-- Boutons -->
@@ -148,7 +148,7 @@
 
         <div class="text-center font-bold mt-4 text-lg animate-pulse lg:text-2xl">
             <h1>
-                Soyez informez de tous les évémenent <br> qui se deroulement dans la ville <br>  de  Sokodé <br>Vivez le foot à Sokodé,Vivez d'autres evenemtns
+                Soyez informez de tous les évémenent <br> qui se deroulement au <br>  Togo <br>
             </h1>
         </div>
         {{-- pour animer le changment  --}}

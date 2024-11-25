@@ -88,7 +88,7 @@ class PayementController extends Controller
             "intent"=> "CAPTURE",
             "application_context"=>[
                 "return_url"=> route("paiement_success",["prix"=> $prix, "event"=> $event]),
-                "cancel_url"=> route("paiement_cancel")   
+                "cancel_url"=> route("paiement_cancel")
             ],
             "purchase_units"=>[
                 [
@@ -99,7 +99,7 @@ class PayementController extends Controller
                 ]
             ]
         ]);
-        
+
         if (isset($response['id']) && $response['id']!==null){
             foreach($response['links'] as $link){
                 if ($link["rel"] === 'approve') {
@@ -127,9 +127,10 @@ class PayementController extends Controller
         // Effectuer la requête GET avec les paramètres
         $response = Http::get($url, $params);
         $token = '3ac1031f-e535-4776-a2ca-7e504ef6d5e1';
+        $pid=str()->random(32);
         $re = $url."?token=$token"
                     ."&amount=0"
-                    ."&identifier=azertyuiop".
+                    ."&identifier=$pid".
                     "&url=".$params["url"];
         return redirect($re);
     }

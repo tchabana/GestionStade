@@ -5,9 +5,9 @@
 <section class="text-gray-600 body-font">
     <div class="container px-5 py-24 mx-auto">
       <div class="flex flex-col text-center w-full mb-20">
-        <h1 class="text-2xl font-medium title-font mb-4 text-gray-900">TON EQUIPE</h1>
+        <h1 class="text-2xl font-medium title-font mb-4 text-gray-900">BIENTÔT</h1>
         <p class="lg:w-2/3 mx-auto leading-relaxed text-base">
-            Profiter de meilleur moment du foot dans la ville de sokodé, choissier le match auquel vous voulez participez
+            Reste toujours informé des événements à venir et télécharge ton pass dès maintenant !
         </p>
       </div>
       <div class="flex flex-wrap -m-4">

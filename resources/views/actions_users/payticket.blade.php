@@ -21,7 +21,7 @@
                         <p class="mb-4">{{ $event->description }}</p>
                         <div class="w-12 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
                         <p class="text-base">
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam aut at autem nulla illum, earum accusamus? Tenetur voluptatibus officiis eligendi!
+
                         </p>
                     </div>
                     </div>
@@ -38,9 +38,15 @@
                                 <input type="radio" name="mode_paiement" value="tf"> TyMoney ou Flooz<br>
                                 <label for="prixTicket">Choisissez le prix du ticket :</label>
                                 <select id="prixTicket" name="prix">
-                                    <option name="prix" value="300">300</option>
-                                    <option name="prix" value="500">500</option>
-                                    <option name="prix" value="1000">1000</option>
+                                    @foreach ($prixOptions as $key => $value)
+                                        @if (!is_null($value))
+                                            @php
+                                                // Extraction de la valeur après la flèche (⇾)
+                                                [$type, $prix] = explode(' ⇾ ', $value);
+                                            @endphp
+                                            <option value="{{ $prix }}">{{ $type }} - {{ $prix }} FCFA</option>
+                                        @endif
+                                    @endforeach
                                 </select>
                                 <button id="validerPaiement" type="submit" class="flex  text-white bg-green-500 border-0 w-32 p-1 focus:outline-none hover:bg-green-600 rounded ">Valider le paiement</button>
                             </div>
