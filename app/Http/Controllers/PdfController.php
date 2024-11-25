@@ -59,12 +59,13 @@ class PdfController extends Controller
             $event->nbr_ticket_gen_local = $event->nbr_ticket_gen_local + 1;
             $event->save();
 
-            
+
             //ajout des data de ticket
             $ticketData = [
                 'ticket_id' => $ticket->id,
                 'event_id' => $event->id,
                 'title' =>  $request->title,
+                'lieu' =>  $request->lieu,
                 'date_start' => $event->date_start,
                 'date_end' => $event->date_end,
                 'start_at' => $event->start_at,
@@ -76,7 +77,8 @@ class PdfController extends Controller
                 'path' => $chemin,
                 'ticket_id' => $ticket->id,
                 'event_id' => $event->id,
-                'title' =>  $ev ->title,
+                'title' =>  $event->title,
+                'lieu' =>  $event->lieu,
                 'date_start' => $event->date_start,
                 'date_end' => $event->date_end,
                 'start_at' => $event->start_at,

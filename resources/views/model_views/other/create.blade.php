@@ -72,6 +72,13 @@
                             @enderror
                         </div>
                         <div class="relative flex-grow w-full">
+                            <label for="full-name" class="leading-7 text-sm text-gray-600">Lieu</label>
+                            <input value="{{ old('lieu') }}" type="text" id="full-name" name="lieu" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-green-500 focus:bg-transparent focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                            @error('lieu')
+                                <small class="text-red-800 animate-pulse"> {{ $message }} </small>
+                            @enderror
+                        </div>
+                        <div class="relative flex-grow w-full">
                             <label for="email" class="leading-7 text-sm text-gray-600">Nombre de Place</label>
                             <input value="{{ old('nbr_participant') }}" type="number" id="email" name="nbr_participant" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-green-500 focus:bg-transparent focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                             @error('nbr_participant')

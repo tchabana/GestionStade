@@ -67,6 +67,14 @@
             </div>
 
             <div class="groupe">
+                <label for="">Lieu : </label>
+                <input type="text" name="lieu">
+                @error('lieu')
+                    <small class="text-red-800 animate-pulse"> {{ $message }} </small>
+                @enderror
+            </div>
+
+            <div class="groupe">
                 <label for="">Participant_count : </label>
                 <input type="number" name="nbr_participant">
                 @error('nbr_participant')

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->time('start_at');
             $table->time('end_at');
             $table->string('authors')->nullable();
+            $table->string('lieu')->nullable();
             $table->bigInteger('nbr_participant');
             $table->bigInteger("nbr_ticket_gen_local")->default(0);
             $table->bigInteger("nbr_ticket_gen_online")->default(0);

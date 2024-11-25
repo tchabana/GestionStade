@@ -62,6 +62,7 @@ class OtherController extends Controller
             $new_envent->end_at = $request->end_at;
             $new_envent->nbr_participant = $request->nbr_participant;
             $new_envent->authors = $request->authors;
+            $new_envent->lieu = $request->lieu;
             $new_envent->user_id = Auth::user()->id;
             $new_envent->image_path = $path;
             $new_envent->prix = $jsonprix;

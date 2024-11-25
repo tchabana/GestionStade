@@ -27,14 +27,14 @@
             margin-bottom: 4px;
             page-break-inside: avoid;
             margin-left: 1px;
-           
+
         }
 
         .left-section {
             width: 60%; /* Largeur de la section gauche */
             height: 100%;
             position: absolute;
- 
+
         }
 
         .right-section {
@@ -43,8 +43,8 @@
             position: absolute;
             right: 0px;
             text-align: center;
-            border-left: 3px solid black; 
-          
+            border-left: 3px solid black;
+
         }
 
         .qr-code {
@@ -63,11 +63,11 @@
            border:1px solid black;
         }
         .foot{
-            width:18px;
-            height: 18px;
+            width:25px;
+            height: 25px;
             border-radius:50%;
             margin: 3px;
-           
+
         }
         p{
             font-style:italic;
@@ -81,7 +81,7 @@
             font-weight:bold;
             color:green;
         }
-      
+
     </style>
 </head>
 <body>
@@ -99,7 +99,7 @@
                     <div class="ticket">
                         <div class="left-section">
                             <!--  les autres informations du ticket -->
-                            <p class="p-img"><img src="{{public_path('foot.png')}}" alt="foot" class="foot"><em>SOKODÉ</em></p>
+                            <p class="p-img"><img src="{{public_path('foot.png')}}" alt="foot" class="foot"><em>{{$qrcode['lieu']}}</em></p>
                             <p>{{$qrcode['title']}}</p><br>
                             <small>{{$qrcode['date_start']}}-{{$qrcode['start_at']}} À</small>
                             <small>{{$qrcode['date_end']}}-{{$qrcode['end_at']}}</small><br>
@@ -107,10 +107,10 @@
                         </div>
                         <div class="right-section">
                         <img src="{{$qrcode['path'] }}" alt="QR Code" class="img-qr">
-                       
+
                             <!-- <div class="qr-code">
-                                
-                               
+
+
                             </div> -->
                         </div>
                     </div>
@@ -118,6 +118,6 @@
             </div>
         @endfor
     </div>
-   
+
 </body>
 </html>

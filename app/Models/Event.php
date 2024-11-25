@@ -15,7 +15,7 @@ class Event extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['id','title','description','date_start','date_end','start_at','end_at','authors','user_id','nbr_participant','nbr_ticket_gen_local','nbr_ticket_gen_online','nbr_likes',"image_path","prix"];
+    protected $fillable = ['id','title','description','date_start','date_end','start_at','end_at','authors','lieu','user_id','nbr_participant','nbr_ticket_gen_local','nbr_ticket_gen_online','nbr_likes',"image_path","prix"];
     protected $primaryKey = 'id';
     public function matche(): HasOne
     {
@@ -51,7 +51,7 @@ class Event extends Model
         $dateHeureCourante = Carbon::now();
         $debutEvent = Carbon::parse($this->date_start.' '.$this->start_at);
         $finEvent = Carbon::parse($this->date_end.' '.$this->end_at);
-    
+
         if($dateHeureCourante < $debutEvent){
             return '<strong>À venir</strong>';
         }elseif($dateHeureCourante >= $debutEvent && $dateHeureCourante <= $finEvent){
@@ -70,5 +70,5 @@ class Event extends Model
             return ($this->nbr_participant - ($this->nbr_ticket_gen_local+$this->nbr_ticket_gen_online));
         }
     }
-    
+
 }
