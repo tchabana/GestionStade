@@ -69,6 +69,7 @@ php artisan key:generate
 # Migration de la base de données
 echo "Migration de la base de données..."
 php artisan migrate --force
+php artisan db:seed
 
 # Permissions
 echo "Configuration des permissions..."
