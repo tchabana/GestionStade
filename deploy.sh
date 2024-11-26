@@ -74,7 +74,8 @@ php artisan migrate --force
 echo "Configuration des permissions..."
 chmod -R 775 storage bootstrap/cache
 chown -R www-data:www-data $APP_DIR
-
+sudo npm run install
+sudo npm run build
 # Redémarrer les services nécessaires
 echo "Redémarrage du serveur web..."
 sudo systemctl restart apache2
