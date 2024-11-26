@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Variables
-APP_DIR="/var/www/html"
+APP_DIR="/var/www/html/GestionStade"
 REPO_URL="https://github.com/tchabana/GestionStade.git"
 BRANCH="eve"
 
