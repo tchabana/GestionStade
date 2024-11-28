@@ -1,43 +1,10 @@
 #!/bin/bash
 
-# Variables
 APP_DIR="/var/www/html/GestionStade"
 REPO_URL="https://github.com/tchabana/GestionStade.git"
 BRANCH="eve"
-
-
-# Nom de la base de données
-DB_NAME="gestionstade"
-
-# Informations d'authentification MySQL
-MYSQL_USER="root"
-MYSQL_PASSWORD=""  # Ajoutez votre mot de passe si nécessaire, sinon laissez vide
-MYSQL_HOST="localhost"
-
-# Supprimer la base de données si elle existe
-echo "Suppression de la base de données '$DB_NAME'..."
-mysql -u $MYSQL_USER -h $MYSQL_HOST -e "DROP DATABASE IF EXISTS $DB_NAME;"
-
-# Vérifier si la suppression a réussi
-if [ $? -eq 0 ]; then
-    echo "Base de données '$DB_NAME' supprimée avec succès."
-else
-    echo "Échec de la suppression de la base de données '$DB_NAME'."
-    exit 1
-fi
-
-# Créer une nouvelle base de données
-echo "Création de la base de données '$DB_NAME'..."
-mysql -u $MYSQL_USER -h $MYSQL_HOST -e "CREATE DATABASE $DB_NAME;"
-
-# Vérifier si la création a réussi
-if [ $? -eq 0 ]; then
-    echo "Base de données '$DB_NAME' créée avec succès."
-else
-    echo "Échec de la création de la base de données '$DB_NAME'."
-    exit 1
-fi
-
+DB_FILE="$APP_DIR/database.sqlite"
+ENV_FILE="$APP_DIR/.env"
 
 echo "---- Début du déploiement ----"
 
@@ -52,15 +19,46 @@ else
     cd $APP_DIR
 fi
 
+# Supprimer et recréer le fichier database.sqlite
+echo "Réinitialisation de la base de données SQLite..."
+if [ -f "$DB_FILE" ]; then
+    rm "$DB_FILE"
+    echo "Ancien fichier database.sqlite supprimé."
+fi
+touch "$DB_FILE"
+echo "Nouveau fichier database.sqlite créé."
+
+# Configurer le fichier .env
+echo "Configuration du fichier .env..."
+if [ ! -f "$ENV_FILE" ]; then
+    echo "Création du fichier .env..."
+    cp .env.example $ENV_FILE
+fi
+
+# Fonction pour mettre à jour ou ajouter une variable dans .env
+update_env() {
+    local key=$1
+    local value=$2
+
+    if grep -q "^$key=" "$ENV_FILE"; then
+        sed -i "s|^$key=.*|$key=$value|" "$ENV_FILE"
+    else
+        echo "$key=$value" >> "$ENV_FILE"
+    fi
+}
+
+update_env "DB_CONNECTION" "sqlite"
+update_env "DB_DATABASE" "$DB_FILE"
+update_env "DB_HOST" "127.0.0.1"
+update_env "DB_PORT" "3306"
+update_env "DB_USERNAME" "null"
+update_env "DB_PASSWORD" "null"
+
+echo "Fichier .env mis à jour avec succès."
+
 # Installer les dépendances Composer
 echo "Installation des dépendances Composer..."
 composer install --no-dev --optimize-autoloader
-
-# Mettre à jour le fichier .env
-if [ ! -f ".env" ]; then
-    echo "Création du fichier .env..."
-    cp .env.example .env
-fi
 
 # Générer la clé Laravel
 echo "Génération de la clé Laravel..."
@@ -71,13 +69,17 @@ echo "Migration de la base de données..."
 php artisan migrate --force
 php artisan db:seed
 
-# Permissions
+# Configurer les permissions
 echo "Configuration des permissions..."
 chmod -R 775 storage bootstrap/cache
 chown -R www-data:www-data $APP_DIR
+
+# Installer et compiler les ressources front-end
+echo "Installation des dépendances NPM..."
 sudo npm install
 sudo npm run build
-# Redémarrer les services nécessaires
+
+# Redémarrer le serveur web
 echo "Redémarrage du serveur web..."
 sudo systemctl restart apache2
 
