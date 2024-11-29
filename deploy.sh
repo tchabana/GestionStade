@@ -62,12 +62,15 @@ composer install --no-dev --optimize-autoloader
 
 # Générer la clé Laravel
 echo "Génération de la clé Laravel..."
-php artisan key:generate
+sudo php artisan key:generate
 
 # Migration de la base de données
 echo "Migration de la base de données..."
-php artisan migrate --force
-php artisan db:seed
+sudo php artisan migrate --force
+sudo chmod 777 composer.*
+sudo composer require fakerphp/faker
+sudo php artisan db:seed
+sudo php artisan storage:link
 
 # Configurer les permissions
 echo "Configuration des permissions..."
