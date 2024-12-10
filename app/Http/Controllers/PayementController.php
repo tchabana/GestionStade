@@ -118,7 +118,7 @@ class PayementController extends Controller
 
         // Paramètres à envoyer avec la requête GET
         $params = [
-            'token' => '3ac1031f-e535-4776-a2ca-7e504ef6d5e1',
+            'token' => '08b9094a-79af-48e1-9523-2eb21354d301',
             'amount' => 0,
             'identifier'=>Str::random(64),
             'url'=> route("paiement_success",["prix"=> $prix, "event"=> $event]),
@@ -126,7 +126,7 @@ class PayementController extends Controller
 
         // Effectuer la requête GET avec les paramètres
         $response = Http::get($url, $params);
-        $token = '3ac1031f-e535-4776-a2ca-7e504ef6d5e1';
+        $token = '08b9094a-79af-48e1-9523-2eb21354d301';
         $pid=str()->random(32);
         $re = $url."?token=$token"
                     ."&amount=0"
